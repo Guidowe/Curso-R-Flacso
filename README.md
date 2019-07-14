@@ -1,4 +1,4 @@
-# Curso de R - FLACSO - 2019
+# R en FLACSO 2019
 Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta Permanente de Hogares
 
 ### Markdown
