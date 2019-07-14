@@ -23,7 +23,7 @@ Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta P
 #### Gráficos y estadística descriptiva
 
 - [Notebook](Clase 3/Clase3_graficos.nb.html)
-- [Script](Clase 3/Clase3_graficos.R)
+- [Script](Clase 3 - Pobreza/Clase 3- Pobreza e Indigencia.R)
 - [Ejercicios](Clase 3/Ejercicios - Clase3_graficos.R)
 
 ### Clase 4:
