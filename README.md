@@ -1,41 +1,49 @@
-# R en FLACSO 2019
+﻿## Notas de Clase:
 
-## Notas de Clase:
+#### Clase 1 - Conceptos principales de EPH
 
-#### Pobreza
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
 
-- [Notebook](Clase 3/Clase3_graficos.nb.html)
-- [Script](Clase 3 - Pobreza/Clase 3- Pobreza e Indigencia.R)
-- [Ejercicios](Clase 3/Ejercicios - Clase3_graficos.R)
+#### Clase 2 - R base
 
-### Markdown
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### Clase 3 - Tidyverse 1 - Tasas del mercado de trabajo
 
-```markdown
-Syntax highlighted code block
+- [Notebook](Clase 3/Clase 3 - Bases de Datos y Mercado de Trabajo.nb.html)
+- [Script](Clase 3 - Pobreza/Clase 3 - Bases de Datos y Mercado de Trabajo.R)
+- [Ejercicios](Clase 3/Ejercicios - Clase 3.R)
 
-# Header 1
-## Header 2
-### Header 3
+#### Clase 4 - Tidyverse 2 - Pobreza
 
-- Bulleted
-- List
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
 
-1. Numbered
-2. List
+#### Clase 5 - Gráficos y Distribución del Ingreso
 
-**Bold** and _Italic_ and `Code` text
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
 
-[Link](url) and ![Image](src)
-```
+#### Clase 6 - Paneles
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
 
-### Jekyll Themes
+#### Clase 7 - Markdown
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Guidowe/Curso-R-Flacso/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
 
-### Support or Contact
+#### Clase 8 - R intermedio
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- [Notebook]()
+- [Script]()
+- [Ejercicios]()
