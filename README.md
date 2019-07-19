@@ -12,13 +12,13 @@
 - [Script]()
 - [Ejercicios]()
 
-#### Clase 3 - Tidyverse 1 - Tasas del mercado de trabajo
+#### Clase 3 - Tidyverse - Tasas del mercado de trabajo
 
 - [Notebook](Clase 3 - Tidyverse - Tasas basicas/Clase 3 - Bases de Datos y Mercado de Trabajo.nb.html)
 - [Script](Clase 3 - Tidyverse - Tasas basicas/Clase 3 - Bases de Datos y Mercado de Trabajo.R)
 - [Ejercicios](Clase 3 - Tidyverse - Tasas basicas/Ejercicios - Clase 3.R)
 
-#### Clase 4 - Tidyverse 2 - Pobreza
+#### Clase 4 - Tidyverse - Pobreza
 
 - [Notebook]()
 - [Script]()
