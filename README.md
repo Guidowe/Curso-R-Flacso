@@ -1,5 +1,3 @@
-# R en FLACSO 2019
-
 ## Notas de Clase:
 
 #### Clase 1 - Conceptos principales de EPH
