@@ -44,16 +44,16 @@
 - [Script]()
 - [Ejercicios]()
 
-#### Clase 8 - R intermedio
+#### Clase 8 - Programación funcional
 
-- [Notebook]()
-- [Script]()
-- [Ejercicios]()
+- [Notebook](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.nb.html)
+- [Script](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.R)
+- [Ejercicios](Clase%208%20-%20Programacion%20funcional/Ejercicios%20Clase%208_Programacion%20funcional.R)
 
 
 
 #### Librerias a instalar
 
 ```
-install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges',))
+install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr'))
 ```
