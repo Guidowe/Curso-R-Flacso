@@ -214,6 +214,39 @@ Cuadro_1.2a <- Cuadro_1.2a %>%
 
 Cuadro_1.2a
 
+####Multiples trimestres
+Individual_t416 <-
+  read.table("Fuentes/usu_individual_t416.txt",
+             sep = ";",
+             dec = ",",
+             header = TRUE,
+             fill = TRUE )  
+
+Variables_interes <- c("ANO4","TRIMESTRE","ESTADO","PONDERA","REGION","AGLOMERADO")
+
+Basesita_t416 <- Individual_t416 %>% select(Variables_interes)
+Basesita_t117 <- Individual_t117 %>% select(Variables_interes)
+
+
+Union_Bases <- Basesita_t416 %>% 
+  bind_rows(Basesita_t117)
+
+
+Tasas_dos_trimestres <- Union_Bases %>% 
+  group_by(ANO4,TRIMESTRE) %>% 
+  summarise(Poblacion         = sum(PONDERA),
+            Ocupados          = sum(PONDERA[ESTADO == 1]),
+            Desocupados       = sum(PONDERA[ESTADO == 2]),
+            PEA               = Ocupados + Desocupados,
+            'Tasa Actividad'                  = PEA/Poblacion,
+            'Tasa Empleo'                     = Ocupados/Poblacion,
+            'Tasa Desocupacion'               = Desocupados/PEA) %>% 
+  select(1:2,7:ncol(.))
+
+Tasas_dos_trimestres
+##alternativamente
+#Union_Bases <- bind_rows(Basesita_t416,Basesita_t117)
+
 
 ####Exportamos archivos####
 Lista_a_exportar <- list("Cuadro 1.1" = Cuadro_1.1a,
