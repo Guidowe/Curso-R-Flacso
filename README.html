@@ -378,14 +378,81 @@ summary {
 <p>Este programa se destaca, entre varias cosas, por su capacidad de trabajar con grandes volúmenes de información, utilizar múltiples bases de datos en simultáneo, generar reportes, realizar gráficos a nivel de publicación y por su comunidad de usuarios y usuarias que publican sus sintaxis y comparten sus problemas, hecho que potencia la capacidad de consulta y de crecimiento. A su vez, la expresividad del lenguaje permite diseñar funciones específicas que permiten optimizar de forma personalizada el trabajo cotidiano con R.</p>
 <hr />
 </div>
-<div id="objetivos-del-curso." class="section level2">
-<h2>Objetivos del curso.</h2>
+<div id="objetivos-del-curso." class="section level3">
+<h3>Objetivos del curso.</h3>
 <p>El presente Taller tiene como objetivo principal introducirse en el aprendizaje del lenguaje de programación “R” aplicado procesamiento de la Encuesta Permanente de Hogares (EPH) - INDEC. Se apunta a brindar a los y las participantes herramientas prácticas para el procesamiento de datos haciendo énfasis en la producción y el análisis de estadísticas socioeconómicas en pos de abrir puertas para realizar investigaciones propias sobre diversas temáticas relacionadas al mercado de trabajo y las condiciones de vida de la población.</p>
 <p>La Encuesta Permanente de Hogares será la base de datos de aplicación elegida para el curso, dado que representa un insumo fundamental para realizar estudios sobre el mercado de trabajo y las condiciones de vida de la población. Se hará una introducción a los lineamientos conceptuales principales de la encuesta, en pos de que los y las participantes puedan abordar con datos distintas problemáticas vinculadas al mercado de trabajo y las condiciones de vida de la población.</p>
 <hr />
+</div>
+<div id="clases-y-contenido" class="section level2">
+<h2>Clases y contenido</h2>
+<p><a href="ink">Clase 1 - Conceptos Principales de EPH:</a></p>
 <ul>
-<li></li>
-<li>Ir a la ppágina web</li>
+<li>Presentación del curso.</li>
+<li>Presentación de la Encuesta Permanente de Hogares: Lineamientos conceptuales y metodología</li>
+<li>Abordaje del marco teórico y analítico de la EPH y sus aplicaciones prácticas.</li>
+<li>Síntesis del operativo de campo, cobertura y periodicidad de la Encuesta</li>
+<li>Definiciones de las principales variables de interés a abordar en el curso: Condición de actividad, categoría ocupacional, precariedad y pobreza</li>
+<li>Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.</li>
+</ul>
+<p><a href="link">Clase 2 – Introduciendo a R:</a></p>
+<ul>
+<li>Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos</li>
+<li>Presentación de la plataforma RStudio para trabajar en “R”</li>
+<li>Caracteres especiales en “R”</li>
+<li>Operadores lógicos y aritméticos</li>
+<li>Definición de Objetos: Valores, Vectores y DataFrames</li>
+<li>Tipos de variable (numérica, de caracteres, lógicas)</li>
+<li>Lectura y Escritura de Archivos</li>
+</ul>
+<p><a href="link">Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:</a></p>
+<ul>
+<li>Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)</li>
+<li>Seleccionar variables, ordenar y agrupar la base de datos para realizar cálculos</li>
+<li>Creación de nuevas variables</li>
+<li>Aplicar filtros sobre la base de datos</li>
+<li>Construir medidas de resumen de la información</li>
+<li>Tratamiento de variables numéricas (edad, ingresos, horas de trabajo, cantidad de hijos / componentes del hogar, entre otras).</li>
+<li>Ejercicios prácticos para aplicar lo expuesto: Replicar Informe Técnico de Mercado de Trabajo (EPH-INDEC)</li>
+<li>Cálculo de tasas básicas del mercado de trabajo (tasa de actividad, empleo, desempleo, entre otras)</li>
+<li>Cálculo de tasas para distintos subconjuntos poblacionales (por aglomerado, sexo, grupos de edad)</li>
+</ul>
+<p><a href="link">Clase 4 - Variables de ingresos y gráficos:</a></p>
+<ul>
+<li>Procesamiento de indicadores agregados sobre las variables de ingresos (Ingresos laborales, no laborales, de ocupación principal, total familiar)</li>
+<li>Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información</li>
+<li>Gráficos elaborados en R (función “ggplot”): o Gráficos de línea, barras, Boxplots y distribuciones de densidad o Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores o Gráficos con múltiples cruces de variables.</li>
+</ul>
+<p>Clase 5: Cálculo de tasas de Pobreza e Indigencia.</p>
+<ul>
+<li>Definición de la Canasta Básica Alimentaria y Canasta Básica Total</li>
+<li>Metodología del cálculo de pobreza por línea (para personas y hogares)</li>
+<li>Ejercicio de estimación de tasas de Pobreza e Indigencia</li>
+<li>Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)</li>
+</ul>
+<p>Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.</p>
+<ul>
+<li>Metodología de trabajos en panel con EPH: (Esquema de rotación de la EPH, Variables para la identificación de los individuos en distintos períodos, Consistencias)</li>
+<li>Proceso para la construcción de paneles en R.</li>
+<li>Cálculo de Frecuencias de transiciones de estados (Categorías Ocupacionales, Situaciones de Pobreza/Indigencia)</li>
+<li>Gráficos de Transición de estados</li>
+</ul>
+<p><a href="link">Clase 7: Documentación en R. Generación de reportes/informes.</a></p>
+<ul>
+<li>Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes: o Opciones para mostrar u ocultar código en los reportes o Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe o Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva) o Código embebido en el texto para automatización de reportes</li>
+</ul>
+<p><a href="link">Clase 8: Introducción a R Intermedio:</a></p>
+<ul>
+<li>Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:</li>
+<li>Estructuras de código condicionales</li>
+<li>Loops</li>
+<li>Creación de funciones a medida del usuario</li>
+<li>Herramientas para continuar el aprendizaje en R: Foros reconocidos de usuarios de R. Comunidades donde se comparten conocimientos, experiencias, consultas. Comandos para acceder a los documentos de ayuda.</li>
+</ul>
+<p><a href="link">Clase 9: Trabajos prácticos: R en concreto / examen</a></p>
+<ul>
+<li>Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. Entre los temas giran aquellos vinculados a la distribución personal del ingreso/Construcción de percentiles de ingreso; el mercado laboral a través de la herramienta Panel de datos; la documentación en R (Estilo de Notas de Clase).</li>
+<li>Espacio para consultas puntuales sobre los temas vistos durante el curso y presentación del trabajo final a entregar.</li>
 </ul>
 </div>
 </div>
