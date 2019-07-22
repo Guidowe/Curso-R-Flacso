@@ -1,8 +1,7 @@
 ---
-title: "Utilización del lenguaje R para aplicación en la Encuesta Permanente de Hogares"
-subtitle: "Clase 2 - Manipulacion de Bases de Datos y Mercado de Trabajo"
-author: "Guido Weksler"
-date: "10/10/2018"
+title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la EPH"
+subtitle: "Clase 3 - Tidyverse y Tasas básicas del Mercado de Trabajo"
+date: "20/08/2019"
 output:
   html_notebook:
     toc: yes
@@ -10,12 +9,10 @@ output:
   html_document:
     toc: yes
 ---
-*Las notas del presente curso fueron elaboradas originalmente por Diego Kozlowski y Guido Weksler. En las sucesivas modificaciones colaboraron: Natsumi Shokida y Matías Lioni*                      
-
 
 > Reiniciar R
 
-# Manipulación de Bases de Datos
+# Estructuración de Bases de Datos
          
 
 A lo largo de esta clase, trabajaremos con el paquete [Tidyverse](https://www.tidyverse.org/). El mismo agrupa una serie de paquetes que tienen una misma lógica en su diseño y por ende funcionan en armonía.     
@@ -26,7 +23,7 @@ A continuación cargamos la librería a nuestro ambiente. Para ello debe estar p
 library(tidyverse)
 ```
 
-Para mostrar el funcionamiento básico de tydyverse retomaremos el ejemplo de la clase 1, con lo cual volvemos a crear el set de datos del [Indice de salarios](http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179).
+Para mostrar el funcionamiento básico de tydyverse, crearemos un pequeño set de datos del [Indice de salarios](http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179).
 ```{r}
 INDICE  <- c(100,   100,   100,
              101.8, 101.2, 100.73,
@@ -215,11 +212,14 @@ Datos_gather <- Datos_Spread %>%
 Datos_gather
 ```
 
+# Tasas del Mercado de Trabajo
+Luego de abordar las principales funciones necesarias para operar sobre las bases de datos, trabajaremos a continuación con la base del 1er Trimestre de 2017 de la EPH. El ejercicio principal consistirá en calcular la __tasa de empleo__, definida como:            
 
-# Mercado de Trabajo
-Luego de abordar las principales funciones necesarias para operar sobre las bases de datos, trabajaremos a continuación con la EPH, realizando el ejercicio de calcular las tasas básicas del mercado de trabajo, replicando los Cuadros 1.1 y 1.2, del [Informe técnico elaborado por EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf).
+- Tasa de empleo:  $\frac{Ocupados}{Población}$ 
+      
+Una vez alcanzado dicho resultado, se extenderá el ejercicio hacia el __conjunto de tasas básicas__ presentadas en los Cuadros 1.1 y 1.2, del [Informe técnico elaborado por EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf). Por último se realizará una modificación para calcular al mismo tiempo las tasas básicas de __2 trimestres consecutivos__. 
 
-En la carpeta de _FUENTES_ del curso, se encuentra un archivo de *"EPH_Concpetos_Actividad"* que contiene las definiciones de los Estados ocupacionales a partir de los cuales se construyen las tasas básicas.
+En la carpeta de _FUENTES_ del curso, se encuentra el archivo  *"EPH_Registro"* que contiene las codificación de cada una de las variables de la base, y el archivo *"EPH_Concpetos_Actividad"* que contiene las definiciones de los Estados ocupacionales a partir de los cuales se construyen las tasas básicas.   
 
 Cargamos la librería que usaremos para leer y escribir archivos en excel. 
 ```{r, message=FALSE, warning=FALSE}
@@ -251,21 +251,15 @@ Aglom <- read.xlsx("../Fuentes/Aglomerados EPH.xlsx")
 ```
 
 
-## Cuadro 1.1 
+## Tasa de Empleo
 
 Creamos una tabla con los niveles de:
 
 - Población
 - Ocupados
-- Desocupados
-- PEA
-- Ocupados demandantes
-- Subocupados (demandantes, no demandantes y total)
 
-Estos niveles nos van a permitir calcular las tasas de forma sencilla.      
+Estos niveles nos van a permitir calcular la tasa de forma sencilla.      
 
-Para obtener, por ejemplo la tasa de empleo, como el cociente  $\frac{Ocupados}{Poblacion}$ necesitamos calcular el total (expandido) de la población y de los ocupados.    
- 
  - Población: Si contaramos cuantos registros tiene la base, simplemente tendríamos el numero de individuos muestral de la EPH, por ende debemos **sumar los valores de la variable PONDERA**, para contemplar a cuantas personas representa cada individuo encuestado. 
  - Ocupados: En este caso, debemos agregar un **filtro** al procedimiento anterior, ya que unicamente queremos sumar los ponderadores de aquellas personas que se encuentran ocupadas. (La lógica seria: "Suma los valores de la columna PONDERA, solo para aquellos registros donde el ESTADO == 1")    
  
@@ -291,9 +285,9 @@ Una vez calculada la tasa, incluso podríamos desechar las variables de nivel, p
 Empleo %>% 
   select(-(1:2))
 ```
+## Tásas Básicas - Total Aglomerados 
 
-
-Con la misma lógica del ejemplo anterior, podemos construir con solo una porción de código el Cuadro 1.1 del [Informe técnico de Mercado de trabajo EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf). 
+Con la misma lógica del ejemplo anterior, podemos construir con solo una porción de código adicional el Cuadro 1.1 del [Informe técnico de Mercado de trabajo EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf). 
 ```{r}
 ####Cuadro 1.1 Principales indicadores. Total 31 aglomerados u
 
@@ -346,7 +340,7 @@ Cuadro_1.1a
 ```
 Nótese que en este caso, para poder añadir el %, la función transforma a la variable en un Character, por ende debe tenerse en cuenta que se pierde la información del numero completo.
 
-## Cuadro 1.2
+## Tásas Básicas por Aglomerado 
 
 En este caso, podemos ver que simplemente agregando la función __group_by__ podemos replicar el procedimiento para cada uno de los aglomerados. Y a su vez, podemos realizar en un solo paso los arreglos posteriores sobre nuestra tabla.
 
@@ -382,8 +376,54 @@ Cuadro_1.2a <- Cuadro_1.2a %>%
 
 Cuadro_1.2a
 ```
+## Ejercicio para 2 trimestres
+A continuación se detallaran los procedimientos necesarios para realizar apilar las bases de dos o más trimestres y calcular de manera conjunta indicadores para cada uno de ellos.   
+Levantamos la base del 4to Trimestre de 2016
+```{r echo=TRUE}
+Individual_t416 <-
+  read.table("../Fuentes/usu_individual_t416.txt",
+  sep = ";",
+  dec = ",",
+  header = TRUE,
+  fill = TRUE )  
+```
 
-#### Exportar resultados a  Excel
+### Select - variables de interés
+Para este tipo de ejercicios, donde el volumen de datos es relativamente grande, puede resultar útil restringir la base a nuestras variables de interés para que el procesamiento no sea tan costoso. Para ello, creando previamente un vector de _strings_ con los nombres de las variables, podemos utilizar de la siguiente manera la función __select__ para quedarnos sólamente con las mismas.
+```{r eval=FALSE, warining = FALSE}
+Variables_interes <- c("ANO4","TRIMESTRE","ESTADO","PONDERA","REGION","AGLOMERADO")
+
+Basesita_t416 <- Individual_t416 %>% select(Variables_interes)
+Basesita_t117 <- Individual_t117 %>% select(Variables_interes)
+
+```
+### bind_rows
+La función __bind_rows__ nos permitirá apilar dos bases de datos en un solo dataframe. La misma evalua los nombres de las variables de cada una de las bases para adjuntar el contenido de ambas en las variables comunes. En caso de que una de las bases tuviera una variable que la otra no, se conservaran dichos datos, quedando como ```NA``` los valores para la otra base.
+```{r warning = FALSE}
+Union_Bases <- bind_rows(Basesita_t416,Basesita_t117)
+##alternativamente
+Union_Bases <- Basesita_t416 %>% 
+  bind_rows(Basesita_t117)
+```
+Una vez que contamos con nuestra unión de las bases de 2 o más trimestres, procederemos a realizar los cálculos que deseamos agrupando por las variables __ANO4__ y __TRIMESTRE__. Esto nos permitirá  realizar estimaciones para sendos períodos al mismo tiempo. Por ejemplo, a continuación tomamos parte del código desarrollado anteriormente para calcular las tasas de Actividad, Empleo, y Desocupación.
+
+```{r echo=TRUE}
+Tasas_dos_trimestres <- Union_Bases %>% 
+  group_by(ANO4,TRIMESTRE) %>% 
+  summarise(Poblacion         = sum(PONDERA),
+            Ocupados          = sum(PONDERA[ESTADO == 1]),
+            Desocupados       = sum(PONDERA[ESTADO == 2]),
+            PEA               = Ocupados + Desocupados,
+            'Tasa Actividad'                  = PEA/Poblacion,
+            'Tasa Empleo'                     = Ocupados/Poblacion,
+            'Tasa Desocupacion'               = Desocupados/PEA) %>% 
+  select(1:2,7:ncol(.))
+
+Tasas_dos_trimestres
+```
+
+
+# Exportar resultados a  Excel
 Como vieramos en la clase 1, la función __write.xlsx__ de la libreria _openxlsx_ nos permite exportar los dos dataframes a un mismo archivo. Cabe aclarar que existen numerosas funciones y librerías alternativas para exportar resultados a un excel. En este caso, optamos por _openxlsx_ ya que resulta una de las más sencillas para exportar rapidamente los resultados. Otras librerías permiten también dar formato a las tablas que se exportan, definir si deseamos sobreescribir archivos en caso de que ya existan, etc. 
 
 ```{r eval=FALSE, warining = FALSE}
@@ -398,7 +438,7 @@ write.xlsx(Lista_a_exportar,"../Resultados/Informe Mercado de Trabajo.xlsx")
 # Ejercicios para practicar
 
 - Levantar la última base individual de EPH
-- Crear un vector llamado __Variables__ que contenga los nombres de las siguientes variables de interés para realizar algunos ejercicios:
+- Crear un vector llamado __Variables__ que contenga los nombres de las variables de interés que refieren a las siguientes características:
       - Edad, Sexo, Ingreso de la ocupación principal, Categoría ocupacional, ESTADO, PONDERA y PONDIH
 - Acotar la Base únicamente a las variables de interés, utilizando el vector __Variables__ 
 
