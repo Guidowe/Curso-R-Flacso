@@ -1,17 +1,5 @@
----
-title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta Permanente de Hogares."
-author: "Guido Weksler"
-date: "10/10/2018"
-output:
-  html_notebook:
-    toc: yes
-    toc_float: yes
-  html_document:
-    toc: yes
-editor_options: 
-  chunk_output_type: inline
----
 
+# Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta Permanente de Hogares
 
 ***
 
