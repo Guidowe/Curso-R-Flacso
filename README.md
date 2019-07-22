@@ -1,4 +1,18 @@
-# Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta Permanente de Hogares.
+---
+title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta Permanente de Hogares."
+author: "Guido Weksler"
+date: "10/10/2018"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+  html_document:
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+
 ***
 
 
@@ -21,7 +35,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 
 ### Clases y contenido
 
-[Clase 1 - Conceptos Principales de EPH:](ink)
+
+[Clase 1 - Conceptos Principales de EPH:](link)
   
 -	Presentación del curso.
 -	Presentación de la Encuesta Permanente de Hogares: Lineamientos conceptuales y metodología
