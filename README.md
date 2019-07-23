@@ -34,7 +34,6 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Definiciones de las principales variables de interés a abordar en el curso: Condición de actividad, categoría ocupacional, precariedad y pobreza
   + Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.
   
-+ [Notas de clase](link)
 + [Script](link)
 + [Ejercicios](link)
 
@@ -49,11 +48,10 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Tipos de variable (numérica, de caracteres, lógicas)
   + Lectura y Escritura de Archivos
   
-+ [Notas de clase](link)
 + [Script](link)
 + [Ejercicios](link)
 
-[Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:](link)
+[Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:]((Clases/Clase 3 - Tidyverse - Tasas basicas/Clase 3 - Bases de Datos y Mercado de Trabajo.nb.html))
   
 + Temas de clase:
   + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
@@ -66,9 +64,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Cálculo de tasas básicas del mercado de trabajo (tasa de actividad, empleo, desempleo, entre otras) 
   + Cálculo de tasas para distintos subconjuntos poblacionales (por aglomerado, sexo, grupos de edad)
   
-+ [Notas de clase](link)
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](Clases/Clase 3 - Tidyverse - Tasas basicas/Clase 3 - Bases de Datos y Mercado de Trabajo.R)
++ [Ejercicios](Clases/Clase 3 - Tidyverse - Tasas basicas/Ejercicios - Clase 3.R)
 
 [Clase 4 - Variables de ingresos y gráficos:](link)
   
@@ -80,11 +77,10 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
     + Gráficos con múltiples cruces de variables.
 
-+ [Notas de clase](link)
 + [Script](link)
 + [Ejercicios](link)
 
-[Clase 5: Cálculo de tasas de Pobreza e Indigencia.](link)
+[Clase 5: Cálculo de tasas de Pobreza e Indigencia.](Clase 5 - Graficos y Distribucion del Ingreso/Clase 5- Graficos e Ingresos.nb.html)
   
 + Temas de clase:
   + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
@@ -92,9 +88,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Ejercicio de estimación de tasas de Pobreza e Indigencia
   + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
   
-+ [Notas de clase](link)
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](Clase 5 - Graficos y Distribucion del Ingreso/Clase 5- Graficos e Ingresos.R)
++ [Ejercicios](Clase 5 - Graficos y Distribucion del Ingreso/Ejercicios - Clase 5.R)
 
 [Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.](link)
   
@@ -104,7 +99,6 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Cálculo de Frecuencias de transiciones de estados (Categorías Ocupacionales, Situaciones de Pobreza/Indigencia)
   + Gráficos de Transición de estados
 
-+ [Notas de clase](link)
 + [Script](link)
 + [Ejercicios](link)
 
@@ -117,11 +111,10 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
     + Código embebido en el texto para automatización de reportes
 
-+ [Notas de clase](link)
 + [Script](link)
 + [Ejercicios](link)
 
-[Clase 8: Introducción a R Intermedio:](link)
+[Clase 8: Introducción a R Intermedio:](https://guidowe.github.io/Curso-R-Flacso/Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.nb.html)
 
 + Temas de clase: 
   + Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:
@@ -130,9 +123,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Creación de funciones a medida del usuario
   + Herramientas para continuar el aprendizaje en R: Foros reconocidos de usuarios de R. Comunidades donde se comparten conocimientos, experiencias, consultas. Comandos para acceder a los documentos de ayuda.
 
-+ [Notas de clase](link)
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](https://guidowe.github.io/Curso-R-Flacso/Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.R)
++ [Ejercicios](https://guidowe.github.io/Curso-R-Flacso/Clase%208%20-%20Programacion%20funcional/Ejercicios%20Clase%208_Programacion%20funcional.R)
 
 [Clase 9: Trabajos prácticos: R en concreto / examen](link)
   
