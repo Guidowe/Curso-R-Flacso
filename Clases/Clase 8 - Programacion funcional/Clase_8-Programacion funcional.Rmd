@@ -1,5 +1,5 @@
 ---
-title: "Utilización del lenguaje R para aplicación en la Encuesta Permanente de Hogares"
+title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la EPH"
 subtitle: "Clase 8 - Programacion Funcional"
 date: "24/09/2019"
 output:
@@ -7,7 +7,7 @@ output:
     toc: yes
     toc_float: yes
 ---
-*Las notas del presente curso fueron elaboradas originalmente por Diego Kozlowski y Guido Weksler. En las sucesivas modificaciones colaboraron: Natsumi Shokida y Matías Lioni*                      
+              
 
 
 >Reiniciar R
