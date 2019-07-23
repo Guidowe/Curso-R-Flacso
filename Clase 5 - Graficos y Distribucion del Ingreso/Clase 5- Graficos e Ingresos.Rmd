@@ -1,5 +1,5 @@
 ---
-title: "Utilización del lenguaje R para aplicación en la Encuesta Permanente de Hogares"
+title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la EPH"
 subtitle: "Clase  5 - Gráficos y Distribución del Ingreso"
 date: "3/9/2019"
 output:
@@ -7,9 +7,6 @@ output:
     toc: true
     toc_float: true 
 ---
-
-*Las notas del presente curso fueron elaboradas originalmente por Diego Kozlowski y Guido Weksler. En las sucesivas modificaciones colaboraron: Natsumi Shokida y Matías Lioni* 
-
 
 > Reiniciar Sesión
 
