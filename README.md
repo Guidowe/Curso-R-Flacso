@@ -51,7 +51,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 + [Script](link)
 + [Ejercicios](link)
 
-[Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:]((Clases/Clase 3 - Tidyverse - Tasas basicas/Clase 3 - Bases de Datos y Mercado de Trabajo.nb.html))
+[Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
   
 + Temas de clase:
   + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
@@ -64,8 +64,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Cálculo de tasas básicas del mercado de trabajo (tasa de actividad, empleo, desempleo, entre otras) 
   + Cálculo de tasas para distintos subconjuntos poblacionales (por aglomerado, sexo, grupos de edad)
   
-+ [Script](Clases/Clase 3 - Tidyverse - Tasas basicas/Clase 3 - Bases de Datos y Mercado de Trabajo.R)
-+ [Ejercicios](Clases/Clase 3 - Tidyverse - Tasas basicas/Ejercicios - Clase 3.R)
++ [Script](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.R)
++ [Ejercicios](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Ejercicios%20-%20Clase%203.R)
 
 [Clase 4 - Variables de ingresos y gráficos:](link)
   
@@ -80,7 +80,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 + [Script](link)
 + [Ejercicios](link)
 
-[Clase 5: Cálculo de tasas de Pobreza e Indigencia.](Clase 5 - Graficos y Distribucion del Ingreso/Clase 5- Graficos e Ingresos.nb.html)
+[Clase 5: Cálculo de tasas de Pobreza e Indigencia.](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.nb.html)
   
 + Temas de clase:
   + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
