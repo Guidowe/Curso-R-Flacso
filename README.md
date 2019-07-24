@@ -1,5 +1,5 @@
 
-# Introducción a R para Ciencias Sociales. Aplicación práctica en la Encuesta Permanente de Hogares
+# Programa y materiales de cursada
 
 ***
 
