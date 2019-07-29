@@ -14,8 +14,10 @@ class: inverse, middle, center
 # ¿Qué es la EPH?
 
 ---
+class: middle, center
+background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+background-size: contain
 
-background-image: url(poner link de foto en repositorio)
 
 ---
 class: inverse, middle, center
@@ -77,7 +79,11 @@ class: center, middle, inverse
 
 ---
 
-# Marco analítico conceptual
+# Marco analítico y temático de la EPH
+
+---
+
+
 
 ---
 
