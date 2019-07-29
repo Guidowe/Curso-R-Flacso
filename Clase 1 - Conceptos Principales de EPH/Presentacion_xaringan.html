@@ -37,14 +37,21 @@ class: inverse, middle, center
 
 ---
 class: middle, center
-background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
 background-size: contain
 
 
 ---
+class: middle, center
+
+# Bueno, traduzcamos
+
+---
+
 class: inverse, middle, center
 
-# Objetivos
+# Objetivos de la EPH
 
 ---
 
@@ -98,14 +105,6 @@ class: center, middle, inverse
     + 62% del total pais
     + 1 vez al año se aplica al total urbano (90% del país)
     + Proyecto en etapa de pruebas: Extensión al total país (100%)
-
----
-
-# Marco analítico y temático de la EPH
-
----
-
-
 
 ---
 
@@ -176,6 +175,46 @@ Identificación del hogar: Jefe o jefa de hogar&lt;sup&gt;*&lt;/sup&gt;.
 
 .footnote[
 [*][_Buscar bibliografía sobre jefe / jefa de hogar_].]
+
+---
+# Instrumentos de medición: Cuestionario Hogar. El jefe o la jefa de hogar
+
+__Definición:__ *Aquella persona reconocida como tal por los demás miembros del hogar.*
+
+- __No es estático.__ Responde tanto a un modelo general de asignación social y sexual de roles al interior del hogar como a criterios operativos:
+    + económicos (quien trabaja / quien más cobra)
+    + antigüedad
+    + horarios (a quien se encuentra en el hogar)
+
+--
+
+- En caso de no haber acuerdo entre los miembros del hogar acerca de quién es el jefe o la jefa, se asigna por el o la encuestadora según los siguientes criterios (en orden de prioridad):
+
+      1. Quien tiene a su cargo la responsabilidad económica del hogar
+      1. El miembro más antiguo del hogar
+      1. Quien haya acudido al llamado
+
+---
+# Instrumento de medición: Cuestionario de individual
+
+Todos los caminos conducen ~~a Roma~~ al Mapa temático de la EPH
+
+    * Principales dimensiones:
+
+      + Inserción en la producción de bienes y servicios
+      + Participación en la distribución del producto social
+
+---
+class: middle, center, inverse
+# Marco analítico y temático de la EPH
+
+---
+class: middle, center
+
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+background-size: contain
+
+---
 
 ---
 
@@ -301,8 +340,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-66b748a3f66a4f66aee6" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-66b748a3f66a4f66aee6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fdddd6534f00138fe625" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fdddd6534f00138fe625">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -314,8 +353,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-fa6b8fb8079f4b6fece2" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fa6b8fb8079f4b6fece2">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3737cd7b7fd6e5dc1ac4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3737cd7b7fd6e5dc1ac4">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 

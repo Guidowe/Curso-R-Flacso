@@ -2,11 +2,13 @@
 title: "LA EPH"
 output:
   xaringan::moon_reader:
+    #css: ["default", "lucy", "lucy-fonts"]
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+  
 ---
 
 class: inverse, middle, center
@@ -15,14 +17,21 @@ class: inverse, middle, center
 
 ---
 class: middle, center
-background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
 background-size: contain
 
 
 ---
+class: middle, center
+
+# Bueno, traduzcamos
+
+---
+
 class: inverse, middle, center
 
-# Objetivos
+# Objetivos de la EPH
 
 ---
 
@@ -76,14 +85,6 @@ class: center, middle, inverse
     + 62% del total pais
     + 1 vez al año se aplica al total urbano (90% del país)
     + Proyecto en etapa de pruebas: Extensión al total país (100%)
-
----
-
-# Marco analítico y temático de la EPH
-
----
-
-
 
 ---
 
@@ -154,6 +155,46 @@ Identificación del hogar: Jefe o jefa de hogar<sup>*</sup>.
 
 .footnote[
 [*][_Buscar bibliografía sobre jefe / jefa de hogar_].]
+
+---
+# Instrumentos de medición: Cuestionario Hogar. El jefe o la jefa de hogar
+
+__Definición:__ *Aquella persona reconocida como tal por los demás miembros del hogar.*
+
+- __No es estático.__ Responde tanto a un modelo general de asignación social y sexual de roles al interior del hogar como a criterios operativos:
+    + económicos (quien trabaja / quien más cobra)
+    + antigüedad
+    + horarios (a quien se encuentra en el hogar)
+
+--
+
+- En caso de no haber acuerdo entre los miembros del hogar acerca de quién es el jefe o la jefa, se asigna por el o la encuestadora según los siguientes criterios (en orden de prioridad):
+
+      1. Quien tiene a su cargo la responsabilidad económica del hogar
+      1. El miembro más antiguo del hogar
+      1. Quien haya acudido al llamado
+
+---
+# Instrumento de medición: Cuestionario de individual
+
+Todos los caminos conducen ~~a Roma~~ al Mapa temático de la EPH
+
+    * Principales dimensiones:
+
+      + Inserción en la producción de bienes y servicios
+      + Participación en la distribución del producto social
+
+---
+class: middle, center, inverse
+# Marco analítico y temático de la EPH
+
+---
+class: middle, center
+
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+background-size: contain
+
+---
 
 ---
 
