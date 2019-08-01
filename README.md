@@ -136,5 +136,5 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 #### Librerias a instalar
 
 ```
-install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr'))
+install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown'))
 ```
