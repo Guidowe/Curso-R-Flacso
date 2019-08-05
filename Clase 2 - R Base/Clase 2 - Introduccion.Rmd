@@ -12,20 +12,12 @@ output:
   word_document:
     toc: yes
 date: ""
-subtitle: Clase 1 - Conceptos Principales de EPH y R Base
+subtitle: Clase 2 - Introducción a R a través de la EPH
 ---
-*Las notas del presente curso fueron elaboradas originalmente por Diego Kozlowski y Guido Weksler. En las sucesivas modificaciones colaboraron: Natsumi Shokida y Matías Lioni*
 
 # EPH
 
- - **Descipción de la encuesta, periodicidad y cobertura**.
- - **Información relevada en distintos cuestionarios**
-
-
-
-![](Tematicas EPH.png)
-
-  -  **Definción de variables de interés a abordar en el curso: Estados, Categorías ocupacionales, Ingresos y Ponderadores** : Archivo "Metodologia_EPHContinua 2003.pdf" en la carpeta de Fuentes del curso.
+  -  **Definción de variables de interés a abordar en el curso: Condición de actividad, Categoría ocupacional, Ingresos y Ponderadores** : Archivo "Metodologia_EPHContinua 2003.pdf" en la carpeta de Fuentes del curso.
   - **Bases de Microdatos**: Archivos "usu_individualt117" en la carpeta de Fuentes del curso.
   - **Diseño de Registro** : Archivo "EPH_registro_2_trim_2016.pdf" en la carpeta de Fuentes del curso.
 
@@ -39,7 +31,7 @@ subtitle: Clase 1 - Conceptos Principales de EPH y R Base
 - Lenguaje para el procesamiento y análisis estadístico de datos
 - Software Libre
 - Sintaxis Básica: R base 
-- Sintaxis incremental[^1]: El lenguaje se va ampliando por aportes de Universidades, investigadores y empresas privadas, organizados en librerías (o paquetes)
+- Sintaxis incremental[^1]: El lenguaje se va ampliando por aportes de Universidades, investigadores/as, usuarios/as y empresas privadas, organizados en librerías (o paquetes)
 - Comunidad web muy grande para realizar preguntas y despejar dudas.
 - Graficos con calidad de publicación
 
@@ -64,12 +56,12 @@ El _entorno_ más cómodo para utilizar el _lenguaje_ __R__ es el _programa_ __R
 ## Diferencias con STATA y SPSS
 
 - Gratuito
-- Únicamente funciona por líneas de código (No hay botones para ejecutar comandos)
-- Posibilita trabajar con múltiples bases de microdatos al mismo tiempo, sin mayor dificultad (No requiere abrir cada base, trabajarla por separado y luego cerrarla) 
+- Funciona principalmente por líneas de código (Aunque ya hay paquetes que permiten ejecutar comandos desde el menú y los botones sin tener que esribir código)
+- Trabaja las bases de microdatos de forma virtual y no fisica, lo que permite disponer de varias al mismo tiempo sin mayor dificultad (no requiere abrir cada base, trabajarla por separado y luego cerrarla), ni exije guardar fisicamente los cambios.
 - Más potente
     - Totalmente automatizable
-    - Aportes de usuarios 
-    - Extensible a otros lenguajes y usos (Presentación como esta, diseño de aplicaciones)
+    - Aportes de usuarias y usuarios
+    - Extensible a otros lenguajes y usos (presentación como esta, diseño de aplicaciones)
 - Más veloz:
 
 
