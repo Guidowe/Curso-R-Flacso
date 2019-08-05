@@ -18,7 +18,7 @@ class: inverse, middle, center
 ---
 class: middle, center
 
-background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
 background-size: contain
 
 
@@ -527,11 +527,9 @@ class: middle, center, inverse
 
 
 class: middle, center
+  
 
-
-agregar imagen del gráfico de torta con l poblcion ocupada + des
-
-background-image: url()
+background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Grafico_condicion_actividad_1t_2019.PNG)
 background-size: contain
 
 ---
