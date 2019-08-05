@@ -18,7 +18,7 @@ class: inverse, middle, center
 ---
 class: middle, center
 
-background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.png)
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Marco%20analitico_conceptual%20EPH.jpg)
 background-size: contain
 
 
@@ -471,25 +471,16 @@ class: middle, center, inverse
   
 
 ---
-
 class: middle, center
-  
 
-background-image: url(imagen de la determinacion de la condicon de actividad)
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Determinaci%C3%B3n%20de%20la%20condici%C3%B3n%20de%20actividad.JPG)
 background-size: contain
-  
-  
----
-
-class: inverse, midle, center
-
 
 
 ---
-
-
+  
 # Otros indicadores para describir a la población ocupada
-
+  
   
 --
   
@@ -521,15 +512,12 @@ class: inverse, midle, center
   
   
 ---
-
-
 class: middle, center
-  
 
-background-image: url(imagen de los indicadores respecto al tipo de inserión laboral)
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Indicadores%20vinculados%20a%20la%20inserci%C3%B3n%20en%20el%20mercado%20de%20trabajo.JPG)
 background-size: contain
-  
-  
+
+
 ---
  
 # Caracterízación de la población desocupada
@@ -554,12 +542,11 @@ background-size: contain
 - Características de la última ocupación
 
 ---
-
 class: middle, center
-  
 
-background-image: url(https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Grafico_condicion_actividad_1t_2019.PNG)
+background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Grafico_condicion_actividad_1t_2019.jpg)
 background-size: contain
+
 
 ---
 
@@ -573,11 +560,10 @@ background-size: contain
   
 - __Ocupación:__ [Clasificador Nacional de Ocupaciones (CNO-2001-INDEC)](https://www.indec.gob.ar/ftp/cuadros/menusuperior/clasificadores/definiciones_conceptuales_cno.pdf)
   
---  
+--
   
 - __Códigos geográficos:__ [Países](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/codigospaises_09.pdf) y [provincias](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/codigosprovincias_09.pdf)
-  
-  
+
 ---
 
 Acceso a materiales de la Encuesta:
@@ -612,4 +598,4 @@ class: middle, center, inverse
 ---
 class: center, middle, inverse
 
-FIN
+Gracias!
