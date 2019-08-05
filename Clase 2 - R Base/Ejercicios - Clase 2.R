@@ -1,4 +1,4 @@
-####Ejercicios Clase 1 ####
+####Ejercicios Clase 2 ####
 library(openxlsx)
 # - Crear un OBJETO llamado _OBJETO_ definido como el resultado de la suma: 5 + 6
 OBJETO <- 5+6

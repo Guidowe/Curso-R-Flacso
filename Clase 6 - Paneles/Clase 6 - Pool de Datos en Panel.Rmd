@@ -119,3 +119,14 @@ ggplot(Categorias_transiciones, aes(x = Categoria_t1,
   scale_fill_gradient(low = "grey100", high = "grey30")+
   theme_tufte()
 ```
+
+#Ejercicios Para prácticar
+- Levantar todas las bases individuales de EPH que se encuentran en la carpeta __Fuentes__
+- Crear un vector llamado __Variables__ que contenga los nombres de las siguientes variables de interés:
+      - ANO4,TRIMESTRE,CODUSU,NRO_HOGAR,COMPONENTE,ESTADO,CH04,PONDERA
+- Acotar la Base únicamente a las variables de interés, utilizando el vector __Variables__ 
+
+- Replicar los procedimientos vistos en clase para el armado del panel de observaciones inter-trimestrales y luego calcular: 
+      - ¿Cuántos casos (muestrales y ponderados) tenemos en nuestro pool de datos en panel? 
+      - ¿Cuántos casos muestrales tenemos por cada trimestre en nuestro pool de datos? ¿Qué porcentaje de los registros totales de un trimestre representa?
+      - ¿Cuántos casos son inconsistentes controlando por sexo en cada trimestre? Calcularlo en términos absolutos y porcentuales
