@@ -323,9 +323,9 @@ class: middle, center, inverse
 
 --
 
-- __Concepto de Trabajo__: 
+- __Mide el principal concepto: El Trabajo__: 
 
-    + 19° CIET, 2013: Todas las actividades desarrolladas en unidades económicas por personas de cualquier sexo con el fin de producir bienes y servicios para el consumo de terceros o autoconsumo.
+    + Definiión de la 19° Conferencia Internacional del Trabajo - OIT (CIET, 2013): Todas las actividades desarrolladas en unidades económicas por personas de cualquier sexo con el fin de producir bienes y servicios para el consumo de terceros o autoconsumo.
     
 --
   
@@ -472,19 +472,35 @@ class: middle, center, inverse
 
 ---
 
+class: middle, center
+  
+
+background-image: url(imagen de la determinacion de la condicon de actividad)
+background-size: contain
+  
+  
+---
+
+class: inverse, midle, center
+
+
+
+---
+
+
 # Otros indicadores para describir a la población ocupada
 
-
+  
 --
-
+  
 - Intencidad en la inserción (subempleo)
-
+  
 --
-
+  
 - Búsqueda de otra ocupación (y sus causas)
-
+  
 --
-
+  
 - Tamaño del establecimiento
   
 --
@@ -503,12 +519,24 @@ class: middle, center, inverse
   
 - Movimientos interurbanos
   
-
+  
 ---
+
+
+class: middle, center
+  
+
+background-image: url(imagen de los indicadores respecto al tipo de inserión laboral)
+background-size: contain
+  
+  
+---
+ 
 # Caracterízación de la población desocupada
-
+  
 <br>
-
+  
+  
 --
 
 - Tiempo de búsqueda
@@ -525,6 +553,7 @@ class: middle, center, inverse
 
 - Características de la última ocupación
 
+---
 
 class: middle, center
   
@@ -535,9 +564,9 @@ background-size: contain
 ---
 
 # Clasificadores utilizados en la EPH (Rama de actividad y Tarea / Ocupación)
-
+  
 --
-
+  
 - __Actividad (rama):__ [Clasificador de Actividades para Encuestas Sociodemográficas (CAES-MERCOSUR)](https://www.indec.gob.ar/ftp/cuadros/menusuperior/clasificadores/notas_explicativas_caes_v2018.pdf)
   
 --
@@ -548,7 +577,7 @@ background-size: contain
   
 - __Códigos geográficos:__ [Países](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/codigospaises_09.pdf) y [provincias](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/codigosprovincias_09.pdf)
   
-
+  
 ---
 
 Acceso a materiales de la Encuesta:
@@ -561,7 +590,7 @@ Acceso a materiales de la Encuesta:
   
 - [Cuestionario vivienda](https://www.indec.gob.ar/ftp/cuadros/sociedad/EPHContinua_CVivienda.pdf)
   
-- [La nueva EPH contínua]()
+- [La nueva EPH contínua](https://www.indec.gob.ar/ftp/cuadros/sociedad/metodologia_eph_continua.pdf)
   
 - [Consideraciones sobre la revisión, evaluación y recuperación de la EPH. Nota metodológica actualizada para el uso de los datos del primer trimestre de 2019](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/EPH_nota_metodologica_1_trim_2019.pdf)
 
