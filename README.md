@@ -66,7 +66,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 + [Script](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.R)
 + [Ejercicios](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Ejercicios.R)
 
-[Clase 4: Cálculo de tasas de Pobreza e Indigencia.](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.nb.html)
+[Clase 4: Cálculo de tasas de Pobreza e Indigencia.](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.nb.html)
   
 + Temas de clase:
   + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
