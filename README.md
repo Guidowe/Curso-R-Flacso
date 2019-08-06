@@ -66,7 +66,20 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 + [Script](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.R)
 + [Ejercicios](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Ejercicios%20-%20Clase%203.R)
 
-[Clase 4 - Variables de ingresos y gráficos:](link)
+[Clase 4: Cálculo de tasas de Pobreza e Indigencia.](link)
+  
++ Temas de clase:
+  + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
+  + Metodología del cálculo de pobreza por línea (para personas y hogares)
+  + Ejercicio de estimación de tasas de Pobreza e Indigencia
+  + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
+
++ [Script](link)
++ [Ejercicios](link)
+  
+
+
+[Clase 5 - Variables de ingresos y gráficos:](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.nb.html)
   
 + Temas de clase:
   + Procesamiento de indicadores agregados sobre las variables de ingresos (Ingresos laborales, no laborales, de ocupación principal, total familiar) 
@@ -76,19 +89,9 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
     + Gráficos con múltiples cruces de variables.
 
-+ [Script](link)
-+ [Ejercicios](link)
-
-[Clase 5: Cálculo de tasas de Pobreza e Indigencia.](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.nb.html)
-  
-+ Temas de clase:
-  + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
-  + Metodología del cálculo de pobreza por línea (para personas y hogares)
-  + Ejercicio de estimación de tasas de Pobreza e Indigencia
-  + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
-  
 + [Script](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.R)
 + [Ejercicios](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Ejercicios%20-%20Clase%205.R)
+
 
 [Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.](link)
   
