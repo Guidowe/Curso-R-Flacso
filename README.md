@@ -36,7 +36,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   
 + [Ejercicios](https://pablotis.github.io/Presentaciones/index.html#115)
 
-[Clase 2 – Introduciendo a R:](link)
+[Clase 2 – Introduciendo a R:](Clase%202%20-%20R%20Base/Clase%202%20-%20Introduccion.nb.html)
   
 + Temas de clase:
   + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
@@ -47,8 +47,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Tipos de variable (numérica, de caracteres, lógicas)
   + Lectura y Escritura de Archivos
   
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](Clase%202%20-%20R%20Base/Clase%202-%20Introduccion.r)
++ [Ejercicios](Clase%202%20-%20R%20Base/Clase%202%20-%20Ejercicios.R)
 
 [Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
   
@@ -90,7 +90,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Gráficos con múltiples cruces de variables.
 
 + [Script](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.R)
-+ [Ejercicios](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Ejercicios%20-%20Clase%205.R)
++ [Ejercicios](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Ejercicios.R)
 
 
 [Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.](Clase%206%20-%20Paneles/Clase%206%20-%20Pool%20de%20Datos%20en%20Panel.nb.html)
@@ -125,7 +125,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Herramientas para continuar el aprendizaje en R: Foros reconocidos de usuarios de R. Comunidades donde se comparten conocimientos, experiencias, consultas. Comandos para acceder a los documentos de ayuda.
 
 + [Script](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.R)
-+ [Ejercicios](Clase%208%20-%20Programacion%20funcional/Ejercicios%20Clase%208_Programacion%20funcional.R)
++ [Ejercicios](Clase%208%20-%20Programacion%20funcional/Clase%208%20-Ejercicios.R)
 
 [Clase 9: Trabajos prácticos: R en concreto / examen]
   
