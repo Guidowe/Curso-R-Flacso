@@ -24,7 +24,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 ### Clases y contenido
 
 
-[Clase 1 - Conceptos Principales de EPH:](link)
+[Clase 1 - Conceptos Principales de EPH:](https://pablotis.github.io/Presentaciones/index.html#1)
   
 + Temas de clase: 
   + Presentación del curso.
@@ -34,8 +34,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Definiciones de las principales variables de interés a abordar en el curso: Condición de actividad, categoría ocupacional, precariedad y pobreza
   + Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.
   
-+ [Script](link)
-+ [Ejercicios](link)
++ [Ejercicios](https://pablotis.github.io/Presentaciones/index.html#115)
 
 [Clase 2 – Introduciendo a R:](link)
   
