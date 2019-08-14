@@ -193,7 +193,7 @@ library(nombre_del_paquete)
 ## .csv  y  .txt
 dataframe <- read.delim(file, header = TRUE, sep = "\t", quote = "\"", dec = ".", fill = TRUE, comment.char = "", ...) 
 
-individual_t117 <- read.table(file = '../Fuentes/usu_individual_t117.txt',sep=";", dec=",", header = TRUE, fill = TRUE)
+individual_t117 <- read.table(file = 'Fuentes/usu_individual_t117.txt',sep=";", dec=",", header = TRUE, fill = TRUE)
 individual_t117
 
 #View(individual_t117)
