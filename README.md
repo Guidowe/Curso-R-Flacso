@@ -36,7 +36,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   
 + [Ejercicios](https://pablotis.github.io/Presentaciones/index.html#115)
 
-[Clase 2 – Introduciendo a R:](link)
+[Clase 2 – Introduciendo a R:](Clase%202%20-%20R%20Base/Clase%202%20-%20Introduccion.nb.html)
   
 + Temas de clase:
   + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
@@ -47,8 +47,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Tipos de variable (numérica, de caracteres, lógicas)
   + Lectura y Escritura de Archivos
   
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](Clase%202%20-%20R%20Base/Clase%202-%20Introduccion.r)
++ [Ejercicios](Clase%202%20-%20R%20Base/Clase%202%20-%20Ejercicios.R)
 
 [Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
   
@@ -64,9 +64,9 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Cálculo de tasas para distintos subconjuntos poblacionales (por aglomerado, sexo, grupos de edad)
   
 + [Script](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.R)
-+ [Ejercicios](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Ejercicios%20-%20Clase%203.R)
++ [Ejercicios](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Ejercicios.R)
 
-[Clase 4: Cálculo de tasas de Pobreza e Indigencia.](link)
+[Clase 4: Cálculo de tasas de Pobreza e Indigencia.](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.nb.html)
   
 + Temas de clase:
   + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
@@ -74,8 +74,8 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Ejercicio de estimación de tasas de Pobreza e Indigencia
   + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
 
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.R)
++ [Ejercicios](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Ejercicios.R)
   
 
 
@@ -90,10 +90,10 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Gráficos con múltiples cruces de variables.
 
 + [Script](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.R)
-+ [Ejercicios](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Ejercicios%20-%20Clase%205.R)
++ [Ejercicios](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Ejercicios.R)
 
 
-[Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.](link)
+[Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.](Clase%206%20-%20Paneles/Clase%206%20-%20Pool%20de%20Datos%20en%20Panel.nb.html)
   
 + Temas de clase:
   + Metodología de trabajos en panel con EPH: (Esquema de rotación de la EPH, Variables para la identificación de los individuos en distintos períodos, Consistencias)
@@ -101,10 +101,10 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Cálculo de Frecuencias de transiciones de estados (Categorías Ocupacionales, Situaciones de Pobreza/Indigencia)
   + Gráficos de Transición de estados
 
-+ [Script](link)
-+ [Ejercicios](link)
++ [Script](Clase%206%20-%20Paneles/Clase%206%20-%20Pool%20de%20Datos%20en%20Panel.R)
++ [Ejercicios](Clase%206%20-%20Paneles/Clase%206%20-%20Ejercicios.R)
 
-[Clase 7: Documentación en R. Generación de reportes/informes.](link)
+[Clase 7: Documentación en R. Generación de reportes/informes.](Clase%207%20-%20Markdown/Clase%207.%20Markdown.nb.html)
   
 + Temas de clase:
   + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
@@ -113,8 +113,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
     + Código embebido en el texto para automatización de reportes
 
-+ [Script](link)
-+ [Ejercicios](link)
++ [Markdown](Clase%207%20-%20Markdown/Clase%207.%20Markdown.Rmd)
 
 [Clase 8: Introducción a R Intermedio:](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.nb.html)
 
@@ -126,9 +125,9 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Herramientas para continuar el aprendizaje en R: Foros reconocidos de usuarios de R. Comunidades donde se comparten conocimientos, experiencias, consultas. Comandos para acceder a los documentos de ayuda.
 
 + [Script](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.R)
-+ [Ejercicios](Clase%208%20-%20Programacion%20funcional/Ejercicios%20Clase%208_Programacion%20funcional.R)
++ [Ejercicios](Clase%208%20-%20Programacion%20funcional/Clase%208%20-Ejercicios.R)
 
-[Clase 9: Trabajos prácticos: R en concreto / examen](link)
+[Clase 9: Trabajos prácticos: R en concreto / examen]
   
 
 + Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. Entre los temas giran aquellos vinculados a la distribución personal del ingreso/Construcción de percentiles de ingreso; el mercado laboral a través de la herramienta Panel de datos; la documentación en R (Estilo de Notas de Clase).
