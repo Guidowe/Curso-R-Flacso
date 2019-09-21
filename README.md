@@ -115,7 +115,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 
 + [Markdown](Clase%207%20-%20Markdown/Clase%207.%20Markdown.Rmd)
 
-[Clase 8: Introducción a R Intermedio:](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.nb.html)
+Clase 8: Introducción a R Intermedio:
 
 + Temas de clase: 
   + Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:
@@ -124,8 +124,9 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
     + Creación de funciones a medida del usuario
   + Herramientas para continuar el aprendizaje en R: Foros reconocidos de usuarios de R. Comunidades donde se comparten conocimientos, experiencias, consultas. Comandos para acceder a los documentos de ayuda.
 
-+ [Script](Clase%208%20-%20Programacion%20funcional/Clase_8-Programacion%20funcional.R)
-+ [Ejercicios](Clase%208%20-%20Programacion%20funcional/Clase%208%20-Ejercicios.R)
+- [Explicación](Clase%208%20-%20Programacion%20funcional/explicacion.nb.html)
+- [Práctica Guiada](Clase%208%20-%20Programacion%20funcional/practica_guiada.nb.html)
+- [Pŕactica independiente](Clase%208%20-%20Programacion%20funcional/practica_independiente.nb.html)
 
 [Clase 9: Trabajos prácticos: R en concreto / examen]
   
