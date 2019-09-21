@@ -14,19 +14,13 @@ Crear una **función** llamada _HolaMundo_ que imprima el texto "Hola mundo"
 
 ```{r}
 
-hm <- function(){ print('Hola Mundo')}
-hm()
+
 ```
 
 Crear una **función** que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro _x_ a definir.
 ```{r}
 
-sumatoria_enteros <- function(x){
-  Vector <- 1:x
-  return(sum(Vector))
-}
 
-Sumatoria_enteros(10)
 
 ```
 
@@ -34,7 +28,6 @@ Sumatoria_enteros(10)
 ### Ejercicios sobre purrr
 
 ```{r}
-library(purrr)
 ```
 
 __Ej 1__ Para cada columna de mtcars, calcular la media. Devolver una lista

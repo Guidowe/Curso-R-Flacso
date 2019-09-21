@@ -2896,26 +2896,11 @@ div.tocify {
 <p>Crear una <strong>función</strong> llamada <em>HolaMundo</em> que imprima el texto “Hola mundo”</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5obSA8LSBmdW5jdGlvbigpeyBwcmludCgnSG9sYSBNdW5kbycpfVxuaG0oKVxuYGBgIn0= -->
-<pre class="r"><code>
-hm &lt;- function(){ print('Hola Mundo')}
-hm()</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Crear una <strong>función</strong> que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro <em>x</em> a definir.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5zdW1hdG9yaWFfZW50ZXJvcyA8LSBmdW5jdGlvbih4KXtcbiAgVmVjdG9yIDwtIDE6eFxuICByZXR1cm4oc3VtKFZlY3RvcikpXG59XG5cblN1bWF0b3JpYV9lbnRlcm9zKDEwKVxuXG5gYGAifQ== -->
-<pre class="r"><code>
-sumatoria_enteros &lt;- function(x){
-  Vector &lt;- 1:x
-  return(sum(Vector))
-}
-
-Sumatoria_enteros(10)
-</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -2923,9 +2908,6 @@ Sumatoria_enteros(10)
 <h3>Ejercicios sobre purrr</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShwdXJycilcbmBgYCJ9 -->
-<pre class="r"><code>library(purrr)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><strong>Ej 1</strong> Para cada columna de mtcars, calcular la media. Devolver una lista</p>
@@ -2956,7 +2938,7 @@ Sumatoria_enteros(10)
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBQcm9ncmFtYWNpb24gRnVuY2lvbmFsCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgaW5kZXBlbmRpZW50ZQotLS0KCiMjIyBkZWZpbmljacOzbiBkZSBmdW5jaW9uZXMKCkNyZWFyIHVuYSAqKmZ1bmNpw7NuKiogbGxhbWFkYSBfSG9sYU11bmRvXyBxdWUgaW1wcmltYSBlbCB0ZXh0byAiSG9sYSBtdW5kbyIKCmBgYHtyfQoKaG0gPC0gZnVuY3Rpb24oKXsgcHJpbnQoJ0hvbGEgTXVuZG8nKX0KaG0oKQpgYGAKCkNyZWFyIHVuYSAqKmZ1bmNpw7NuKiogcXVlIGRldnVlbHZhIGxhIHN1bWF0b3JpYSBkZSBsb3MgbsO6bWVyb3MgZW50ZXJvcyBjb21wcmVuZGlkb3MgZW50cmUgMSB5IHVuIHBhcsOhbWV0cm8gX3hfIGEgZGVmaW5pci4KYGBge3J9CgpzdW1hdG9yaWFfZW50ZXJvcyA8LSBmdW5jdGlvbih4KXsKICBWZWN0b3IgPC0gMTp4CiAgcmV0dXJuKHN1bShWZWN0b3IpKQp9CgpTdW1hdG9yaWFfZW50ZXJvcygxMCkKCmBgYAoKCiMjIyBFamVyY2ljaW9zIHNvYnJlIHB1cnJyCgpgYGB7cn0KbGlicmFyeShwdXJycikKYGBgCgpfX0VqIDFfXyBQYXJhIGNhZGEgY29sdW1uYSBkZSBtdGNhcnMsIGNhbGN1bGFyIGxhIG1lZGlhLiBEZXZvbHZlciB1bmEgbGlzdGEKCmBgYHtyfQoKYGBgCgpfX0VqIDJfXyBIYWNlciBsbyBtaXNtbyBxdWUgZW4gMSwgcGVybyBkZXZvbHZlciB1biB2ZWN0b3Igbm9tYnJhZG8KCmBgYHtyfQoKYGBgCgpfX0VqIDNfXyBDYWxjdWxhciBsYSBtZWRpYSwgcGVybyBwb2RhbmRvIGVsIDUlIGRlIGxvcyB2YWxvcmVzIG3DoXMgYWx0b3MgeSBiYWpvcwoKYGBge3J9CgpgYGAKCl9fRWogNF9fIERpdmlkaXIgZWwgZGF0YXNldCBkZSBwb3IgbGEgdmFyaWFibGUgY3lsIGNvbW8gdW5hIGxpc3RhIHkgY2FsY3VsYXIgZWwgbnVtZXJvIGRlIGZpbGFzIHBvciBlbGVtZW50byBkZSBsYSBsaXN0YQoKYGBge3J9CgpgYGAKCl9fRWogNV9fIFBhcmEgY2FkYSBlbGVtZW50byBkZSBsYSBsaXN0YSBkZSBfNF8sIGNhbGN1bGFyIGxhIG1lZGlhIGRlIGNhZGEgY29sdW1uYS4gRGV2b2x2ZXIgbG9zIHJlc3VsdGFkb3MgY29tbyB1biBkYXRhZnJhbWUgY29uIHVuIHJlZ2lzdHJvIHBvciBjYWRhIGVsZW1lbnRvIGRlIGxhIGxpc3RhIChvc2VhLCAzKQoKYGBge3J9CgpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBQcm9ncmFtYWNpb24gRnVuY2lvbmFsCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgaW5kZXBlbmRpZW50ZQotLS0KCiMjIyBkZWZpbmljacOzbiBkZSBmdW5jaW9uZXMKCkNyZWFyIHVuYSAqKmZ1bmNpw7NuKiogbGxhbWFkYSBfSG9sYU11bmRvXyBxdWUgaW1wcmltYSBlbCB0ZXh0byAiSG9sYSBtdW5kbyIKCmBgYHtyfQoKCmBgYAoKQ3JlYXIgdW5hICoqZnVuY2nDs24qKiBxdWUgZGV2dWVsdmEgbGEgc3VtYXRvcmlhIGRlIGxvcyBuw7ptZXJvcyBlbnRlcm9zIGNvbXByZW5kaWRvcyBlbnRyZSAxIHkgdW4gcGFyw6FtZXRybyBfeF8gYSBkZWZpbmlyLgpgYGB7cn0KCgoKYGBgCgoKIyMjIEVqZXJjaWNpb3Mgc29icmUgcHVycnIKCmBgYHtyfQpgYGAKCl9fRWogMV9fIFBhcmEgY2FkYSBjb2x1bW5hIGRlIG10Y2FycywgY2FsY3VsYXIgbGEgbWVkaWEuIERldm9sdmVyIHVuYSBsaXN0YQoKYGBge3J9CgpgYGAKCl9fRWogMl9fIEhhY2VyIGxvIG1pc21vIHF1ZSBlbiAxLCBwZXJvIGRldm9sdmVyIHVuIHZlY3RvciBub21icmFkbwoKYGBge3J9CgpgYGAKCl9fRWogM19fIENhbGN1bGFyIGxhIG1lZGlhLCBwZXJvIHBvZGFuZG8gZWwgNSUgZGUgbG9zIHZhbG9yZXMgbcOhcyBhbHRvcyB5IGJham9zCgpgYGB7cn0KCmBgYAoKX19FaiA0X18gRGl2aWRpciBlbCBkYXRhc2V0IGRlIHBvciBsYSB2YXJpYWJsZSBjeWwgY29tbyB1bmEgbGlzdGEgeSBjYWxjdWxhciBlbCBudW1lcm8gZGUgZmlsYXMgcG9yIGVsZW1lbnRvIGRlIGxhIGxpc3RhCgpgYGB7cn0KCmBgYAoKX19FaiA1X18gUGFyYSBjYWRhIGVsZW1lbnRvIGRlIGxhIGxpc3RhIGRlIF80XywgY2FsY3VsYXIgbGEgbWVkaWEgZGUgY2FkYSBjb2x1bW5hLiBEZXZvbHZlciBsb3MgcmVzdWx0YWRvcyBjb21vIHVuIGRhdGFmcmFtZSBjb24gdW4gcmVnaXN0cm8gcG9yIGNhZGEgZWxlbWVudG8gZGUgbGEgbGlzdGEgKG9zZWEsIDMpCgpgYGB7cn0KCmBgYAoK</div>
 
 
 </div>
@@ -3005,7 +2987,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("07_practica_independiente.Rmd");
+  window.initializeSourceEmbed("practica_independiente.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
