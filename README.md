@@ -24,7 +24,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 ### Clases y contenido
 
 
-[Clase 1 - Conceptos Principales de EPH:](https://pablotis.github.io/Presentaciones/index.html#1)
+[Clase 1 - Conceptos Principales de EPH:](https://pablotis.github.io/Presentaciones/clase1_eph.html#1)
   
 + Temas de clase: 
   + Presentación del curso.
