@@ -15,15 +15,20 @@ output:
 
 ## Ejercicio 1: Calcular el conjunto de tasas básicas  
 
-El ejercicio consiste en calcular el __conjunto de tasas básicas__ presentadas en los Cuadros 1.1 y 1.2 del [Informe técnico elaborado por EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf). 
+El ejercicio consiste en calcular las tasas de actividad, empleo y desempleo, y presentarlas como figuran en el Cuadro 1.1 del [Informe técnico elaborado por EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf). Luego calcular las mismas tasas, desagregando por sexo.
 
 ```{r}
 # Paso 1 levantar las bases de EPH y seleccionar las variables de interés
 ```
 
 ```{r}
-# Tasas Básicas Total País
+#Paso 2 Tasas Básicas Total País
 ```
+
+```{r}
+# Tasas Básicas desagregadas por sexo
+```
+
 ## Ejercicio 2: Calcular el conjunto de tasas básicas, para cada uno de los aglomerados EPH  
 ```{r}
 # Tasas Básicas Aglomerados

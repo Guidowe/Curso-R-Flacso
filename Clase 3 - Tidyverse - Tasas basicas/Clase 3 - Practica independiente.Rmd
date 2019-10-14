@@ -31,7 +31,14 @@ Acotar la Base únicamente a las variables de interés, utilizando el vector __V
 
 ```
 
-Calcular las tasas de actividad, empleo y desempleo, según sexo, para la población de edad entre 18 y 35 años
+Calcular, al mismo tiempo para los cuatro trimestres, el total de población, de ocupados y desocupados.
+
+```{r}
+
+```
+
+
+Calcular, al mismo tiempo para los cuatro trimestres, las tasas de actividad, empleo y desempleo según sexo, para la población de edad entre 18 y 35 años
 
 ```{r}
 
