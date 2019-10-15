@@ -79,30 +79,41 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   
 
 
-[Clase 5 - Variables de ingresos y gráficos:](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.nb.html)
+__Clase 5 - Visualización de la información I__
   
 + Temas de clase:
-  + Procesamiento de indicadores agregados sobre las variables de ingresos (Ingresos laborales, no laborales, de ocupación principal, total familiar) 
   + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
   + Gráficos elaborados en R (función “ggplot”): 
     + Gráficos de línea, barras, Boxplots y distribuciones de densidad
     + Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
     + Gráficos con múltiples cruces de variables.
 
-+ [Script](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Graficos%20e%20Ingresos.R)
-+ [Ejercicios](Clase%205%20-%20Graficos%20y%20Distribucion%20del%20Ingreso/Clase%205-%20Ejercicios.R)
+- [Explicación](Clase%205%20-%20Graficos_I/05_explicacion.nb.html)
+- [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.nb.html)
 
 
-[Clase 6: Pool de Datos en Panel. Gráficos y Matrices de Transición.](Clase%206%20-%20Paneles/Clase%206%20-%20Pool%20de%20Datos%20en%20Panel.nb.html)
+__Clase 5 - Visualización de la información I__
   
 + Temas de clase:
-  + Metodología de trabajos en panel con EPH: (Esquema de rotación de la EPH, Variables para la identificación de los individuos en distintos períodos, Consistencias)
-  + Proceso para la construcción de paneles en R.
-  + Cálculo de Frecuencias de transiciones de estados (Categorías Ocupacionales, Situaciones de Pobreza/Indigencia)
-  + Gráficos de Transición de estados
+  + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
+  + Gráficos elaborados en R (función “ggplot”): 
+    + Gráficos de línea, barras, Boxplots 
+    + Extensiones de ggplot
 
-+ [Script](Clase%206%20-%20Paneles/Clase%206%20-%20Pool%20de%20Datos%20en%20Panel.R)
-+ [Ejercicios](Clase%206%20-%20Paneles/Clase%206%20-%20Ejercicios.R)
+- [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
+- [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.nb.html)
+
+
+__Clase 6 - Visualización de la información II__
+  
++ Temas de clase:
+  + Gráficos de ingresos
+  + Kernels
+  + Suavizado estadístico
+  + Treemaps
+  
+- [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
+- [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.nb.html)
 
 [Clase 7: Documentación en R. Generación de reportes/informes.](Clase%207%20-%20Markdown/Clase%207.%20Markdown.nb.html)
   
@@ -138,5 +149,5 @@ Clase 8: Introducción a R Intermedio:
 #### Librerias a instalar
 
 ```
-install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown'))
+install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown','esquisse','eph','treemapify','gapminder','viridis'))
 ```
