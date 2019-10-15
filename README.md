@@ -84,25 +84,11 @@ __Clase 5 - Visualización de la información I__
 + Temas de clase:
   + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
   + Gráficos elaborados en R (función “ggplot”): 
-    + Gráficos de línea, barras, Boxplots y distribuciones de densidad
-    + Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
-    + Gráficos con múltiples cruces de variables.
-
-- [Explicación](Clase%205%20-%20Graficos_I/05_explicacion.nb.html)
-- [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.nb.html)
-
-
-__Clase 5 - Visualización de la información I__
-  
-+ Temas de clase:
-  + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
-  + Gráficos elaborados en R (función “ggplot”): 
     + Gráficos de línea, barras, Boxplots 
     + Extensiones de ggplot
 
-- [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
-- [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.nb.html)
-
+- [Explicación](Clase%205%20-%20Graficos_I/05_explicacion.nb.html)
+- [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.nb.html)
 
 __Clase 6 - Visualización de la información II__
   
