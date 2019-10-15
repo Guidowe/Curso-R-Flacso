@@ -88,7 +88,7 @@ __Clase 5 - Visualización de la información I__
     + Extensiones de ggplot
 
 - [Explicación](Clase%205%20-%20Graficos_I/05_explicacion.nb.html)
-- [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.nb.html)
+- [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.html)
 
 __Clase 6 - Visualización de la información II__
   
@@ -99,7 +99,7 @@ __Clase 6 - Visualización de la información II__
   + Treemaps
   
 - [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
-- [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.nb.html)
+- [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.html)
 
 [Clase 7: Documentación en R. Generación de reportes/informes.](Clase%207%20-%20Markdown/Clase%207.%20Markdown.nb.html)
   
