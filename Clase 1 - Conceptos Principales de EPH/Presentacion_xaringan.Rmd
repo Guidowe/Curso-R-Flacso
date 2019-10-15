@@ -81,7 +81,7 @@ class: center, middle, inverse
  
 --
  
-- __Esquema__: centralización normativa (equipo central) - descentralización ejecutvia (equipos provinciales).
+- __Esquema__: centralización normativa (equipo central) - descentralización ejecutiva (equipos provinciales).
  
 --
 
@@ -103,21 +103,14 @@ class: center, middle, inverse
     
 <br>
   
-- La encuesta representa al 72% del total urbano (En Arg. según el censo 2010 la población urbana llegaba al 90%)
+- La encuesta representa al 65% del total de la población (En Arg. según el censo 2010 la población urbana llegaba al 90%)
   
     
 <br>
   
 --
   
-- Que es el 62% del total pais
-  
-    
-<br>
-  
---
-  
-- Una vez al año se aplica al total urbano (EAHU).
+- Una vez al año se releva la EAHU, extensión de la EPH al 100% de la población urbana (se relevan localidades de 2.000 y más habitantes). Esto pasa a ser el 92% de la población total.
   
     
 <br>
@@ -133,7 +126,7 @@ class: center, middle, inverse
   
 --
 
-- La Encuesta Permanente de Hogares es una encueta por muestreo: relevo a un "pequeño" puñado de hogares que representan al conjunto de la población.
+- La Encuesta Permanente de Hogares es una encuesta por muestreo: relevo a un "pequeño" (¿pequeño?) puñado de hogares que representan al conjunto del universo.
   
 --
   
@@ -161,7 +154,7 @@ class: center, middle, inverse
     
 --
 
-    + Esquema de rotación: 2-2-2 (la vivienda entra dos trimestres consecutivos - descansa dos trimestres consecutivos - vuelve a la muestra dos trimestres consecutivos)
+    + Esquema de rotación: 2-2-2 (la vivienda entra a la muestra durante dos trimestres consecutivos - descansa dos - vuelve a la muestra dos trimestres consecutivos)
 ---
 # Principales temáticas abordadas por la EPH
   
@@ -198,15 +191,11 @@ class: center, middle, inverse
 # Instrumento de medición
   
 ---
-# Instrumento de medición: El medio hacia la operacionalización de los objetivos
+# Instrumento de medición:
 
 <br>
     
 <br>
-  
---
-
-- Operacionalizar: pasar de conceptos teóricos y abstractos a indicadores concretos y medibles.
   
 --
   
@@ -301,12 +290,6 @@ __Definición:__ *Aquella persona reconocida como tal por los demás miembros de
 
 ---
 
-class: middle, center, inverse
-
-# Marco analítico y temático de la EPH
-
----
-
 # Cuestionario de individuos
 
 --
@@ -315,7 +298,7 @@ class: middle, center, inverse
 
 <br>
 
-- __Aplicación:__ Todas aquellas personas residentes del hogar mayores de 10 años (niñosy niñas en edad escolar vs en edad de trabajar, en Argentina y otros países). 
+- __Aplicación:__ Todas aquellas personas residentes del hogar, mayores de 10 años (niños y niñas en edad de ¿trabajar? o ¿estudiar? Argentina vs otros países). 
 
 --
 
@@ -325,7 +308,7 @@ class: middle, center, inverse
 
 - __Mide el principal concepto: El Trabajo__: 
 
-    + Definiión de la 19° Conferencia Internacional del Trabajo - OIT (CIET, 2013): Todas las actividades desarrolladas en unidades económicas por personas de cualquier sexo con el fin de producir bienes y servicios para el consumo de terceros o autoconsumo.
+    + Definición de la 19° Conferencia Internacional del Trabajo - OIT (CIET, 2013): Todas las actividades desarrolladas en unidades económicas por personas de cualquier sexo con el fin de producir bienes y servicios para el consumo de terceros o autoconsumo.
     
 --
   
@@ -473,9 +456,8 @@ class: middle, center, inverse
 ---
 class: middle, center
 
-background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Determinaci%C3%B3n%20de%20la%20condici%C3%B3n%20de%20actividad.JPG)
-background-size: contain
 
+<img src="https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/condicion_de_actividad_eph.png" width=60%>
 
 ---
   
@@ -498,7 +480,7 @@ background-size: contain
   
 - Antigüedad en el puesto de trabajo / Continuidad laboral
   
--- 
+--
   
 - Calidad del empleo
   
@@ -511,13 +493,6 @@ background-size: contain
 - Movimientos interurbanos
   
   
----
-class: middle, center
-
-background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Indicadores%20vinculados%20a%20la%20inserci%C3%B3n%20en%20el%20mercado%20de%20trabajo.JPG)
-background-size: contain
-
-
 ---
  
 # Caracterízación de la población desocupada
@@ -544,8 +519,9 @@ background-size: contain
 ---
 class: middle, center
 
-background-image: url(https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Grafico_condicion_actividad_1t_2019.jpg)
-background-size: contain
+
+<img src="https://raw.githubusercontent.com/Guidowe/Curso-R-Flacso/master/Clase%201%20-%20Conceptos%20Principales%20de%20EPH/Grafico_condicion_actividad_1t_2019.jpg" width=100%>
+
 
 
 ---
@@ -566,7 +542,7 @@ background-size: contain
 
 ---
 
-Acceso a materiales de la Encuesta:
+# Documentación de la Encuesta:
     
 - [Diseño de registro a agosto de 2019](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/EPH_registro_1t19.pdf)
   
