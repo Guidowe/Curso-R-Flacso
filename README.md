@@ -1,6 +1,6 @@
 
-# Programa y materiales de cursada
-
+# Materiales de cursada
+[![](img/Download.png)](Materiales.zip)
 ***
 
 
@@ -20,10 +20,8 @@ El presente Taller tiene como objetivo principal introducirse en el aprendizaje 
 La Encuesta Permanente de Hogares será la base de datos de aplicación elegida para el curso, dado que representa un insumo fundamental para realizar estudios sobre el mercado de trabajo y las condiciones de vida de la población. Se hará una introducción a los lineamientos conceptuales principales de la encuesta, en pos de que los y las participantes puedan abordar con datos distintas problemáticas vinculadas al mercado de trabajo y las condiciones de vida de la población.
 
 *** 
-### Materiales para las clases
 
-
-[![](img/Download.png)](materiales_eje1.zip)
+#Programa
 
 ### Clases y contenido
 
@@ -38,7 +36,6 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Definiciones de las principales variables de interés a abordar en el curso: Condición de actividad, categoría ocupacional, precariedad y pobreza
   + Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.
   
-+ [Ejercicios](https://pablotis.github.io/Presentaciones/index.html#115)
 
 [Clase 2 – Introduciendo a R:](Clase%202%20-%20R%20Base/Clase%202%20-%20Introduccion.nb.html)
   
