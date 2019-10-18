@@ -20,6 +20,10 @@ El presente Taller tiene como objetivo principal introducirse en el aprendizaje 
 La Encuesta Permanente de Hogares será la base de datos de aplicación elegida para el curso, dado que representa un insumo fundamental para realizar estudios sobre el mercado de trabajo y las condiciones de vida de la población. Se hará una introducción a los lineamientos conceptuales principales de la encuesta, en pos de que los y las participantes puedan abordar con datos distintas problemáticas vinculadas al mercado de trabajo y las condiciones de vida de la población.
 
 *** 
+### Materiales para las clases
+
+
+[![](img/Download.png)](materiales_eje1.zip)
 
 ### Clases y contenido
 
