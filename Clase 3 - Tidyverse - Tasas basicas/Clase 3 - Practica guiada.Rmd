@@ -17,12 +17,46 @@ output:
 
 El ejercicio consiste en calcular las tasas de actividad, empleo y desempleo, y presentarlas como figuran en el Cuadro 1.1 del [Informe técnico elaborado por EPH-INDEC](http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf). Luego calcular las mismas tasas, desagregando por sexo.
 
-```{r}
+```{r echo=TRUE}
 # Paso 1 levantar las bases de EPH y seleccionar las variables de interés
+Individual_t117 <-
+  read.table("../Fuentes/usu_individual_t117.txt",
+  sep = ";",
+  dec = ",",
+  header = TRUE,
+  fill = TRUE )
+
+Variables_interes <- c("ANO4","TRIMESTRE","ESTADO","PONDERA",
+                       "REGION","AGLOMERADO","PP03J","INTENSI")
+
+Base_Ind_chica <- Individual_t117 %>% 
+  select(Variables_interes)
+
+head(Base_Ind_chica)
 ```
 
-```{r}
+```{r echo=TRUE}
 #Paso 2 Tasas Básicas Total País
+Tasas <- Base_Ind_chica %>% 
+  summarise(Poblacion         = sum(PONDERA),
+            Ocupados          = sum(PONDERA[ESTADO == 1]),
+            Desocupados       = sum(PONDERA[ESTADO == 2]),
+            PEA               = Ocupados + Desocupados,
+            Ocupados_demand   = sum(PONDERA[ESTADO == 1 & PP03J == 1]),
+            Suboc_demandante  = sum(PONDERA[ESTADO == 1 & INTENSI == 1 & PP03J == 1]),
+            Suboc_no_demand   = sum(PONDERA[ESTADO == 1 & INTENSI == 1 & PP03J %in% c(2, 9)]),
+            Subocupados       = Suboc_demandante + Suboc_no_demand,
+            'Tasa Actividad'                  = PEA/Poblacion,
+            'Tasa Empleo'                     = Ocupados/Poblacion,
+            'Tasa Desocupacion'               = Desocupados/PEA,
+            'Tasa ocupados demandantes'       = Ocupados_demand/PEA,
+            'Tasa Subocupación'               = Subocupados/PEA,
+            'Tasa Subocupación demandante'    = Suboc_demandante/PEA,
+            'Tasa Subocupación no demandante' = Suboc_no_demand/PEA) %>% 
+  select(-(1:8)) %>% 
+  gather(.,key = Tasa, value = Valor, 1:ncol(.))
+
+Tasas
 ```
 
 ```{r}

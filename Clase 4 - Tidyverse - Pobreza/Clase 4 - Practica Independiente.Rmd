@@ -10,38 +10,29 @@ output:
 
 
 # Ejercicios vinculados a la estimacion de pobreza
-Levantar una la base del 1t de 2017 
-```{r}
-library(tidyverse, warn = FALSE)
-
-var.ind <- c('CODUSU','NRO_HOGAR' ,'COMPONENTE','ANO4','TRIMESTRE','REGION',
-             'AGLOMERADO', 'PONDERA', 'CH04', 'CH06', 'ITF', 'PONDIH','P21')
-
-individual.117 <- read.table("../Fuentes/usu_individual_t117.txt", sep=";", dec=",", header = TRUE, fill = TRUE) %>% 
-  select(var.ind)
+Levantar la base del 1t de 2017 
+```{r echo=TRUE}
 
 ```
 
 Estimar cuantas personas habitan en hogares con ingresos totales menores a $15.000
 
-```{r}
-individual.117 %>% 
-  filter(ITF<15000) %>% 
-  summarise(Cuantos=sum(PONDIH))
+```{r echo=TRUE}
+
 ```
 # Adultos equivalentes 
-Construir una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel que contiene la definición de los _AE_)
-```{r}
+Construir en la base una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel de la carpeta _Fuentes_ que contiene la definición de los adultos eq.)
+```{r echo=TRUE}
 
 ```
 A partir del punto anterior:
  - ¿Cuantas personas habitan en hogares de 7 o más integrantes?
  - ¿Cuantos hogares tienen más de 7 o más integrantes?
- - Construir una variable que exprese el Ingreso Total per capita de cada hogar
- - Construir una variable que exprese el Ingreso Total por adulto equivalente de cada hogar
- - Calcular el Ingreso per capita promedio
- - Calcular el Ingreso por adulto equivalente promedio
-```{r}
+ - Construir una variable que exprese el Ingreso Total Familiar (ITF) per capita de cada hogar
+ - Construir una variable que exprese el Ingreso Total Familiar (ITF) por adulto equivalente 
+ - Calcular el ITF per capita promedio por Región 
+ - Calcular el ITF por adulto equivalente promedio por Region
+```{r echo=TRUE}
 
 ```
 

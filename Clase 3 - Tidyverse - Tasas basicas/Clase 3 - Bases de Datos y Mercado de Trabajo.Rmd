@@ -166,7 +166,7 @@ Encadenado
 Otra implementación muy importante del paquete dplyr son las funciones para unir tablas (joins)
 
 
-![fuente: http://rstudio-pubs-static.s3.amazonaws.com/227171_618ebdce0b9d44f3af65700e833593db.html](joins.png)         
+![fuente: http://rstudio-pubs-static.s3.amazonaws.com/227171_618ebdce0b9d44f3af65700e833593db.html](img/joins.png)         
 
 ###left_join    
 
@@ -199,7 +199,7 @@ __Gather__ es una función que nos permite pasar los datos de forma horizontal a
 
 __spread__ es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
 
-![fuente: http://www.gis-blog.com/data-management-with-r-tidyr-part-1/](spreadVSgather.png)
+![fuente: http://www.gis-blog.com/data-management-with-r-tidyr-part-1/](img/spreadVSgather.png)
 
 ### Gather y Spread
 La función gather nos permite transformar múltiples variables hacia una sola, generando una columna que identificará como categoría lo que antes era una variable. Este tipo de procesamientos será fundamental a la hora de realizar gráficos.

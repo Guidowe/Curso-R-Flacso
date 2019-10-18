@@ -284,18 +284,60 @@ div.tocify {
 <p>El ejercicio consiste en calcular las tasas de actividad, empleo y desempleo, y presentarlas como figuran en el Cuadro 1.1 del <a href="http://www.indec.gob.ar/uploads/informesdeprensa/EPH_cont_1trim17.pdf">Informe técnico elaborado por EPH-INDEC</a>. Luego calcular las mismas tasas, desagregando por sexo.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBQYXNvIDEgbGV2YW50YXIgbGFzIGJhc2VzIGRlIEVQSCB5IHNlbGVjY2lvbmFyIGxhcyB2YXJpYWJsZXMgZGUgaW50ZXLDg8Kpc1xuYGBgXG5gYGAifQ== -->
-<p><code>r</code>r # Paso 1 levantar las bases de EPH y seleccionar las variables de interÃ©s</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQYXNvIDEgbGV2YW50YXIgbGFzIGJhc2VzIGRlIEVQSCB5IHNlbGVjY2lvbmFyIGxhcyB2YXJpYWJsZXMgZGUgaW50ZXLDqXNcbkluZGl2aWR1YWxfdDExNyA8LVxuICByZWFkLnRhYmxlKFwiLi4vRnVlbnRlcy91c3VfaW5kaXZpZHVhbF90MTE3LnR4dFwiLFxuICBzZXAgPSBcIjtcIixcbiAgZGVjID0gXCIsXCIsXG4gIGhlYWRlciA9IFRSVUUsXG4gIGZpbGwgPSBUUlVFIClcblZhcmlhYmxlc19pbnRlcmVzIDwtIGMoXCJBTk80XCIsXCJUUklNRVNUUkVcIixcIkVTVEFET1wiLFwiUE9OREVSQVwiLFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJFR0lPTlwiLFwiQUdMT01FUkFET1wiLFwiUFAwM0pcIixcIklOVEVOU0lcIilcbkJhc2VfSW5kX2NoaWNhIDwtIEluZGl2aWR1YWxfdDExNyAlPiUgXG4gIHNlbGVjdChWYXJpYWJsZXNfaW50ZXJlcylcbmhlYWQoQmFzZV9JbmRfY2hpY2EpXG5gYGAifQ== -->
+<pre class="r"><code># Paso 1 levantar las bases de EPH y seleccionar las variables de interés
+Individual_t117 &lt;-
+  read.table(&quot;../Fuentes/usu_individual_t117.txt&quot;,
+  sep = &quot;;&quot;,
+  dec = &quot;,&quot;,
+  header = TRUE,
+  fill = TRUE )
+Variables_interes &lt;- c(&quot;ANO4&quot;,&quot;TRIMESTRE&quot;,&quot;ESTADO&quot;,&quot;PONDERA&quot;,
+                       &quot;REGION&quot;,&quot;AGLOMERADO&quot;,&quot;PP03J&quot;,&quot;INTENSI&quot;)
+Base_Ind_chica &lt;- Individual_t117 %&gt;% 
+  select(Variables_interes)
+head(Base_Ind_chica)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6OCwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJvVlJ5MjZETUJBMDVoVXNwYTJVejZpQyt2b0JKRkJFMVFBaUhITHBnUkxhb0ZJVEFWRjc3Sy8yUjVJdXhCdWxGbEVQWSsvdWVPemRjZXd1NzlpU0VVSW9VWFdGVUJWQ2pjS2lFSTFZM2Y1RmlEcUJZQVFZQXd4Q3pKOWhJQS9pWVNDdlN0QUVCSzgrRCtPb3Z6NEQ1T2taOVB3M0xFUDRuLzlqak03VGo3eUI0S28zNTFEVW5DQjhFTEdWeFA3Y1d5U3hKd29HSkk0YmlzeU13c0QxWWdmSjJKdjVZU0F5NXN5ZXdqbXd4K042Rk4zY1A2TFdEeEl2V1BoU1MxWmRmZHJZVmpjTEZYTVpjdTlabVRiWU94YlpLbTFUKzdVR1BXUTdTV0pXbTdhb09Jam9STGpNVG43MjlDS2xsZ3FYVzk1MXRacG02eTEvbjk1SzJySFlqWk40ZEhpZTdzVlZCaHFjWitzS0xjdjVXOEZ6bktsTVgvSlNKQmZnUkcrRXZha0wzdUtFVUczc3RtcFRQTWV5cXNSS1B6UFovUUp5MGtZS0V3TUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ANO4"],"name":[1],"type":["int"],"align":["right"]},{"label":["TRIMESTRE"],"name":[2],"type":["int"],"align":["right"]},{"label":["ESTADO"],"name":[3],"type":["int"],"align":["right"]},{"label":["PONDERA"],"name":[4],"type":["int"],"align":["right"]},{"label":["REGION"],"name":[5],"type":["int"],"align":["right"]},{"label":["AGLOMERADO"],"name":[6],"type":["int"],"align":["right"]},{"label":["PP03J"],"name":[7],"type":["int"],"align":["right"]},{"label":["INTENSI"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"2017","2":"1","3":"3","4":"861","5":"43","6":"2","7":"NA","8":"NA","_rn_":"1"},{"1":"2017","2":"1","3":"3","4":"861","5":"43","6":"2","7":"NA","8":"NA","_rn_":"2"},{"1":"2017","2":"1","3":"3","4":"861","5":"43","6":"2","7":"NA","8":"NA","_rn_":"3"},{"1":"2017","2":"1","3":"3","4":"861","5":"43","6":"2","7":"NA","8":"NA","_rn_":"4"},{"1":"2017","2":"1","3":"4","4":"861","5":"43","6":"2","7":"NA","8":"NA","_rn_":"5"},{"1":"2017","2":"1","3":"4","4":"861","5":"43","6":"2","7":"NA","8":"NA","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[8]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBUYXNhcyBCw4PCoXNpY2FzIFRvdGFsIFBhw4PCrXNcbmBgYFxuYGBgIn0= -->
-<p><code>r</code>r # Tasas BÃ¡sicas Total PaÃ­s</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1Bhc28gMiBUYXNhcyBCw6FzaWNhcyBUb3RhbCBQYcOtc1xuVGFzYXMgPC0gQmFzZV9JbmRfY2hpY2EgJT4lIFxuICBzdW1tYXJpc2UoUG9ibGFjaW9uICAgICAgICAgPSBzdW0oUE9OREVSQSksXG4gICAgICAgICAgICBPY3VwYWRvcyAgICAgICAgICA9IHN1bShQT05ERVJBW0VTVEFETyA9PSAxXSksXG4gICAgICAgICAgICBEZXNvY3VwYWRvcyAgICAgICA9IHN1bShQT05ERVJBW0VTVEFETyA9PSAyXSksXG4gICAgICAgICAgICBQRUEgICAgICAgICAgICAgICA9IE9jdXBhZG9zICsgRGVzb2N1cGFkb3MsXG4gICAgICAgICAgICBPY3VwYWRvc19kZW1hbmQgICA9IHN1bShQT05ERVJBW0VTVEFETyA9PSAxICYgUFAwM0ogPT0gMV0pLFxuICAgICAgICAgICAgU3Vib2NfZGVtYW5kYW50ZSAgPSBzdW0oUE9OREVSQVtFU1RBRE8gPT0gMSAmIElOVEVOU0kgPT0gMSAmIFBQMDNKID09IDFdKSxcbiAgICAgICAgICAgIFN1Ym9jX25vX2RlbWFuZCAgID0gc3VtKFBPTkRFUkFbRVNUQURPID09IDEgJiBJTlRFTlNJID09IDEgJiBQUDAzSiAlaW4lIGMoMiwgOSldKSxcbiAgICAgICAgICAgIFN1Ym9jdXBhZG9zICAgICAgID0gU3Vib2NfZGVtYW5kYW50ZSArIFN1Ym9jX25vX2RlbWFuZCxcbiAgICAgICAgICAgICdUYXNhIEFjdGl2aWRhZCcgICAgICAgICAgICAgICAgICA9IFBFQS9Qb2JsYWNpb24sXG4gICAgICAgICAgICAnVGFzYSBFbXBsZW8nICAgICAgICAgICAgICAgICAgICAgPSBPY3VwYWRvcy9Qb2JsYWNpb24sXG4gICAgICAgICAgICAnVGFzYSBEZXNvY3VwYWNpb24nICAgICAgICAgICAgICAgPSBEZXNvY3VwYWRvcy9QRUEsXG4gICAgICAgICAgICAnVGFzYSBvY3VwYWRvcyBkZW1hbmRhbnRlcycgICAgICAgPSBPY3VwYWRvc19kZW1hbmQvUEVBLFxuICAgICAgICAgICAgJ1Rhc2EgU3Vib2N1cGFjacOzbicgICAgICAgICAgICAgICA9IFN1Ym9jdXBhZG9zL1BFQSxcbiAgICAgICAgICAgICdUYXNhIFN1Ym9jdXBhY2nDs24gZGVtYW5kYW50ZScgICAgPSBTdWJvY19kZW1hbmRhbnRlL1BFQSxcbiAgICAgICAgICAgICdUYXNhIFN1Ym9jdXBhY2nDs24gbm8gZGVtYW5kYW50ZScgPSBTdWJvY19ub19kZW1hbmQvUEVBKSAlPiUgXG4gIHNlbGVjdCgtKDE6OCkpICU+JSBcbiAgZ2F0aGVyKC4sa2V5ID0gVGFzYSwgdmFsdWUgPSBWYWxvciwgMTpuY29sKC4pKVxuVGFzYXNcbmBgYCJ9 -->
+<pre class="r"><code>#Paso 2 Tasas Básicas Total País
+Tasas &lt;- Base_Ind_chica %&gt;% 
+  summarise(Poblacion         = sum(PONDERA),
+            Ocupados          = sum(PONDERA[ESTADO == 1]),
+            Desocupados       = sum(PONDERA[ESTADO == 2]),
+            PEA               = Ocupados + Desocupados,
+            Ocupados_demand   = sum(PONDERA[ESTADO == 1 &amp; PP03J == 1]),
+            Suboc_demandante  = sum(PONDERA[ESTADO == 1 &amp; INTENSI == 1 &amp; PP03J == 1]),
+            Suboc_no_demand   = sum(PONDERA[ESTADO == 1 &amp; INTENSI == 1 &amp; PP03J %in% c(2, 9)]),
+            Subocupados       = Suboc_demandante + Suboc_no_demand,
+            'Tasa Actividad'                  = PEA/Poblacion,
+            'Tasa Empleo'                     = Ocupados/Poblacion,
+            'Tasa Desocupacion'               = Desocupados/PEA,
+            'Tasa ocupados demandantes'       = Ocupados_demand/PEA,
+            'Tasa Subocupación'               = Subocupados/PEA,
+            'Tasa Subocupación demandante'    = Suboc_demandante/PEA,
+            'Tasa Subocupación no demandante' = Suboc_no_demand/PEA) %&gt;% 
+  select(-(1:8)) %&gt;% 
+  gather(.,key = Tasa, value = Valor, 1:ncol(.))
+Tasas</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6N30sInJkZiI6Ikg0c0lBQUFBQUFBQUJtVlN5MHJEUUJTZEpIM1lpTFhpUmtHd2UybkFncm9jaFBvRHZpaTZrR2xtYW9QcFRKcUh1bkRod2kvUWxSUkJCRC9BbFhTbjd2MEFBNElyZjhCOWRUS1owWm9HSnBtY3g4MjlKN1BaYU5iTnBna0EwSUdSMTRCdThHMU81emNONUVBcGVaNENZTXdLQVFBVnZvcVNLRytqQUZYWDdkQTVkakRDRXAwVTZFYlhjd21UMEl5QUdpUmdkdVFoMjJGVUV2T0NFQ2htUVJXVExxSVkwWkFFblB4emJrVXQ2Znlpa2xnWUkwYmNVck00cnFIc3Y2eWNqQVBmcXhkTGI3RUw0OTdyOGg1Y2dZOVgxNnZQQjAvd1plS08zc2R0T09pVjhkbm5Ebnd3UHZyVzNBRGV4dnVYTi8yMVRFNTVpcnFpOFlySUtnVnpTUTlLc0l0YzVtZGNKWitkV01vNWxUalBnYmlLMmZLMml3SlZYb0VtUmlHeTJqNzM4N2RoeGxKa1hzakQ1aVk5K1grRnhDRG9kSTBXMHZ3TU1CM1JwQ3Rjc3pzUlBhclZSN3hBZHFxbFhmN3U5ZlR6K3Jjc1ZWQVpFTHVqamtLQjBFT0hFaldUaTFyRVZjZUpKeUdDc0R6Zm9hR2FrS09CRmJJUUtaMXBNMWNoWW1Zdy9BSFlhSUc2eFFJQUFBPT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Tasa"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Valor"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Tasa Actividad","2":"0.45510964"},{"1":"Tasa Empleo","2":"0.41319589"},{"1":"Tasa Desocupacion","2":"0.09209592"},{"1":"Tasa ocupados demandantes","2":"0.14088850"},{"1":"Tasa Subocupación","2":"0.09938135"},{"1":"Tasa Subocupación demandante","2":"0.06646541"},{"1":"Tasa Subocupación no demandante","2":"0.03291594"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[7]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -310,9 +352,8 @@ div.tocify {
 <h2>Ejercicio 2: Calcular el conjunto de tasas básicas, para cada uno de los aglomerados EPH</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBUYXNhcyBCw4PCoXNpY2FzIEFnbG9tZXJhZG9zXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r # Tasas BÃ¡sicas Aglomerados</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUYXNhcyBCw6FzaWNhcyBBZ2xvbWVyYWRvc1xuYGBgIn0= -->
+<pre class="r"><code># Tasas Básicas Aglomerados</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -330,16 +371,15 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBUYXNhcyBCw4PCoXNpY2FzIE11bHRpcGxlcyB0cmltZXN0cmVzXG5cbmBgYFxuYGBgIn0= -->
-<p><code>r</code>r # Tasas BÃ¡sicas Multiples trimestres</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUYXNhcyBCw6FzaWNhcyBNdWx0aXBsZXMgdHJpbWVzdHJlc1xuYGBgIn0= -->
+<pre class="r"><code># Tasas Básicas Multiples trimestres</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkludHJvZHVjY2nDs24gYSBSIHBhcmEgQ2llbmNpYXMgU29jaWFsZXMuIEFwbGljYWNpw7NuIHByw6FjdGljYSBlbiBsYSBFUEgiDQpzdWJ0aXRsZTogIkNsYXNlIDMgLSBQcmFjdGljYSBHdWlhZGEiDQpkYXRlOiAiMjAvMDgvMjAxOSINCm91dHB1dDoNCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0b2M6IHllcw0KICAgIHRvY19mbG9hdDogeWVzDQogIGh0bWxfZG9jdW1lbnQ6DQogICAgdG9jOiB5ZXMNCi0tLQ0KDQo+IFJlaW5pY2lhciBSDQoNCg0KIyMgRWplcmNpY2lvIDE6IENhbGN1bGFyIGVsIGNvbmp1bnRvIGRlIHRhc2FzIGLDoXNpY2FzICANCg0KRWwgZWplcmNpY2lvIGNvbnNpc3RlIGVuIGNhbGN1bGFyIGxhcyB0YXNhcyBkZSBhY3RpdmlkYWQsIGVtcGxlbyB5IGRlc2VtcGxlbywgeSBwcmVzZW50YXJsYXMgY29tbyBmaWd1cmFuIGVuIGVsIEN1YWRybyAxLjEgZGVsIFtJbmZvcm1lIHTDqWNuaWNvIGVsYWJvcmFkbyBwb3IgRVBILUlOREVDXShodHRwOi8vd3d3LmluZGVjLmdvYi5hci91cGxvYWRzL2luZm9ybWVzZGVwcmVuc2EvRVBIX2NvbnRfMXRyaW0xNy5wZGYpLiBMdWVnbyBjYWxjdWxhciBsYXMgbWlzbWFzIHRhc2FzLCBkZXNhZ3JlZ2FuZG8gcG9yIHNleG8uDQoNCmBgYHtyfQ0KIyBQYXNvIDEgbGV2YW50YXIgbGFzIGJhc2VzIGRlIEVQSCB5IHNlbGVjY2lvbmFyIGxhcyB2YXJpYWJsZXMgZGUgaW50ZXLDqXMNCmBgYA0KDQpgYGB7cn0NCiNQYXNvIDIgVGFzYXMgQsOhc2ljYXMgVG90YWwgUGHDrXMNCmBgYA0KDQpgYGB7cn0NCiMgVGFzYXMgQsOhc2ljYXMgZGVzYWdyZWdhZGFzIHBvciBzZXhvDQpgYGANCg0KIyMgRWplcmNpY2lvIDI6IENhbGN1bGFyIGVsIGNvbmp1bnRvIGRlIHRhc2FzIGLDoXNpY2FzLCBwYXJhIGNhZGEgdW5vIGRlIGxvcyBhZ2xvbWVyYWRvcyBFUEggIA0KYGBge3J9DQojIFRhc2FzIELDoXNpY2FzIEFnbG9tZXJhZG9zDQpgYGANCg0KIyMgRWplcmNpY2lvIDI6IEV4dGVuZGVyIHJlYWxpemFkb3MgY8OhbGN1bG9zIGhhY2lhIDIgZGUgbG9zIHRyaW1lc3RyZXMgcGFyYSBsb3MgY3VhbGVzIHNlIGN1ZW50YSBjb24gbGEgYmFzZSBkZSBsYSBFUEggDQpQaXN0YTogRXhwbG9yYXIgbGEgZnVuY2nDs24gKmJpbmRfcm93cyogZGVsIHBhcXVldGUgdGlkeXZlcnNlLCBlamVjdXRhbmRvIGVsIHNpZ3VpZW50ZSBjaHVuayBkZSBjw7NkaWdvDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KP2JpbmRfcm93cw0KYGBgDQoNCmBgYHtyfQ0KIyBUYXNhcyBCw6FzaWNhcyBNdWx0aXBsZXMgdHJpbWVzdHJlcw0KDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkludHJvZHVjY2nDs24gYSBSIHBhcmEgQ2llbmNpYXMgU29jaWFsZXMuIEFwbGljYWNpw7NuIHByw6FjdGljYSBlbiBsYSBFUEgiDQpzdWJ0aXRsZTogIkNsYXNlIDMgLSBQcmFjdGljYSBHdWlhZGEiDQpkYXRlOiAiMjAvMDgvMjAxOSINCm91dHB1dDoNCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0b2M6IHllcw0KICAgIHRvY19mbG9hdDogeWVzDQogIGh0bWxfZG9jdW1lbnQ6DQogICAgdG9jOiB5ZXMNCi0tLQ0KDQo+IFJlaW5pY2lhciBSDQoNCg0KIyMgRWplcmNpY2lvIDE6IENhbGN1bGFyIGVsIGNvbmp1bnRvIGRlIHRhc2FzIGLDoXNpY2FzICANCg0KRWwgZWplcmNpY2lvIGNvbnNpc3RlIGVuIGNhbGN1bGFyIGxhcyB0YXNhcyBkZSBhY3RpdmlkYWQsIGVtcGxlbyB5IGRlc2VtcGxlbywgeSBwcmVzZW50YXJsYXMgY29tbyBmaWd1cmFuIGVuIGVsIEN1YWRybyAxLjEgZGVsIFtJbmZvcm1lIHTDqWNuaWNvIGVsYWJvcmFkbyBwb3IgRVBILUlOREVDXShodHRwOi8vd3d3LmluZGVjLmdvYi5hci91cGxvYWRzL2luZm9ybWVzZGVwcmVuc2EvRVBIX2NvbnRfMXRyaW0xNy5wZGYpLiBMdWVnbyBjYWxjdWxhciBsYXMgbWlzbWFzIHRhc2FzLCBkZXNhZ3JlZ2FuZG8gcG9yIHNleG8uDQoNCmBgYHtyIGVjaG89VFJVRX0NCiMgUGFzbyAxIGxldmFudGFyIGxhcyBiYXNlcyBkZSBFUEggeSBzZWxlY2Npb25hciBsYXMgdmFyaWFibGVzIGRlIGludGVyw6lzDQpJbmRpdmlkdWFsX3QxMTcgPC0NCiAgcmVhZC50YWJsZSgiLi4vRnVlbnRlcy91c3VfaW5kaXZpZHVhbF90MTE3LnR4dCIsDQogIHNlcCA9ICI7IiwNCiAgZGVjID0gIiwiLA0KICBoZWFkZXIgPSBUUlVFLA0KICBmaWxsID0gVFJVRSApDQoNClZhcmlhYmxlc19pbnRlcmVzIDwtIGMoIkFOTzQiLCJUUklNRVNUUkUiLCJFU1RBRE8iLCJQT05ERVJBIiwNCiAgICAgICAgICAgICAgICAgICAgICAgIlJFR0lPTiIsIkFHTE9NRVJBRE8iLCJQUDAzSiIsIklOVEVOU0kiKQ0KDQpCYXNlX0luZF9jaGljYSA8LSBJbmRpdmlkdWFsX3QxMTcgJT4lIA0KICBzZWxlY3QoVmFyaWFibGVzX2ludGVyZXMpDQoNCmhlYWQoQmFzZV9JbmRfY2hpY2EpDQpgYGANCg0KYGBge3IgZWNobz1UUlVFfQ0KI1Bhc28gMiBUYXNhcyBCw6FzaWNhcyBUb3RhbCBQYcOtcw0KVGFzYXMgPC0gQmFzZV9JbmRfY2hpY2EgJT4lIA0KICBzdW1tYXJpc2UoUG9ibGFjaW9uICAgICAgICAgPSBzdW0oUE9OREVSQSksDQogICAgICAgICAgICBPY3VwYWRvcyAgICAgICAgICA9IHN1bShQT05ERVJBW0VTVEFETyA9PSAxXSksDQogICAgICAgICAgICBEZXNvY3VwYWRvcyAgICAgICA9IHN1bShQT05ERVJBW0VTVEFETyA9PSAyXSksDQogICAgICAgICAgICBQRUEgICAgICAgICAgICAgICA9IE9jdXBhZG9zICsgRGVzb2N1cGFkb3MsDQogICAgICAgICAgICBPY3VwYWRvc19kZW1hbmQgICA9IHN1bShQT05ERVJBW0VTVEFETyA9PSAxICYgUFAwM0ogPT0gMV0pLA0KICAgICAgICAgICAgU3Vib2NfZGVtYW5kYW50ZSAgPSBzdW0oUE9OREVSQVtFU1RBRE8gPT0gMSAmIElOVEVOU0kgPT0gMSAmIFBQMDNKID09IDFdKSwNCiAgICAgICAgICAgIFN1Ym9jX25vX2RlbWFuZCAgID0gc3VtKFBPTkRFUkFbRVNUQURPID09IDEgJiBJTlRFTlNJID09IDEgJiBQUDAzSiAlaW4lIGMoMiwgOSldKSwNCiAgICAgICAgICAgIFN1Ym9jdXBhZG9zICAgICAgID0gU3Vib2NfZGVtYW5kYW50ZSArIFN1Ym9jX25vX2RlbWFuZCwNCiAgICAgICAgICAgICdUYXNhIEFjdGl2aWRhZCcgICAgICAgICAgICAgICAgICA9IFBFQS9Qb2JsYWNpb24sDQogICAgICAgICAgICAnVGFzYSBFbXBsZW8nICAgICAgICAgICAgICAgICAgICAgPSBPY3VwYWRvcy9Qb2JsYWNpb24sDQogICAgICAgICAgICAnVGFzYSBEZXNvY3VwYWNpb24nICAgICAgICAgICAgICAgPSBEZXNvY3VwYWRvcy9QRUEsDQogICAgICAgICAgICAnVGFzYSBvY3VwYWRvcyBkZW1hbmRhbnRlcycgICAgICAgPSBPY3VwYWRvc19kZW1hbmQvUEVBLA0KICAgICAgICAgICAgJ1Rhc2EgU3Vib2N1cGFjacOzbicgICAgICAgICAgICAgICA9IFN1Ym9jdXBhZG9zL1BFQSwNCiAgICAgICAgICAgICdUYXNhIFN1Ym9jdXBhY2nDs24gZGVtYW5kYW50ZScgICAgPSBTdWJvY19kZW1hbmRhbnRlL1BFQSwNCiAgICAgICAgICAgICdUYXNhIFN1Ym9jdXBhY2nDs24gbm8gZGVtYW5kYW50ZScgPSBTdWJvY19ub19kZW1hbmQvUEVBKSAlPiUgDQogIHNlbGVjdCgtKDE6OCkpICU+JSANCiAgZ2F0aGVyKC4sa2V5ID0gVGFzYSwgdmFsdWUgPSBWYWxvciwgMTpuY29sKC4pKQ0KDQpUYXNhcw0KYGBgDQoNCmBgYHtyfQ0KIyBUYXNhcyBCw6FzaWNhcyBkZXNhZ3JlZ2FkYXMgcG9yIHNleG8NCmBgYA0KDQojIyBFamVyY2ljaW8gMjogQ2FsY3VsYXIgZWwgY29uanVudG8gZGUgdGFzYXMgYsOhc2ljYXMsIHBhcmEgY2FkYSB1bm8gZGUgbG9zIGFnbG9tZXJhZG9zIEVQSCAgDQpgYGB7cn0NCiMgVGFzYXMgQsOhc2ljYXMgQWdsb21lcmFkb3MNCmBgYA0KDQojIyBFamVyY2ljaW8gMjogRXh0ZW5kZXIgcmVhbGl6YWRvcyBjw6FsY3Vsb3MgaGFjaWEgMiBkZSBsb3MgdHJpbWVzdHJlcyBwYXJhIGxvcyBjdWFsZXMgc2UgY3VlbnRhIGNvbiBsYSBiYXNlIGRlIGxhIEVQSCANClBpc3RhOiBFeHBsb3JhciBsYSBmdW5jacOzbiAqYmluZF9yb3dzKiBkZWwgcGFxdWV0ZSB0aWR5dmVyc2UsIGVqZWN1dGFuZG8gZWwgc2lndWllbnRlIGNodW5rIGRlIGPDs2RpZ28NCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQo/YmluZF9yb3dzDQpgYGANCg0KYGBge3J9DQojIFRhc2FzIELDoXNpY2FzIE11bHRpcGxlcyB0cmltZXN0cmVzDQoNCmBgYA0KDQo=</div>
 
 
 </div>

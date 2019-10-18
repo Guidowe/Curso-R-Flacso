@@ -278,39 +278,25 @@ div.tocify {
 <!-- rnb-text-begin -->
 <div id="ejercicios-vinculados-a-la-estimacion-de-pobreza" class="section level1">
 <h1>Ejercicios vinculados a la estimacion de pobreza</h1>
-<p>Levantar una la base del 1t de 2017</p>
+<p>Levantar la base del 1t de 2017</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UsIHdhcm4gPSBGQUxTRSlcbnZhci5pbmQgPC0gYygnQ09EVVNVJywnTlJPX0hPR0FSJyAsJ0NPTVBPTkVOVEUnLCdBTk80JywnVFJJTUVTVFJFJywnUkVHSU9OJyxcbiAgICAgICAgICAgICAnQUdMT01FUkFETycsICdQT05ERVJBJywgJ0NIMDQnLCAnQ0gwNicsICdJVEYnLCAnUE9ORElIJywnUDIxJylcbmluZGl2aWR1YWwuMTE3IDwtIHJlYWQudGFibGUoXCIuLi9GdWVudGVzL3VzdV9pbmRpdmlkdWFsX3QxMTcudHh0XCIsIHNlcD1cIjtcIiwgZGVjPVwiLFwiLCBoZWFkZXIgPSBUUlVFLCBmaWxsID0gVFJVRSkgJT4lIFxuICBzZWxlY3QodmFyLmluZClcbmBgYCJ9 -->
-<pre class="r"><code>library(tidyverse, warn = FALSE)
-var.ind &lt;- c('CODUSU','NRO_HOGAR' ,'COMPONENTE','ANO4','TRIMESTRE','REGION',
-             'AGLOMERADO', 'PONDERA', 'CH04', 'CH06', 'ITF', 'PONDIH','P21')
-individual.117 &lt;- read.table(&quot;../Fuentes/usu_individual_t117.txt&quot;, sep=&quot;;&quot;, dec=&quot;,&quot;, header = TRUE, fill = TRUE) %&gt;% 
-  select(var.ind)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Estimar cuantas personas habitan en hogares con ingresos totales menores a $15.000</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MSwibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVBRUTdDSUJEYzBtSlRrcXFKN3lnSEx6NUFYK0NwVjZ4Vkd5czBRS05QOEFPZS9Hc1ZDQ1RLaGQyZHpBd3orMTI5SmpVQkFBUXBUZ0NsWnMyUWVSTElvTER6QVpDdUhBQlF1dmw4dnlJUzV1eldLck1zZjhCOE96S3VoWXE0aFJSM0d2aWxOMDVpdzZabktqWWtSNllaUFVtak5kY1VTWEl4NkU1d0kwSTJMbzdFaVl5QXhjaHRpbVBWWEVaK3JUYjJBNThHL3BQRktkSEhXMkZ2Tld2NXVlTnR5TjZ6UTl2N1kyN2F1ckowa0IzWG9ZbEJGZFZDczhBamplZ0Q0cnJCOUFXYml4d0NuQUVBQUE9PSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Cuantos"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"8952725"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 <div id="adultos-equivalentes" class="section level1">
 <h1>Adultos equivalentes</h1>
-<p>Construir una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel que contiene la definición de los <em>AE</em>)</p>
+<p>Construir en la base una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel de la carpeta <em>Fuentes</em> que contiene la definición de los adultos eq.)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>A partir del punto anterior: - ¿Cuantas personas habitan en hogares de 7 o más integrantes? - ¿Cuantos hogares tienen más de 7 o más integrantes? - Construir una variable que exprese el Ingreso Total per capita de cada hogar - Construir una variable que exprese el Ingreso Total por adulto equivalente de cada hogar - Calcular el Ingreso per capita promedio - Calcular el Ingreso por adulto equivalente promedio</p>
+<p>A partir del punto anterior: - ¿Cuantas personas habitan en hogares de 7 o más integrantes? - ¿Cuantos hogares tienen más de 7 o más integrantes? - Construir una variable que exprese el Ingreso Total Familiar (ITF) per capita de cada hogar - Construir una variable que exprese el Ingreso Total Familiar (ITF) por adulto equivalente - Calcular el ITF per capita promedio por Región - Calcular el ITF por adulto equivalente promedio por Region</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
@@ -318,7 +304,7 @@ individual.117 &lt;- read.table(&quot;../Fuentes/usu_individual_t117.txt&quot;, 
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNsYXNlIDQuIFByw6FjdGljYSBndWlhZGEiDQpzdWJ0aXRsZTogIkNsYXNlIDQuIFRpZHl2ZXJzZSAtIFBvYnJlemEiDQpkYXRlOiAiMjcvOC8yMDE5Ig0Kb3V0cHV0Og0KICBodG1sX25vdGVib29rOiANCiAgICB0b2M6IHRydWUNCiAgICB0b2NfZmxvYXQ6IHRydWUgDQotLS0NCg0KDQojIEVqZXJjaWNpb3MgdmluY3VsYWRvcyBhIGxhIGVzdGltYWNpb24gZGUgcG9icmV6YQ0KTGV2YW50YXIgdW5hIGxhIGJhc2UgZGVsIDF0IGRlIDIwMTcgDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlLCB3YXJuID0gRkFMU0UpDQoNCnZhci5pbmQgPC0gYygnQ09EVVNVJywnTlJPX0hPR0FSJyAsJ0NPTVBPTkVOVEUnLCdBTk80JywnVFJJTUVTVFJFJywnUkVHSU9OJywNCiAgICAgICAgICAgICAnQUdMT01FUkFETycsICdQT05ERVJBJywgJ0NIMDQnLCAnQ0gwNicsICdJVEYnLCAnUE9ORElIJywnUDIxJykNCg0KaW5kaXZpZHVhbC4xMTcgPC0gcmVhZC50YWJsZSgiLi4vRnVlbnRlcy91c3VfaW5kaXZpZHVhbF90MTE3LnR4dCIsIHNlcD0iOyIsIGRlYz0iLCIsIGhlYWRlciA9IFRSVUUsIGZpbGwgPSBUUlVFKSAlPiUgDQogIHNlbGVjdCh2YXIuaW5kKQ0KDQpgYGANCg0KRXN0aW1hciBjdWFudGFzIHBlcnNvbmFzIGhhYml0YW4gZW4gaG9nYXJlcyBjb24gaW5ncmVzb3MgdG90YWxlcyBtZW5vcmVzIGEgJDE1LjAwMA0KDQpgYGB7cn0NCmluZGl2aWR1YWwuMTE3ICU+JSANCiAgZmlsdGVyKElURjwxNTAwMCkgJT4lIA0KICBzdW1tYXJpc2UoQ3VhbnRvcz1zdW0oUE9ORElIKSkNCmBgYA0KIyBBZHVsdG9zIGVxdWl2YWxlbnRlcyANCkNvbnN0cnVpciB1bmEgdmFyaWFibGUgcXVlIGlkZW50aWZpcXVlIGVsIHRvdGFsIGRlIHBlcnNvbmFzIHkgZGUgYWR1bHRvcyBlcXVpdmFsZW50ZXMgcHJlc2VudGVzIGVuIGNhZGEgaG9nYXIgKFVzYXIgZWwgZXhjZWwgcXVlIGNvbnRpZW5lIGxhIGRlZmluaWNpw7NuIGRlIGxvcyBfQUVfKQ0KYGBge3J9DQoNCmBgYA0KQSBwYXJ0aXIgZGVsIHB1bnRvIGFudGVyaW9yOg0KIC0gwr9DdWFudGFzIHBlcnNvbmFzIGhhYml0YW4gZW4gaG9nYXJlcyBkZSA3IG8gbcOhcyBpbnRlZ3JhbnRlcz8NCiAtIMK/Q3VhbnRvcyBob2dhcmVzIHRpZW5lbiBtw6FzIGRlIDcgbyBtw6FzIGludGVncmFudGVzPw0KIC0gQ29uc3RydWlyIHVuYSB2YXJpYWJsZSBxdWUgZXhwcmVzZSBlbCBJbmdyZXNvIFRvdGFsIHBlciBjYXBpdGEgZGUgY2FkYSBob2dhcg0KIC0gQ29uc3RydWlyIHVuYSB2YXJpYWJsZSBxdWUgZXhwcmVzZSBlbCBJbmdyZXNvIFRvdGFsIHBvciBhZHVsdG8gZXF1aXZhbGVudGUgZGUgY2FkYSBob2dhcg0KIC0gQ2FsY3VsYXIgZWwgSW5ncmVzbyBwZXIgY2FwaXRhIHByb21lZGlvDQogLSBDYWxjdWxhciBlbCBJbmdyZXNvIHBvciBhZHVsdG8gZXF1aXZhbGVudGUgcHJvbWVkaW8NCmBgYHtyfQ0KDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNsYXNlIDQuIFByw6FjdGljYSBndWlhZGEiDQpzdWJ0aXRsZTogIkNsYXNlIDQuIFRpZHl2ZXJzZSAtIFBvYnJlemEiDQpkYXRlOiAiMjcvOC8yMDE5Ig0Kb3V0cHV0Og0KICBodG1sX25vdGVib29rOiANCiAgICB0b2M6IHRydWUNCiAgICB0b2NfZmxvYXQ6IHRydWUgDQotLS0NCg0KDQojIEVqZXJjaWNpb3MgdmluY3VsYWRvcyBhIGxhIGVzdGltYWNpb24gZGUgcG9icmV6YQ0KTGV2YW50YXIgbGEgYmFzZSBkZWwgMXQgZGUgMjAxNyANCmBgYHtyIGVjaG89VFJVRX0NCg0KYGBgDQoNCkVzdGltYXIgY3VhbnRhcyBwZXJzb25hcyBoYWJpdGFuIGVuIGhvZ2FyZXMgY29uIGluZ3Jlc29zIHRvdGFsZXMgbWVub3JlcyBhICQxNS4wMDANCg0KYGBge3IgZWNobz1UUlVFfQ0KDQpgYGANCiMgQWR1bHRvcyBlcXVpdmFsZW50ZXMgDQpDb25zdHJ1aXIgZW4gbGEgYmFzZSB1bmEgdmFyaWFibGUgcXVlIGlkZW50aWZpcXVlIGVsIHRvdGFsIGRlIHBlcnNvbmFzIHkgZGUgYWR1bHRvcyBlcXVpdmFsZW50ZXMgcHJlc2VudGVzIGVuIGNhZGEgaG9nYXIgKFVzYXIgZWwgZXhjZWwgZGUgbGEgY2FycGV0YSBfRnVlbnRlc18gcXVlIGNvbnRpZW5lIGxhIGRlZmluaWNpw7NuIGRlIGxvcyBhZHVsdG9zIGVxLikNCmBgYHtyIGVjaG89VFJVRX0NCg0KYGBgDQpBIHBhcnRpciBkZWwgcHVudG8gYW50ZXJpb3I6DQogLSDCv0N1YW50YXMgcGVyc29uYXMgaGFiaXRhbiBlbiBob2dhcmVzIGRlIDcgbyBtw6FzIGludGVncmFudGVzPw0KIC0gwr9DdWFudG9zIGhvZ2FyZXMgdGllbmVuIG3DoXMgZGUgNyBvIG3DoXMgaW50ZWdyYW50ZXM/DQogLSBDb25zdHJ1aXIgdW5hIHZhcmlhYmxlIHF1ZSBleHByZXNlIGVsIEluZ3Jlc28gVG90YWwgRmFtaWxpYXIgKElURikgcGVyIGNhcGl0YSBkZSBjYWRhIGhvZ2FyDQogLSBDb25zdHJ1aXIgdW5hIHZhcmlhYmxlIHF1ZSBleHByZXNlIGVsIEluZ3Jlc28gVG90YWwgRmFtaWxpYXIgKElURikgcG9yIGFkdWx0byBlcXVpdmFsZW50ZSANCiAtIENhbGN1bGFyIGVsIElURiBwZXIgY2FwaXRhIHByb21lZGlvIHBvciBSZWdpw7NuIA0KIC0gQ2FsY3VsYXIgZWwgSVRGIHBvciBhZHVsdG8gZXF1aXZhbGVudGUgcHJvbWVkaW8gcG9yIFJlZ2lvbg0KYGBge3IgZWNobz1UUlVFfQ0KDQpgYGANCg0K</div>
 
 
 </div>
