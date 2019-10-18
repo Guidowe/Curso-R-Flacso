@@ -101,7 +101,7 @@ __Clase 6 - Visualización de la información II__
 - [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
 - [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.html)
 
-[Clase 7: Documentación en R. Generación de reportes/informes.](Clase%207%20-%20Markdown/Clase%207.%20Markdown.nb.html)
+Clase 7: Documentación en R. Generación de reportes/informes.
   
 + Temas de clase:
   + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
@@ -110,7 +110,10 @@ __Clase 6 - Visualización de la información II__
     + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
     + Código embebido en el texto para automatización de reportes
 
-+ [Markdown](Clase%207%20-%20Markdown/Clase%207.%20Markdown.Rmd)
+- [Explicación](Clase 7 - Markdown/07_explicacion.nb.html)
+- [Práctica guiada](Clase 7 - Markdown/07_practica_guiada.nb.html)
+- [Práctica guiada - dashboard](Clase 7 - Markdown/07_practica_guiada_dashboard.html)
+- [Práctica independiente](Clase 7 - Markdown/07_practica_independiente.nb.html)
 
 Clase 8: Introducción a R Intermedio:
 
