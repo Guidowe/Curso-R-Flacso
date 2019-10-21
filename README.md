@@ -20,13 +20,14 @@ El presente Taller tiene como objetivo principal introducirse en el aprendizaje 
 La Encuesta Permanente de Hogares será la base de datos de aplicación elegida para el curso, dado que representa un insumo fundamental para realizar estudios sobre el mercado de trabajo y las condiciones de vida de la población. Se hará una introducción a los lineamientos conceptuales principales de la encuesta, en pos de que los y las participantes puedan abordar con datos distintas problemáticas vinculadas al mercado de trabajo y las condiciones de vida de la población.
 
 *** 
-
-#Programa
+  
+# Programa
 
 ### Clases y contenido
 
 
-[Clase 1 - Conceptos Principales de EPH:](https://pablotis.github.io/Presentaciones/clase1_eph.html#1)
+  
+__Clase 1 - Conceptos Principales de EPH:__
   
 + Temas de clase: 
   + Presentación del curso.
@@ -36,8 +37,11 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Definiciones de las principales variables de interés a abordar en el curso: Condición de actividad, categoría ocupacional, precariedad y pobreza
   + Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.
   
++ [Presentación](https://pablotis.github.io/Presentaciones/clase1_eph.html#1)
 
-  [Clase 2 – Introduciendo a R:](Clase%202%20-%20R%20Base/Clase%202-%20Introduccion%20a%20R.html)
+<br>
+
+__Clase 2 – Introduciendo a R:__
   
 + Temas de clase:
   + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
@@ -48,11 +52,14 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Tipos de variable (numérica, de caracteres, lógicas)
   + Lectura y Escritura de Archivos
   
-+ [Presentación](https://pablotis.github.io/Presentaciones/Clase 2 - Presentacion de R.html#1)
-+ [Práctica guiada](Clase%202%20-%20R%20Base/Clase%202-%20Practica%20guiada.rmd)
-+ [Práctica independiente](Clase%202%20-%20R%20Base/Clase%202-%20Practica%20independiente.rmd)
++ [Presentación](https://pablotis.github.io/Presentaciones/clase2_intro_R.html#1)
++ [Explicación](Clase%202%20-%20R%20Base/Clase%202%20-%20Introduccion%20a%20R.nb.html)
++ [Práctica guiada](Clase%202%20-%20R%20Base/Clase%202%20-%20Practica%20guiada.nb.html)
++ [Práctica independiente](Clase%202%20-%20R%20Base/Clase%202%20-%20Practica%20independiente.nb.html)
+  
+<br>
 
-[Clase 3 – Clase 3 - Tidyverse - Tasas basicas](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
+__Clase 3 – Clase 3 - Tidyverse - Tasas basicas__
   
 + Temas de clase:
   + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
@@ -65,10 +72,13 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Cálculo de tasas básicas del mercado de trabajo (tasa de actividad, empleo, desempleo, entre otras) 
   + Cálculo de tasas para distintos subconjuntos poblacionales (por aglomerado, sexo, grupos de edad)
   
-+ [Script](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.R)
-+ [Ejercicios](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Ejercicios.R)
++ [Explicación](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
++ [Práctica guiada](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Practica%20guiada.nb.html)
++ [Práctica Independiente](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Practica%20independiente.nb.html)
+  
+<br>
 
-[Clase 4: Cálculo de tasas de Pobreza e Indigencia.](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.nb.html)
+__Clase 4 - Tidyverse - Pobreza__
   
 + Temas de clase:
   + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
@@ -76,10 +86,11 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Ejercicio de estimación de tasas de Pobreza e Indigencia
   + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
 
-+ [Script](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.R)
-+ [Ejercicios](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Ejercicios.R)
++ [Explicación](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.nb.html?raw=true)
++ [Práctica guiada](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Practica%20guiada.nb.html?raw=true)
++ [Práctica independiente](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Practica%20Independiente.nb.html?raw=true)
   
-
+<br>
 
 __Clase 5 - Visualización de la información I__
   
@@ -91,6 +102,8 @@ __Clase 5 - Visualización de la información I__
 
 - [Explicación](Clase%205%20-%20Graficos_I/05_explicacion.nb.html)
 - [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.html)
+  
+<br>
 
 __Clase 6 - Visualización de la información II__
   
@@ -102,8 +115,10 @@ __Clase 6 - Visualización de la información II__
   
 - [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
 - [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.html)
+  
+<br>
 
-Clase 7: Documentación en R. Generación de reportes/informes.
+__Clase 7: Documentación en R. Generación de reportes/informes.__
   
 + Temas de clase:
   + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
@@ -116,8 +131,10 @@ Clase 7: Documentación en R. Generación de reportes/informes.
 - [Práctica guiada](Clase 7 - Markdown/07_practica_guiada.nb.html)
 - [Práctica guiada - dashboard](Clase 7 - Markdown/07_practica_guiada_dashboard.html)
 - [Práctica independiente](Clase 7 - Markdown/07_practica_independiente.nb.html)
+  
+<br>
 
-Clase 8: Introducción a R Intermedio:
+__Clase 8: Introducción a R Intermedio:__
 
 + Temas de clase: 
   + Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:
@@ -129,8 +146,10 @@ Clase 8: Introducción a R Intermedio:
 - [Explicación](Clase%208%20-%20Programacion%20funcional/explicacion.nb.html)
 - [Práctica Guiada](Clase%208%20-%20Programacion%20funcional/practica_guiada.nb.html)
 - [Pŕactica independiente](Clase%208%20-%20Programacion%20funcional/practica_independiente.nb.html)
+  
+<br>
 
-[Clase 9: Trabajos prácticos: R en concreto / examen]
+__Clase 9: Trabajos prácticos: R en concreto / examen__
   
 
 + Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. Entre los temas giran aquellos vinculados a la distribución personal del ingreso/Construcción de percentiles de ingreso; el mercado laboral a través de la herramienta Panel de datos; la documentación en R (Estilo de Notas de Clase).
