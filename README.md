@@ -37,7 +37,7 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.
   
 
-[Clase 2 – Introduciendo a R:](Clase%202%20-%20R%20Base/Clase%202%20-%20Introduccion.nb.html)
+  [Clase 2 – Introduciendo a R:](Clase%202%20-%20R%20Base/Clase%202-%20Introduccion%20a%20R.html)
   
 + Temas de clase:
   + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
@@ -48,10 +48,11 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   + Tipos de variable (numérica, de caracteres, lógicas)
   + Lectura y Escritura de Archivos
   
-+ [Script](Clase%202%20-%20R%20Base/Clase%202-%20Introduccion.r)
-+ [Ejercicios](Clase%202%20-%20R%20Base/Clase%202%20-%20Ejercicios.R)
++ [Presentación](https://pablotis.github.io/Presentaciones/Clase 2 - Presentacion de R.html#1)
++ [Práctica guiada](Clase%202%20-%20R%20Base/Clase%202-%20Practica%20guiada.rmd)
++ [Práctica independiente](Clase%202%20-%20R%20Base/Clase%202-%20Practica%20independiente.rmd)
 
-[Clase 3 – Trabajando con bases de datos y Mercado de Trabajo:](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
+[Clase 3 – Clase 3 - Tidyverse - Tasas basicas](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
   
 + Temas de clase:
   + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
