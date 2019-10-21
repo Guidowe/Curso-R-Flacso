@@ -1,7 +1,7 @@
 
 # Materiales de cursada
 [![](img/Download.png)](Materiales.zip)
-***
+
 
 
 > Docentes: Pablo Tiscornia - Guido Weksler - Diego Kozlowski - Natsumi Shokida.

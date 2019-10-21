@@ -1,0 +1,56 @@
+---
+title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la EPH"
+subtitle: "Clase 2 - Practica independiente"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+  html_document:
+    toc: yes
+---
+
+
+# Ejercicios de práctica
+
+- Crear un OBJETO llamado _COSA_ definido como el resultado de la multiplicación: 5*6
+```{r}
+
+```
+
+
+- Crear un VECTOR _VECTOR0_ que contenga los números 10, 20, 30.
+```{r}
+
+```
+
+
+- Modificar el segundo elemento del _VECTOR0_, asignandole el valor *40*
+```{r}
+
+```
+
+
+- Crear 3 vectores con la misma cantidad de elementos que VEC0, pero con variables string (texto) ( _VECTOR1_, _VECTOR2_, _VECTOR3_).
+- Crear un dataframe _DATAF_ como combinación de todos los __vectores__ creados previamente
+```{r}
+
+```
+
+
+- Crear un objeto llamado *OTRA_COSA* que guarde el valor contenido en la segunda fila y tercera columna del dataframe _DATAF_
+```{r}
+
+```
+
+
+- Levantar la base Individual del 4to trimestre de 2016 de la EPH
+```{r}
+
+```
+
+
+- Levantar del Excel llamado CANASTAS que se encuentra en la carpeta de Fuentes, la hoja "CBA" y definirla como _HojaCBA_.
+```{r}
+
+```
+
