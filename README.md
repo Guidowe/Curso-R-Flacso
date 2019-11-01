@@ -106,17 +106,22 @@ __Clase 5 - Visualización de la información__
   
 <br>
 
-__Clase 6 - Visualización de la información II__
-  
+__Clase 6 - Correlación y Modelo Lineal__
+
 + Temas de clase:
-  + Gráficos de ingresos
-  + Kernels
-  + Suavizado estadístico
-  + Treemaps
+  + Covarianza
+  + Correlación
+  + Regresión lineal simple
+  + Regresión lineal múltiple
+  + Ingeniería de variables
+  + Transformaciones log-lineales
   
-- [Explicación](Clase%206%20-%20Graficos_II/06_explicacion.nb.html)
-- [Práctica independiente](Clase%206%20-%20Graficos_II/06_practica_independiente.nb.html)
-  
+- [Explicación](Clase 6 - Modelo-lineal/06_explicacion.nb.html)
+- [Práctica Guiada](Clase 6 - Modelo-lineal/06_practica_guiada.nb.html)
+- [Pŕactica independiente](Clase 6 - Modelo-lineal/ejercicios_modelo_lineal)
+
+
+
 <br>
 
 __Clase 7: Documentación en R. Generación de reportes/informes.__
