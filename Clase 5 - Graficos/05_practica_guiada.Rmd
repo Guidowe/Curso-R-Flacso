@@ -1,11 +1,11 @@
 ---
-title:  Visualización de la información II
+title:  Visualización de la información
 output:
   html_notebook:
     toc: yes
     toc_float: yes
 date: ""
-subtitle: Explicación
+subtitle: Práctica Guiada
 ---
 
 ### Caso práctico: Gráficos de ingresos - EPH

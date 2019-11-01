@@ -92,7 +92,7 @@ __Clase 4 - Tidyverse - Pobreza__
   
 <br>
 
-__Clase 5 - Visualización de la información I__
+__Clase 5 - Visualización de la información__
   
 + Temas de clase:
   + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
@@ -100,8 +100,9 @@ __Clase 5 - Visualización de la información I__
     + Gráficos de línea, barras, Boxplots 
     + Extensiones de ggplot
 
-- [Explicación](Clase%205%20-%20Graficos_I/05_explicacion.nb.html)
-- [Práctica independiente](Clase%205%20-%20Graficos_I/05_practica_independiente.nb.html)
+- [Explicación](Clase%205%20-%20Graficos/05_explicacion.nb.html)
+- [Práctica Guiada](Clase%205%20-%20Graficos/05_practica_guiada.nb.html)
+- [Práctica independiente](Clase%205%20-%20Graficos/05_practica_independiente.nb.html)
   
 <br>
 
