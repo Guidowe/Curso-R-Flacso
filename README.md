@@ -106,7 +106,23 @@ __Clase 5 - Visualización de la información__
   
 <br>
 
-__Clase 6 - Correlación y Modelo Lineal__
+__Clase 6: Documentación en R. Generación de reportes/informes.__
+  
++ Temas de clase:
+  + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
+    + Opciones para mostrar u ocultar código en los reportes
+    + Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe
+    + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
+    + Código embebido en el texto para automatización de reportes
+
+- [Explicación](Clase 6 - Markdown/06_explicacion.nb.html)
+- [Práctica guiada](Clase 6 - Markdown/06_practica_guiada.nb.html)
+- [Práctica guiada - dashboard](Clase 6 - Markdown/06_practica_guiada_dashboard.html)
+- [Práctica independiente](Clase 6 - Markdown/06_practica_independiente.nb.html)
+
+<br>
+
+__Clase 7 - Correlación y Modelo Lineal__
 
 + Temas de clase:
   + Covarianza
@@ -116,27 +132,9 @@ __Clase 6 - Correlación y Modelo Lineal__
   + Ingeniería de variables
   + Transformaciones log-lineales
   
-- [Explicación](Clase 6 - Modelo-lineal/06_explicacion.nb.html)
-- [Práctica Guiada](Clase 6 - Modelo-lineal/06_practica_guiada.nb.html)
-- [Pŕactica independiente](Clase 6 - Modelo-lineal/ejercicios_modelo_lineal)
-
-
-
-<br>
-
-__Clase 7: Documentación en R. Generación de reportes/informes.__
-  
-+ Temas de clase:
-  + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
-    + Opciones para mostrar u ocultar código en los reportes
-    + Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe
-    + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
-    + Código embebido en el texto para automatización de reportes
-
-- [Explicación](Clase 7 - Markdown/07_explicacion.nb.html)
-- [Práctica guiada](Clase 7 - Markdown/07_practica_guiada.nb.html)
-- [Práctica guiada - dashboard](Clase 7 - Markdown/07_practica_guiada_dashboard.html)
-- [Práctica independiente](Clase 7 - Markdown/07_practica_independiente.nb.html)
+- [Explicación](Clase 7 - Modelo-lineal/07_explicacion.nb.html)
+- [Práctica Guiada](Clase 7 - Modelo-lineal/07_practica_guiada.nb.html)
+- [Pŕactica independiente](Clase 7 - Modelo-lineal/ejercicios_modelo_lineal)
   
 <br>
 
