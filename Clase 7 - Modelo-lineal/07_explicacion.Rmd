@@ -80,7 +80,7 @@ Para ver una implementación práctica de estos conceptos, vamos a utilizar la l
 
 - Con `ggpairs()`, podemos graficar todas las variables, y buscar las correlaciones. Coloreamos por:
 
--$am$: Tipo de transmisión: automático (am=0) o manual (am=1)
+- $am$: Tipo de transmisión: automático (am=0) o manual (am=1)
 
 
 ```{r message=FALSE, warning=FALSE, fig.width=10, fig.height=10}
