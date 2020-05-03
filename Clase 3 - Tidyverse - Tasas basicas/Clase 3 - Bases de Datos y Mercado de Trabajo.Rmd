@@ -51,7 +51,7 @@ Aglom <- read.xlsx("../Fuentes/Aglomerados EPH.xlsx")
 Para mostrar el funcionamiento básico de tydyverse, crearemos un pequeño subset de datos de la base Individual de la EPH. A partir del lenguaje base, especificaremos conservar las primeras 5000 filas, y una serie de variables de interés, tales como el código identificador del aglomerado, sexo, edad, y ponderación de cada registro.
 ```{r}
 Datos  <- Individual_t117[1:5000,
-                          c("AGLOMERADO","CH04","CH06","PONDERA")]
+c("AGLOMERADO","CH04","CH06","PONDERA")]
 Datos
 ```
 Téngase en cuenta que los resultados de estos ejercicios no serán representativos dado que se trata de un recorte de la base.
@@ -69,7 +69,7 @@ Veamos las principales funciones que pueden utilizarse con la lógica de este pa
 Permite filtrar la tabla acorde al cumplimiento de condiciones lógicas
  
 ```{r}
-Datos %>% 
+pepito <- Datos %>% 
   filter(CH04==1 , CH06>=50)
 
 ```
@@ -87,6 +87,7 @@ Permite renombrar una columna de la tabla. Funciona de la siguiente manera:
 Datos <- Datos %>% 
   rename(EDAD = CH06)
 Datos
+
 ```
 Nótese que a diferencia del ejemplo de la función __filter__ donde utilizábamos __==__ para comprobar una condición lógica, en este caso se utiliza sólo un __=__ ya que lo estamos haciendo es _asignar_ un nombre.
 
@@ -109,7 +110,7 @@ Su funcionamiento es el siguiente:
 Datos <- Datos %>% 
   mutate(Grupos_Etarios = case_when(EDAD  < 18   ~ "Menores",
                                  EDAD  %in%  18:65   ~ "Adultos",
-                                 EDAD  > 65   ~ "Adultos Mayores"))
+                                 EDAD  > 65 ~ "Adultos Mayores"))
 Datos
 ```
 
@@ -121,7 +122,7 @@ Datos %>%
 
 
 Datos %>% 
-  select(-c(PONDERA,EDAD))
+  select(3:ncol(.))
 
 ```
 
@@ -136,9 +137,15 @@ Datos
 ### summarise
 Crea una nueva tabla que resume la información original. Para ello, definimos las variables de resumen y las formas de agregación.
 ```{r}
+valor <- mean(Datos$EDAD)
+weighted.mean(Datos$EDAD,Datos$PONDERA)
+
 Datos %>% 
-  summarise(Edad_prom = mean(EDAD),
-            Edad_prom_pond = weighted.mean(EDAD,PONDERA))
+  mutate(Edad2=case_when(EDAD <0 ~ 0.5,
+                          TRUE ~  as.numeric(EDAD)))
+  #        
+  # summarise(Edad_prom = mean(EDAD),
+  #           Edad_prom_pond = weighted.mean(x = EDAD,w = PONDERA))
 
 ```
 
@@ -192,12 +199,27 @@ Poblacion_Aglomerados
 ```
 
 ## Tidyr
-
 El paquete tidyr esta pensado para facilitar el emprolijamiento de los datos.
+###pivot_longer
+Nos permite pivotear los datos en columnas hacia una única variable. El *"longer"* refiere a que ahora nuestro dataframe va a tener más filas (y menos columnas)  
+```{r}
+pob.aglo.long <- Poblacion_Aglomerados %>% 
+  pivot_longer(cols = 2:3,names_to = "Sexo",values_to = "Poblacion")
 
-__Gather__ es una función que nos permite pasar los datos de forma horizontal a una forma vertical. 
+pob.aglo.long
+```
+###pivot_wider
+Es el opuesto de **pivot_longer**. Nos permite pivotear los datos de una  variable para obtener múltiples columnas en función de alguna variable categórica que clasifique a la anterior. El "wider" refiere a que ahora nuestro dataframe va a tener menos filas (y más columnas)  
+```{r}
+pob.aglo.long %>% 
+  pivot_wider(names_from = "Sexo",values_from = "Poblacion")
+  
+```
 
-__spread__ es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
+
+__Gather__ (Versión anterior del pivot_longer) es una función que nos permite pasar los datos de forma horizontal a una forma vertical. 
+
+__spread__ (Versión anterior del pivot_wider) es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
 
 ![fuente: http://www.gis-blog.com/data-management-with-r-tidyr-part-1/](img/spreadVSgather.png)
 
@@ -207,10 +229,10 @@ La función gather nos permite transformar múltiples variables hacia una sola, 
 ```{r}
 
 Datos_gather <- Poblacion_Aglomerados %>%  
-  gather(.,         # el . llama a lo que esta atras del %>% 
-   key   = Grupo,   # como se llamará la variable que toma los nombres de las columnas 
-   value = Total,  # como se llamará la variable que toma los valores de las columnas
-   2:3)             #le indico que columnas juntar
+  gather(.,
+   key   = Grupo,
+   value = Total, 
+   2:3)  
 
 Datos_gather
 ```
@@ -264,7 +286,7 @@ Empleo
 En caso de querer expresar los resultados como porcentajes, utilizamos la función __sprintf__. Para ello debemos utilizar __mutate__ para transformar la columna Tasa_Empleo
 ```{r}
 Empleo %>% 
-  mutate(Tasa_Empleo_Porc = sprintf("%1.1f%%", 100*Tasa_Empleo))
+  mutate(Tasa_Empleo_Porc = sprintf("%1.1f%%",100*Tasa_Empleo))
 ```
 Nótese que en este caso, para poder añadir el %, la función transforma a la variable en un Character, por ende debe tenerse en cuenta que se pierde la información del numero completo.
 
@@ -276,7 +298,7 @@ Como vieramos en la clase 1, la función __write.xlsx__ de la libreria _openxlsx
 Lista_a_exportar <- list("Tasa de Empleo"  = Empleo,
                          "Poblacion Aglos" = Poblacion_Aglomerados)
 
-write.xlsx(Lista_a_exportar,"../Resultados/Informe Mercado de Trabajo.xlsx")
+write.xlsx(x = Lista_a_exportar,file = "../Resultados/ejercicioclase3.xlsx")
 
 ```
 
