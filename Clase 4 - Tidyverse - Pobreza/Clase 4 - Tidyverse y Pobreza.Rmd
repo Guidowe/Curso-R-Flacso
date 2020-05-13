@@ -10,7 +10,7 @@ output:
 
 # Cálculo de Pobreza por Línea
 
-En esta clase abordaremos conceptos teóricos y definiciones metodológicas de la medición "indirecta" de la pobreza, a través del metodo usualmente conococido como "Porbreza por Línea", acorde a la [Metodología n° 22 de INDEC](https://www.indec.gob.ar/ftp/cuadros/sociedad/EPH_metodologia_22_pobreza.pdf]).  
+En esta clase abordaremos conceptos teóricos y definiciones metodológicas de la medición "indirecta" de la pobreza, a través del metodo usualmente conococido como "Porbreza por Línea", acorde a la [Metodología n° 22 de INDEC](https://www.indec.gob.ar/ftp/cuadros/sociedad/EPH_metodologia_22_pobreza.pdf).  
 Luego, procederemos a realizar una estimación de la incidencia de la pobreza e indigencia por personas.
 
 Conceptos a abordar:  
