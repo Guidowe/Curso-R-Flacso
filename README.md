@@ -92,8 +92,9 @@ __Clase 4 - Tidyverse - Pobreza__
   
 <br>
 
-__Clase 5 - Visualización de la información__
-[![](img/Download.png)](Clase%205%20-%20Graficos.zip)
+__Clase 5 - Visualización de la información__  
+
+[![](img/Download.png)](Clase%205%20-%20Graficos.rar)
 
 + Temas de clase:
   + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
