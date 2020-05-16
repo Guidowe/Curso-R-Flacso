@@ -12,18 +12,27 @@ output:
 # Ejercicios vinculados a la estimacion de pobreza
 Levantar la base del 1t de 2017 
 ```{r echo=TRUE}
-
+library(readxl)
+library(tidyverse)
+ADEQUI <- read_excel("../Fuentes/ADEQUI.xlsx")
+base <- read.table("../Fuentes/usu_individual_t117.txt",header = T,sep = ";",dec = ",")
 ```
 
 Estimar cuantas personas habitan en hogares con ingresos totales menores a $15.000
 
 ```{r echo=TRUE}
-
+base2 <- base %>% 
+  summarise(Casos = n(),
+            Casos_Ponderados =sum(PONDIH[ITF<15000]))
 ```
 # Adultos equivalentes 
 Construir en la base una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel de la carpeta _Fuentes_ que contiene la definición de los adultos eq.)
 ```{r echo=TRUE}
-
+base_con_identificador <- base %>% 
+  left_join(ADEQUI,by = c("CH04", "CH06")) %>% 
+  group_by(CODUSU,NRO_HOGAR) %>% 
+  mutate(Personas_en_hogar = n(),
+         adequi_en_hogar = sum(adequi))
 ```
 A partir del punto anterior:
  - ¿Cuantas personas habitan en hogares de 7 o más integrantes?
@@ -33,6 +42,11 @@ A partir del punto anterior:
  - Calcular el ITF per capita promedio por Región 
  - Calcular el ITF por adulto equivalente promedio por Region
 ```{r echo=TRUE}
+Rta <- base_con_identificador %>% 
+  ungroup() %>% 
+  filter(Personas_en_hogar>=7) %>% 
+  summarise(Casos = sum(PONDIH))
 
+Rta
 ```
 

@@ -1,0 +1,210 @@
+---
+title: "Análisis de la situación de las mujeres frente a los ingresos"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+date: "30/09/2019"
+---
+
+# Mujeres con Ingresos propios, por deciles
+
+## Introducción
+
+El objetivo de este ejercicio es analizar la proporción de mujeres de 18 a 60 años que cuenta con ingresos propios, tanto laborales como no laborales.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse, warn = FALSE)
+library(openxlsx, warn = FALSE)
+library(ggplot2)
+library(eph) #agrego librería EPH para etiquetar
+```
+
+
+```{r}
+Base_Mujer <- c('CODUSU','NRO_HOGAR' ,'COMPONENTE','ANO4','TRIMESTRE','REGION',
+             'AGLOMERADO', 'PONDERA', 'CH04', 'CH06', 'ITF', 'PONDIH','P47T', 'DECCFR',"PONDII")
+
+base_individual <- read.table("../Fuentes/usu_individual_t117.txt", sep=";", dec=",", header = TRUE, fill = TRUE) %>%
+ select(Base_Mujer)
+
+describe(base_individual$PONDII)
+```
+Para ello, es necesario calcular el total de mujeres y varones que cuentan con ingresos propios
+
+```{r warning=FALSE}
+individual_etiquetada <- base_individual %>% 
+  #eph::organize_labels(.) %>%
+  mutate(Sexo  = as.character(CH04),             
+         Sexo = case_when(Sexo=="1" ~ "Varones",
+                           Sexo=="2" ~ "Mujeres"))
+
+ # Con el paquete EPH podes prescindir de etiquetar a mano, igual es super válido lo que hiciste 
+```
+
+```{r}
+individual_etiquetada <- individual_etiquetada %>% 
+  filter(CH06 >= 18 & CH06<=60)
+```
+
+```{r}
+tabla1.1 <- individual_etiquetada %>% 
+  group_by(Sexo) %>% 
+  summarise(Poblacion         = sum(PONDERA),
+            Ingresos_Individuales = sum(PONDIH))
+tabla1.1
+#No me quedó del todo claro que querías ver acá, pero a priori el ponderador de ingresos individuales es PONDII
+```
+
+```{r}
+individual_etiquetada <- individual_etiquetada %>% 
+  mutate(TramoEdad = case_when(CH06>=18 & CH06<=24 ~ "18-24",
+                               CH06>=25 & CH06<=45 ~ "25-45",
+                               CH06>=46 & CH06<=60 ~ "46-60"))
+individual_etiquetada
+```
+
+
+```{r}
+tabla1.2. <- individual_etiquetada %>%
+  group_by(Sexo,TramoEdad) %>%
+  summarise(Poblacion = sum(PONDERA))
+tabla1.2.
+
+```
+
+Intersa conocer la población que cuenta con ingresos propios. Por lo tanto, vamos a recategorizar la variable 'P47T'que representa la sumatoria ingresos laborales y no laborales, en una nueva variable que asume el valor '1' si el individuo cuenta con algún valor positivo como ingresos totales. En caso de que esta variable 'P47T' cuente con valor '0'o '-9' (no corresponde), se asume que la persona no tiene ingresos propios, por lo que la nueva variable asumirá valor '0'.
+
+```{r}
+####AGREGO Comentarios####
+
+individual_etiquetada <- individual_etiquetada %>% 
+  mutate(IngresosPropios = case_when(P47T>0   ~ "1",
+                                     P47T==0  ~ "0",
+                                     P47T==-9 ~ "0"))
+
+#Veo cuantos casos sob con uno y otro ponderador. tomando pondera se estan tomando casos de ingreso 0, a las no respuesta (P47T==-9). 
+calculate_tabulates(base = individual_etiquetada,
+                    x = "IngresosPropios",
+                    weights = "PONDERA",
+                    add.percentage = "col"
+                    ) 
+
+calculate_tabulates(base = individual_etiquetada,
+                    x = "IngresosPropios",
+                    weights = "PONDII",
+                    add.percentage = "col")    
+
+
+``` 
+
+```{r warning=FALSE}
+####AGREGO UN CHUNK####
+
+#Una vez que identificase los casos con y sin ingreso, esta misma función de calculate_tabulates puede usarsse para hacer los cruces 
+Cruce_Edad <- calculate_tabulates(base = individual_etiquetada,
+                    x = "IngresosPropios",
+                    y = "TramoEdad",
+                    weights = "PONDII",
+                    add.percentage = "col")    
+
+
+Cruce_Edad
+
+Base_con_Etiquetas_del_paquete <- individual_etiquetada %>% 
+  eph::organize_labels()
+Cruce_Sexo <- calculate_tabulates(base = Base_con_Etiquetas_del_paquete, 
+                    x = "IngresosPropios",
+                    y = "CH04",
+                    weights = "PONDII",
+                    add.percentage = "col")    
+
+Cruce_Sexo
+```
+
+```{r}
+####AGREGO UN CHUNK####
+#Podria crear una variable que mezcle as otras dos para hacer el conteo total por tramos de edad y por sexo
+Base_calculo_sexo_edad <- Base_con_Etiquetas_del_paquete %>% 
+  mutate(Sexo_Edad = paste0(Sexo," - ",TramoEdad))
+
+#Veo que valores toma la variable
+unique(Base_calculo_sexo_edad$Sexo_Edad)
+
+Cruce_Sexo_Edad <- calculate_tabulates(base = Base_calculo_sexo_edad, 
+                    x = "IngresosPropios",
+                    y = "Sexo_Edad",
+                    weights = "PONDII",
+                    add.percentage = "col") 
+Cruce_Sexo_Edad
+```
+
+
+Realizamos el cálculo de la proporción de mujeres de entre 18 y 60 años que cuentan con ingresos propios.
+Para ello, se calcula el total de población que cuenta con ingresos propios...
+
+```{r}
+PoblacionIngr <- individual_etiquetada %>%
+  group_by(TramoEdad) %>%
+  summarise(PoblacionIngr = sum(PONDIH))
+
+```
+
+Para luego utilizarlo como denominador para el cálculo de la proporción de mujeres y varones que cuentan con ingresos propios, por tramo de edad (tabla 1.4).
+
+```{r}
+tabla1.3 <- individual_etiquetada %>%
+  filter(CH04 == 2) %>%
+  filter(IngresosPropios == 1) %>%
+  group_by(TramoEdad) %>%
+  summarise(MujeresIngr = sum(PONDIH))
+tabla1.3
+```
+
+
+```{r}
+tabla1.4 <- individual_etiquetada %>%
+  filter(IngresosPropios == 1) %>%
+  group_by(TramoEdad, Sexo) %>%
+  summarise(MujeresIngr = sum(PONDIH))
+tabla1.4
+```
+
+Luego, para los mismos tramos de edad definidos, estimamos el total de población de ese período. Este valor nos permitirá calcular la proporción buscada.
+```{r}
+tabla1.5 <- individual_etiquetada %>%
+  filter(IngresosPropios == 1) %>%
+  group_by(TramoEdad) %>%
+  summarise(PoblIngr = sum(PONDIH))
+tabla1.5
+```
+Finalmente, la Tabla 1.6 muestra, para cada tramo de edad definido, la proporción de mujeres y varones que cuentan con ingresos propios. Tal como se observa en el gráfico correspondiente que, en proporción, son menos las mujeres con ingresos propios. Esto se corrobora para todos los tramos de edad analizados, aunque la brecha es más profunda entre los más jóvenes. Para el tramo de 46 a 60 años es probable que esté impactando el ingreso por jubilaciones y pensiones contributivas y no contributivas (PUAM). 
+```{r}
+prueba <- tabla1.4 %>%
+  left_join(., tabla1.5, by = 'TramoEdad')
+
+Tabla1.6 <- prueba %>% 
+  mutate(tramos_prop = round(MujeresIngr / PoblIngr * 100,2))
+Tabla1.6
+
+ggplot(Tabla1.6, 
+       aes(x = '', tramos_prop, 
+           fill = Sexo, 
+           group= Sexo, 
+           label = paste0(tramos_prop, "%"))) +
+  geom_col(position = "dodge") +
+  geom_text(position = position_dodge(width = .9), vjust =2, size = 6) +
+  theme_void() +
+  facet_grid(~TramoEdad) +
+  labs(caption = "Fuente: Elaboración propia en base a EPH-INDEC")
+```
+
+```
+
+
+

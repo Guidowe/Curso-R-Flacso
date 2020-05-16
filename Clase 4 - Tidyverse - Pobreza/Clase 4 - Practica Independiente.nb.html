@@ -281,11 +281,24 @@ div.tocify {
 <p>Levantar la base del 1t de 2017</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkeGwpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbkFERVFVSSA8LSByZWFkX2V4Y2VsKFwiLi4vRnVlbnRlcy9BREVRVUkueGxzeFwiKVxuYmFzZSA8LSByZWFkLnRhYmxlKFwiLi4vRnVlbnRlcy91c3VfaW5kaXZpZHVhbF90MTE3LnR4dFwiLGhlYWRlciA9IFQsc2VwID0gXCI7XCIsZGVjID0gXCIsXCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(readxl)
+library(tidyverse)
+ADEQUI &lt;- read_excel(&quot;../Fuentes/ADEQUI.xlsx&quot;)
+base &lt;- read.table(&quot;../Fuentes/usu_individual_t117.txt&quot;,header = T,sep = &quot;;&quot;,dec = &quot;,&quot;)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Estimar cuantas personas habitan en hogares con ingresos totales menores a $15.000</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVEzUTdCTUJRKzYyWmlDVm5pT1N4QlBBRVBJSzdjU1czRllscHBLenlDRjNEbCtid0dUcXZGZHRIMk8xL1A5NTJmeFd3NVNwWUpBQkFJV3dHUUVHRkU4QW9nZ281NUx3QmgzeVlBZE8wSFBNWmZmTDNmR29JV3B3ZW1FS1JXNU1ncFZVSzVJTFhCYWk1NHdTUXRrSzg3ZEtRNFo5N0ZsVFNuWGlhdnFQSmxQSmtVVk5Oc0kxR0wwYk1oYVl1akxnVkhFVEVEeFVid2M2OFpCYkpCcENkdU9pb0crZTdFOTRQSjhFOE05VGEvbUh6cWs1ZnppcDFYeFBLZGNEaG1mRnR5NW9lcTZKcFZMdWpoR3V3V3NxTXN1ZllqSXFzeUxUVDFlVWt1S3MvWW9lSDVCaWxwVlhQWEFRQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Casos"],"name":[1],"type":["int"],"align":["right"]},{"label":["Casos_Ponderados"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"58675","2":"8952725"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -294,17 +307,33 @@ div.tocify {
 <p>Construir en la base una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel de la carpeta <em>Fuentes</em> que contiene la definición de los adultos eq.)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmFzZV9jb25faWRlbnRpZmljYWRvciA8LSBiYXNlICU+JSBcbiAgbGVmdF9qb2luKEFERVFVSSkgJT4lIFxuICBncm91cF9ieShDT0RVU1UsTlJPX0hPR0FSKVxuXG5gYGAifQ== -->
+<pre class="r"><code>base_con_identificador &lt;- base %&gt;% 
+  left_join(ADEQUI) %&gt;% 
+  group_by(CODUSU,NRO_HOGAR)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSm9pbmluZywgYnkgPSBjKFwiQ0gwNFwiLCBcIkNIMDZcIilcbiJ9 -->
+<pre><code>Joining, by = c(&quot;CH04&quot;, &quot;CH06&quot;)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>A partir del punto anterior: - ¿Cuantas personas habitan en hogares de 7 o más integrantes? - ¿Cuantos hogares tienen más de 7 o más integrantes? - Construir una variable que exprese el Ingreso Total Familiar (ITF) per capita de cada hogar - Construir una variable que exprese el Ingreso Total Familiar (ITF) por adulto equivalente - Calcular el ITF per capita promedio por Región - Calcular el ITF por adulto equivalente promedio por Region</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MSwibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFTd3JDTUJDZHBoOXBRU2tJM3NLQUxyeUFuc0JWdDdHTnRsZ1RhVkowNlRFOHJUb0ppWlFFTWpONXZMeVpOOGREdFMycUFnQUl4R2tFSk1ZeUlSZ2lTQ0EzK1FrUUx5MEFNTGVadmxjQktSWHN4aFVXNVJUY015VlZ5S3g3cGtKbTBURE42SGxBa1lDZUQvSkJ2YmpwVGw0WXZuZ3dmUUx5VE41MUp3VlNpUms0TThwdThDam9HQTBCVUk3Q3RHbldkVHVLNjNxM21YeUd2L1BwRnV3MS9jblhhV1ZPSytGMUsxMmRjWEhwQlBmdWUzYml2WHNzMEp1MVJ1OURKN1RmQmFLS2FxbVo1eFcxN0QxaVRjUG5CK0pFMVlXM0FRQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Casos"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"3053590"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNsYXNlIDQuIFByw6FjdGljYSBndWlhZGEiDQpzdWJ0aXRsZTogIkNsYXNlIDQuIFRpZHl2ZXJzZSAtIFBvYnJlemEiDQpkYXRlOiAiMjcvOC8yMDE5Ig0Kb3V0cHV0Og0KICBodG1sX25vdGVib29rOiANCiAgICB0b2M6IHRydWUNCiAgICB0b2NfZmxvYXQ6IHRydWUgDQotLS0NCg0KDQojIEVqZXJjaWNpb3MgdmluY3VsYWRvcyBhIGxhIGVzdGltYWNpb24gZGUgcG9icmV6YQ0KTGV2YW50YXIgbGEgYmFzZSBkZWwgMXQgZGUgMjAxNyANCmBgYHtyIGVjaG89VFJVRX0NCg0KYGBgDQoNCkVzdGltYXIgY3VhbnRhcyBwZXJzb25hcyBoYWJpdGFuIGVuIGhvZ2FyZXMgY29uIGluZ3Jlc29zIHRvdGFsZXMgbWVub3JlcyBhICQxNS4wMDANCg0KYGBge3IgZWNobz1UUlVFfQ0KDQpgYGANCiMgQWR1bHRvcyBlcXVpdmFsZW50ZXMgDQpDb25zdHJ1aXIgZW4gbGEgYmFzZSB1bmEgdmFyaWFibGUgcXVlIGlkZW50aWZpcXVlIGVsIHRvdGFsIGRlIHBlcnNvbmFzIHkgZGUgYWR1bHRvcyBlcXVpdmFsZW50ZXMgcHJlc2VudGVzIGVuIGNhZGEgaG9nYXIgKFVzYXIgZWwgZXhjZWwgZGUgbGEgY2FycGV0YSBfRnVlbnRlc18gcXVlIGNvbnRpZW5lIGxhIGRlZmluaWNpw7NuIGRlIGxvcyBhZHVsdG9zIGVxLikNCmBgYHtyIGVjaG89VFJVRX0NCg0KYGBgDQpBIHBhcnRpciBkZWwgcHVudG8gYW50ZXJpb3I6DQogLSDCv0N1YW50YXMgcGVyc29uYXMgaGFiaXRhbiBlbiBob2dhcmVzIGRlIDcgbyBtw6FzIGludGVncmFudGVzPw0KIC0gwr9DdWFudG9zIGhvZ2FyZXMgdGllbmVuIG3DoXMgZGUgNyBvIG3DoXMgaW50ZWdyYW50ZXM/DQogLSBDb25zdHJ1aXIgdW5hIHZhcmlhYmxlIHF1ZSBleHByZXNlIGVsIEluZ3Jlc28gVG90YWwgRmFtaWxpYXIgKElURikgcGVyIGNhcGl0YSBkZSBjYWRhIGhvZ2FyDQogLSBDb25zdHJ1aXIgdW5hIHZhcmlhYmxlIHF1ZSBleHByZXNlIGVsIEluZ3Jlc28gVG90YWwgRmFtaWxpYXIgKElURikgcG9yIGFkdWx0byBlcXVpdmFsZW50ZSANCiAtIENhbGN1bGFyIGVsIElURiBwZXIgY2FwaXRhIHByb21lZGlvIHBvciBSZWdpw7NuIA0KIC0gQ2FsY3VsYXIgZWwgSVRGIHBvciBhZHVsdG8gZXF1aXZhbGVudGUgcHJvbWVkaW8gcG9yIFJlZ2lvbg0KYGBge3IgZWNobz1UUlVFfQ0KDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNsYXNlIDQuIFByw6FjdGljYSBndWlhZGEiDQpzdWJ0aXRsZTogIkNsYXNlIDQuIFRpZHl2ZXJzZSAtIFBvYnJlemEiDQpkYXRlOiAiMjcvOC8yMDE5Ig0Kb3V0cHV0Og0KICBodG1sX25vdGVib29rOiANCiAgICB0b2M6IHRydWUNCiAgICB0b2NfZmxvYXQ6IHRydWUgDQotLS0NCg0KDQojIEVqZXJjaWNpb3MgdmluY3VsYWRvcyBhIGxhIGVzdGltYWNpb24gZGUgcG9icmV6YQ0KTGV2YW50YXIgbGEgYmFzZSBkZWwgMXQgZGUgMjAxNyANCmBgYHtyIGVjaG89VFJVRX0NCmxpYnJhcnkocmVhZHhsKQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpBREVRVUkgPC0gcmVhZF9leGNlbCgiLi4vRnVlbnRlcy9BREVRVUkueGxzeCIpDQpiYXNlIDwtIHJlYWQudGFibGUoIi4uL0Z1ZW50ZXMvdXN1X2luZGl2aWR1YWxfdDExNy50eHQiLGhlYWRlciA9IFQsc2VwID0gIjsiLGRlYyA9ICIsIikNCmBgYA0KDQpFc3RpbWFyIGN1YW50YXMgcGVyc29uYXMgaGFiaXRhbiBlbiBob2dhcmVzIGNvbiBpbmdyZXNvcyB0b3RhbGVzIG1lbm9yZXMgYSAkMTUuMDAwDQoNCmBgYHtyIGVjaG89VFJVRX0NCmJhc2UyIDwtIGJhc2UgJT4lIA0KICBzdW1tYXJpc2UoQ2Fzb3MgPSBuKCksDQogICAgICAgICAgICBDYXNvc19Qb25kZXJhZG9zID1zdW0oUE9ORElIW0lURjwxNTAwMF0pKQ0KYGBgDQojIEFkdWx0b3MgZXF1aXZhbGVudGVzIA0KQ29uc3RydWlyIGVuIGxhIGJhc2UgdW5hIHZhcmlhYmxlIHF1ZSBpZGVudGlmaXF1ZSBlbCB0b3RhbCBkZSBwZXJzb25hcyB5IGRlIGFkdWx0b3MgZXF1aXZhbGVudGVzIHByZXNlbnRlcyBlbiBjYWRhIGhvZ2FyIChVc2FyIGVsIGV4Y2VsIGRlIGxhIGNhcnBldGEgX0Z1ZW50ZXNfIHF1ZSBjb250aWVuZSBsYSBkZWZpbmljacOzbiBkZSBsb3MgYWR1bHRvcyBlcS4pDQpgYGB7ciBlY2hvPVRSVUV9DQpiYXNlX2Nvbl9pZGVudGlmaWNhZG9yIDwtIGJhc2UgJT4lIA0KICBsZWZ0X2pvaW4oQURFUVVJLGJ5ID0gYygiQ0gwNCIsICJDSDA2IikpICU+JSANCiAgZ3JvdXBfYnkoQ09EVVNVLE5ST19IT0dBUikgJT4lIA0KICBtdXRhdGUoUGVyc29uYXNfZW5faG9nYXIgPSBuKCksDQogICAgICAgICBhZGVxdWlfZW5faG9nYXIgPSBzdW0oYWRlcXVpKSkNCmBgYA0KQSBwYXJ0aXIgZGVsIHB1bnRvIGFudGVyaW9yOg0KIC0gwr9DdWFudGFzIHBlcnNvbmFzIGhhYml0YW4gZW4gaG9nYXJlcyBkZSA3IG8gbcOhcyBpbnRlZ3JhbnRlcz8NCiAtIMK/Q3VhbnRvcyBob2dhcmVzIHRpZW5lbiBtw6FzIGRlIDcgbyBtw6FzIGludGVncmFudGVzPw0KIC0gQ29uc3RydWlyIHVuYSB2YXJpYWJsZSBxdWUgZXhwcmVzZSBlbCBJbmdyZXNvIFRvdGFsIEZhbWlsaWFyIChJVEYpIHBlciBjYXBpdGEgZGUgY2FkYSBob2dhcg0KIC0gQ29uc3RydWlyIHVuYSB2YXJpYWJsZSBxdWUgZXhwcmVzZSBlbCBJbmdyZXNvIFRvdGFsIEZhbWlsaWFyIChJVEYpIHBvciBhZHVsdG8gZXF1aXZhbGVudGUgDQogLSBDYWxjdWxhciBlbCBJVEYgcGVyIGNhcGl0YSBwcm9tZWRpbyBwb3IgUmVnacOzbiANCiAtIENhbGN1bGFyIGVsIElURiBwb3IgYWR1bHRvIGVxdWl2YWxlbnRlIHByb21lZGlvIHBvciBSZWdpb24NCmBgYHtyIGVjaG89VFJVRX0NClJ0YSA8LSBiYXNlX2Nvbl9pZGVudGlmaWNhZG9yICU+JSANCiAgdW5ncm91cCgpICU+JSANCiAgZmlsdGVyKFBlcnNvbmFzX2VuX2hvZ2FyPj03KSAlPiUgDQogIHN1bW1hcmlzZShDYXNvcyA9IHN1bShQT05ESUgpKQ0KDQpSdGENCmBgYA0KDQo=</div>
 
 
 </div>

@@ -9,11 +9,11 @@ list.files("Fuentes/")
 
 ## -------------------------------------------------------------------------------
 Individual_t117 <-
-  read.table("Fuentes/usu_individual_t117.txt",
+  read.table(file = "Fuentes/usu_individual_t117.txt",
   sep = ";",
   dec = ",",
   header = TRUE,
-  fill = TRUE )
+  fill = TRUE)
   
   
 Aglom <- read.xlsx("Fuentes/Aglomerados EPH.xlsx")

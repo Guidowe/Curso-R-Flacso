@@ -53,7 +53,7 @@ A partir de estos datos, se busca:
 
 Para ello, deberán elegir qué gráficos son más apropiados, y realizar las transformaciónes necesarias en la información.
 
-```{r}
+```{r,message=F,warning=F}
 library(tidyverse)
 df16 <- read_csv('../Fuentes/tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv')
 df05 <- read_csv('../Fuentes/tas_part_lad_sexo__annio__g_g_activ_limpio.csv')

@@ -199,7 +199,9 @@ Poblacion_Aglomerados
 ```
 
 ## Tidyr
-El paquete tidyr esta pensado para facilitar el emprolijamiento de los datos.
+El paquete tidyr esta pensado para facilitar el emprolijamiento de los datos.     
+<br> 
+
 ###pivot_longer
 Nos permite pivotear los datos en columnas hacia una única variable. El *"longer"* refiere a que ahora nuestro dataframe va a tener más filas (y menos columnas)  
 ```{r}
