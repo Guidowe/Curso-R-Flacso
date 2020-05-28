@@ -128,6 +128,12 @@ __Clase 7 -Strings__
 
 [![](img/Download.png)](Clase%207%20-%20Strings.rar)
 
++ Temas de clase: 
+  + Acercamiento a técnicas de text mining:
+    + Paquete stringr: Localización, substracción, y reemplazo de patrones en variables strings 
+    + Expresiones regulares
+    + Corpus de texto, Normalización, Armado de DocumentTermMatrix y Nubes de Palabras
+
 - [Explicación](Clase 7 - Strings/Explicacion.nb.html)
 - [Práctica Guiada](Clase 7 - Modelo-lineal/Practica_guiada.nb.html)
 - [Pŕactica independiente](Clase 7 - Modelo-lineal/Practica_independiente.nb.html)
@@ -143,7 +149,6 @@ __Clase 8: Programación Funcional:__
     + Estructuras de código condicionales
     + Loops
     + Creación de funciones a medida del usuario
-  + Herramientas para continuar el aprendizaje en R: Foros reconocidos de usuarios de R. Comunidades donde se comparten conocimientos, experiencias, consultas. Comandos para acceder a los documentos de ayuda.
 
 - [Explicación](Clase%208%20-%20Programacion%20funcional/explicacion.nb.html)
 - [Práctica Guiada](Clase%208%20-%20Programacion%20funcional/practica_guiada.nb.html)
