@@ -142,7 +142,7 @@ __Clase 7 -Strings__
 
 __Clase 8: Programación Funcional:__
 
-[![](img/Download.png)](Clase%208%20-%20Programacion%20Funcional.rar)
+[![](img/Download.png)](Clase%208%20-%20Programacion%20funcional.rar)
 
 + Temas de clase: 
   + Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:
