@@ -156,7 +156,7 @@ __Clase 8: Programación Funcional:__
   
 <br>
 
-__Clase 9: Trabajos prácticos: R en concreto / examen__
+__Clase 9: Trabajos prácticos, repaso general y consultas__
   
 
 + Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. Entre los temas giran aquellos vinculados a la distribución personal del ingreso/Construcción de percentiles de ingreso; el mercado laboral a través de la herramienta Panel de datos; la documentación en R (Estilo de Notas de Clase).
