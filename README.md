@@ -124,23 +124,19 @@ __Clase 6: Documentación en R. Generación de reportes/informes.__
 
 <br>
 
-__Clase 7 - Correlación y Modelo Lineal__
+__Clase 7 -Strings__
 
-+ Temas de clase:
-  + Covarianza
-  + Correlación
-  + Regresión lineal simple
-  + Regresión lineal múltiple
-  + Ingeniería de variables
-  + Transformaciones log-lineales
-  
-- [Explicación](Clase 7 - Modelo-lineal/07_explicacion.nb.html)
-- [Práctica Guiada](Clase 7 - Modelo-lineal/07_practica_guiada.nb.html)
-- [Pŕactica independiente](Clase 7 - Modelo-lineal/ejercicios_modelo_lineal)
+[![](img/Download.png)](Clase%207%20-%20Strings.rar)
+
+- [Explicación](Clase 7 - Strings/Explicacion.nb.html)
+- [Práctica Guiada](Clase 7 - Modelo-lineal/Practica_guiada.nb.html)
+- [Pŕactica independiente](Clase 7 - Modelo-lineal/Practica_independiente.nb.html)
   
 <br>
 
-__Clase 8: Introducción a R Intermedio:__
+__Clase 8: Programación Funcional:__
+
+[![](img/Download.png)](Clase%208%20-%20Programacion%20Funcional.rar)
 
 + Temas de clase: 
   + Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:
@@ -161,6 +157,20 @@ __Clase 9: Trabajos prácticos: R en concreto / examen__
 + Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. Entre los temas giran aquellos vinculados a la distribución personal del ingreso/Construcción de percentiles de ingreso; el mercado laboral a través de la herramienta Panel de datos; la documentación en R (Estilo de Notas de Clase).
 +	Espacio para consultas puntuales sobre los temas vistos durante el curso y presentación del trabajo final a entregar.
 
+__Clase "Yapa" - Regresión Lineal__
+
+[![](img/Download.png)](Clase%20yapa%20-%20Modelo-lineal.rar)
+
++ Temas de clase:
+  + Covarianza
+  + Correlación
+  + Regresión lineal simple
+  + Regresión lineal múltiple
+  + Ingeniería de variables
+  + Transformaciones log-lineales
+  
+  
+<br>
 
 #### Librerias a instalar
 
