@@ -117,10 +117,10 @@ __Clase 6: Documentación en R. Generación de reportes/informes.__
     + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
     + Código embebido en el texto para automatización de reportes
 
-- [Explicación](Clase 6 - Markdown/06_explicacion.nb.html)
-- [Práctica guiada](Clase 6 - Markdown/06_practica_guiada.nb.html)
-- [Práctica guiada - dashboard](Clase 6 - Markdown/06_practica_guiada_dashboard.html)
-- [Práctica independiente](Clase 6 - Markdown/06_practica_independiente.nb.html)
+- [Explicación](Clase%206%20-%20Markdown/06_explicacion.nb.html)
+- [Práctica guiada](Clase%206%20-%20Markdown/06_practica_guiada.nb.html)
+- [Práctica guiada - dashboard](Clase%206%20-%20Markdown/06_practica_guiada_dashboard.html)
+- [Práctica independiente](Clase%206%20-%20Markdown/06_practica_independiente.nb.html)
 
 <br>
 
@@ -134,9 +134,9 @@ __Clase 7 -Strings__
     + Expresiones regulares
     + Corpus de texto, Normalización, Armado de DocumentTermMatrix y Nubes de Palabras
 
-- [Explicación](Clase 7 - Strings/Explicacion.nb.html)
-- [Práctica Guiada](Clase 7 - Strings/Practica_guiada_stringr_lubridate.nb.html)
-- [Pŕactica independiente](Clase 7 - Strings/Practica_independiente.nb.html)
+- [Explicación](Clase%207%20-%20Strings/Explicacion.nb.html)
+- [Práctica Guiada](Clase%207%20-%20Strings/Practica_guiada_stringr_lubridate.nb.html)
+- [Pŕactica independiente](Clase%207%20-%20Strings/Practica_independiente.nb.html)
   
 <br>
 
