@@ -135,8 +135,8 @@ __Clase 7 -Strings__
     + Corpus de texto, Normalización, Armado de DocumentTermMatrix y Nubes de Palabras
 
 - [Explicación](Clase 7 - Strings/Explicacion.nb.html)
-- [Práctica Guiada](Clase 7 - Modelo-lineal/Practica_guiada.nb.html)
-- [Pŕactica independiente](Clase 7 - Modelo-lineal/Practica_independiente.nb.html)
+- [Práctica Guiada](Clase 7 - Strings/Practica_guiada_stringr_lubridate.nb.html)
+- [Pŕactica independiente](Clase 7 - Strings/Practica_independiente.nb.html)
   
 <br>
 
