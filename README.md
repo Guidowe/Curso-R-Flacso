@@ -2,7 +2,8 @@
 
 # Materiales de cursada
 Los materiales para la cursada se encuentran estructurados por módulos. En esta página encontrarán en cada módulo un botón de descarga de los contenidos. 
-A ello se le suma un conjunto de fuentes comunes que se utilizaran en varias clases. Pueden optar por descargar todos los materiales antes de iniciar el curso con el botón de __Download.zip__ que figura arriba. En ese caso, les avisaremos si durante el transcurso del curso actualizamos algún módulo en particular para que lo descarguen nuevamente. 
+A ello se le suma un conjunto de _fuentes comunes_ que se utilizaran en varias clases. Pueden optar por descargar todos los materiales en conjunto, con el botón de __Download.zip__ que figura arriba. 
+En caso de modificar durante el transcurso del curso algún módulo en particular, les notificaremos para que lo descarguen nuevamente. 
 
 ### Fuentes comunes
 [![](img/Download.png)](Fuentes.rar)
