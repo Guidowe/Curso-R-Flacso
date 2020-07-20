@@ -84,7 +84,7 @@ __Módulo 3 - Tidyverse__
 
 <br>
 
-__Módulo 4 - Visualización de la información __  
+__Módulo 4 - Visualización de la información__  
 
 [![](img/Download.png)](Modulo%204%20-%20Graficos.rar)
 
