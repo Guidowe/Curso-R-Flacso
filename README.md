@@ -47,6 +47,7 @@ __Módulo 1 - Conceptos Principales de EPH:__
 <br>
 
 __Módulo 2 – R Base:__
+ 
 [![](img/Download.png)](Modulo%202%20-%20R%20Base.rar)
 
 + Temas de clase:
