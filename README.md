@@ -1,14 +1,14 @@
 > Docentes: Pablo Tiscornia y Guido Weksler.
 
 # Materiales de cursada
-Los materiales para la cursada se encuentran estructurados por clases. 
-Para cada clase deberá descargarse la carpeta correspondiente. A ello se le suma un conjunto de fuentes comunes que se utilizaran en varias clases 
+Los materiales para la cursada se encuentran estructurados por módulos. En esta página encontrarán en cada módulo un botón de descarga de los contenidos. 
+A ello se le suma un conjunto de fuentes comunes que se utilizaran en varias clases 
 
 ### Fuentes comunes
 [![](img/Download.png)](Fuentes.rar)
 
 #### Librerias a instalar
-A lo largo del curso se utilizarán librerías complemetarias al lenguaje RBase. Con la siguiente línea de código se pueden instalar las principales:
+A lo largo del curso se utilizarán librerías complemetarias al lenguaje RBase. Con la siguiente línea de código se pueden instalar las principales de ellas:
 ```
 install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown','esquisse','eph','treemapify','gapminder','viridis'))
 ```
@@ -30,13 +30,11 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
   
 # Programa
 
-### Clases y contenido
+### Módulos y contenidos
 
+__Módulo 1 - Conceptos Principales de EPH:__
 
-  
-__Clase 1 - Conceptos Principales de EPH:__
-
-[![](img/Download.png)](Materiales.zip)
+[![](img/Download.png)](Modulo%201%20-%20EPH.rar)
 
 + Temas de clase: 
   + Presentación del curso.
@@ -46,13 +44,9 @@ __Clase 1 - Conceptos Principales de EPH:__
   + Definiciones de las principales variables de interés a abordar en el curso: Condición de actividad, categoría ocupacional, precariedad y pobreza
   + Metodología usuaria de las Bases de microdatos. Utilización del Diseño de Registro.
   
-+ [Presentación](https://pablotis.github.io/Presentaciones/clase1_eph.html#1)
-
 <br>
 
-__Clase 2 – Introduciendo a R:__
-
-[![](img/Download.png)](Materiales.zip)
+__Módulo 2 – R Base:__
 
 + Temas de clase:
   + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
@@ -63,16 +57,11 @@ __Clase 2 – Introduciendo a R:__
   + Tipos de variable (numérica, de caracteres, lógicas)
   + Lectura y Escritura de Archivos
   
-+ [Presentación](https://pablotis.github.io/Presentaciones/clase2_intro_R.html#1)
-+ [Explicación](Clase%202%20-%20R%20Base/Clase%202%20-%20Introduccion%20a%20R.nb.html)
-+ [Práctica guiada](Clase%202%20-%20R%20Base/Clase%202%20-%20Practica%20guiada.nb.html)
-+ [Práctica independiente](Clase%202%20-%20R%20Base/Clase%202%20-%20Practica%20independiente.nb.html)
-  
 <br>
 
-__Clase 3 – Clase 3 - Tidyverse - Tasas basicas__
+__Módulo 3 - Tidyverse__
 
-[![](img/Download.png)](Materiales.zip)
+[![](img/Download.png)](Modulo%203%20-%20Tidyverse.rar)
 
 + Temas de clase:
   + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
@@ -84,16 +73,18 @@ __Clase 3 – Clase 3 - Tidyverse - Tasas basicas__
   + Ejercicios prácticos para aplicar lo expuesto: Replicar Informe Técnico de Mercado de Trabajo (EPH-INDEC) 
   + Cálculo de tasas básicas del mercado de trabajo (tasa de actividad, empleo, desempleo, entre otras) 
   + Cálculo de tasas para distintos subconjuntos poblacionales (por aglomerado, sexo, grupos de edad)
-  
-+ [Explicación](Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Bases%20de%20Datos%20y%20Mercado%20de%20Trabajo.nb.html)
-+ [Práctica guiada](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Practica%20guiada.nb.html)
-+ [Práctica Independiente](https://github.com/Guidowe/Curso-R-Flacso/blob/master/Clase%203%20-%20Tidyverse%20-%20Tasas%20basicas/Clase%203%20-%20Practica%20independiente.nb.html)
-  
+
++ Cálculo de los indicadores de pobreza e indigencia por línea de ingresos.
+  + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
+  + Metodología del cálculo de pobreza por línea (para personas y hogares)
+  + Ejercicio de estimación de tasas de Pobreza e Indigencia
+  + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)  
+
 <br>
 
-__Clase 5 - Visualización de la información 2 __  
+__Módulo 4 - Visualización de la información __  
 
-[![](img/Download.png)](Clase%205%20-%20Graficos.rar)
+[![](img/Download.png)](Modulo%204%20-%20Graficos.rar)
 
 + Temas de clase:
   + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
@@ -101,15 +92,12 @@ __Clase 5 - Visualización de la información 2 __
     + Gráficos de línea, barras, Boxplots 
     + Extensiones de ggplot
 
-- [Explicación](Clase%205%20-%20Graficos/05_explicacion.nb.html)
-- [Práctica Guiada](Clase%205%20-%20Graficos/05_practica_guiada.nb.html)
-- [Práctica independiente](Clase%205%20-%20Graficos/05_practica_independiente.nb.html)
   
 <br>
 
-__Clase 6: Documentación en R. Generación de reportes/informes.__
+__Módulo 5: Documentación en R. Generación de reportes/informes.__
 
-[![](img/Download.png)](Clase%206%20-%20Markdown.rar)
+[![](img/Download.png)](Modulo%205%20-%20Markdown.rar)
 
 + Temas de clase:
   + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
@@ -118,56 +106,36 @@ __Clase 6: Documentación en R. Generación de reportes/informes.__
     + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
     + Código embebido en el texto para automatización de reportes
 
-- [Explicación](Clase%206%20-%20Markdown/06_explicacion.nb.html)
-- [Práctica guiada](Clase%206%20-%20Markdown/06_practica_guiada.nb.html)
-- [Práctica guiada - dashboard](Clase%206%20-%20Markdown/06_practica_guiada_dashboard.html)
-- [Práctica independiente](Clase%206%20-%20Markdown/06_practica_independiente.nb.html)
-
 <br>
 
-__Clase 7 -Strings__
+__Módulo 6: Strings__
 
-[![](img/Download.png)](Clase%207%20-%20Strings.rar)
+[![](img/Download.png)](Modulo%206%20-%20Strings.rar)
 
 + Temas de clase: 
   + Acercamiento a técnicas de text mining:
     + Paquete stringr: Localización, substracción, y reemplazo de patrones en variables strings 
     + Expresiones regulares
     + Corpus de texto, Normalización, Armado de DocumentTermMatrix y Nubes de Palabras
-
-- [Explicación](Clase%207%20-%20Strings/Explicacion.nb.html)
-- [Práctica Guiada](Clase%207%20-%20Strings/Practica_guiada_stringr_lubridate.nb.html)
-- [Pŕactica independiente](Clase%207%20-%20Strings/Practica_independiente.nb.html)
   
 <br>
 
-__Clase 8: Programación Funcional:__
+__Modulo 7: Programación Funcional:__
 
-[![](img/Download.png)](Clase%208%20-%20Programacion%20funcional.rar)
+[![](img/Download.png)](Modulo%207%20-%20Programacion%20funcional.rar)
 
 + Temas de clase: 
   + Acercamiento a técnicas más sofisticadas en R, útiles para automatizar el procesamiento periódico de la información:
     + Estructuras de código condicionales
     + Loops
     + Creación de funciones a medida del usuario
-
-- [Explicación](Clase%208%20-%20Programacion%20funcional/explicacion.nb.html)
-- [Práctica Guiada](Clase%208%20-%20Programacion%20funcional/practica_guiada.nb.html)
-- [Pŕactica independiente](Clase%208%20-%20Programacion%20funcional/practica_independiente.nb.html)
   
 <br>
 
-__Clase 9: Trabajos prácticos, repaso general y consultas__
+# Bibliografía básica y sitios de consulta
 
-[![](img/Download.png)](Clase%209%20-%20Repaso%20-%20Pobreza.rar)
+- [Grolemund, G. y Wickham, H. (2019), R para Ciencia de Datos](https://es.r4ds.hadley.nz)
 
-+ Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. E
-+	Espacio para consultas puntuales sobre los temas vistos durante el curso y presentación del trabajo final a entregar.
-+ Repaso general del curso a través de ejercicio de cálculo de los indicadores de pobreza e indigencia por línea de ingresos.
-  + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
-  + Metodología del cálculo de pobreza por línea (para personas y hogares)
-  + Ejercicio de estimación de tasas de Pobreza e Indigencia
-  + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
-  
-<br>
+- [Wickham, H. (2016), ggplot2: elegant graphics for data analysis. Springer, 2016. ](https://ggplot2-book.org/)
 
+- [Vázquez Brust, A. (2019), Ciencia de Datos para Gente Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/)
