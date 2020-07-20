@@ -1,10 +1,13 @@
 
 # Materiales de cursada
-[![](img/Download.png)](Materiales.zip)
+Los materiales para la cursada se encuentran estructurados por clases. 
+Para cada clase deberá descargarse la carpeta correspondiente. A ello se le suma un conjunto de fuentes comunes que se utilizaran en varias clases 
+
+### Fuentes comunes
+[![](img/Download.png)](Fuentes.rar)
 
 
-
-> Docentes: Pablo Tiscornia - Guido Weksler - Diego Kozlowski - Natsumi Shokida.
+> Docentes: Pablo Tiscornia y Guido Weksler.
 
 
 ### Presentación
@@ -28,7 +31,9 @@ La Encuesta Permanente de Hogares será la base de datos de aplicación elegida 
 
   
 __Clase 1 - Conceptos Principales de EPH:__
-  
+
+[![](img/Download.png)](Materiales.zip)
+
 + Temas de clase: 
   + Presentación del curso.
   + Presentación de la Encuesta Permanente de Hogares: Lineamientos conceptuales y metodología
@@ -42,7 +47,9 @@ __Clase 1 - Conceptos Principales de EPH:__
 <br>
 
 __Clase 2 – Introduciendo a R:__
-  
+
+[![](img/Download.png)](Materiales.zip)
+
 + Temas de clase:
   + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
   + Presentación de la plataforma RStudio para trabajar en “R”
@@ -60,7 +67,9 @@ __Clase 2 – Introduciendo a R:__
 <br>
 
 __Clase 3 – Clase 3 - Tidyverse - Tasas basicas__
-  
+
+[![](img/Download.png)](Materiales.zip)
+
 + Temas de clase:
   + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
   + Seleccionar variables, ordenar y agrupar la base de datos para realizar cálculos
@@ -79,6 +88,8 @@ __Clase 3 – Clase 3 - Tidyverse - Tasas basicas__
 <br>
 
 __Clase 4 - Tidyverse - Pobreza__
+
+[![](img/Download.png)](Materiales.zip)
   
 + Temas de clase:
   + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
@@ -109,7 +120,9 @@ __Clase 5 - Visualización de la información__
 <br>
 
 __Clase 6: Documentación en R. Generación de reportes/informes.__
-  
+
+[![](img/Download.png)](Materiales.zip)
+
 + Temas de clase:
   + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
     + Opciones para mostrar u ocultar código en los reportes
