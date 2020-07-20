@@ -134,7 +134,7 @@ __Modulo 7: Programación Funcional:__
   
 <br>
 
-# Bibliografía básica y sitios de consulta
+# Bibliografía complementaria
 
 - [Grolemund, G. y Wickham, H. (2019), R para Ciencia de Datos](https://es.r4ds.hadley.nz)
 
