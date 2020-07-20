@@ -1,0 +1,204 @@
+---
+title:  Manejo de Strings
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica Guiada
+---
+
+
+
+```{r message=FALSE, warning=FALSE}
+# install.packages("rtweet")
+library(rtweet)
+library(tidyverse)
+library(tm)
+library(wordcloud2)
+library(RVerbalExpressions)
+library(lubridate)
+```
+
+## Cargamos la base de tweets
+
+```{r}
+villa_azul_tweets <- readRDS('data/villa_azul_tweets.RDS')
+```
+Veamos que rango de tiempo abarcan nuestros tweets (8 días)
+```{r}
+range(villa_azul_tweets$created_at)
+```
+Qué tipo de variable es **created_at**??
+```{r}
+class(villa_azul_tweets$created_at)
+```
+Es un tipo de variable de tiempo expresada en  zona horaria [UTC](https://time.is/UTC)). 
+
+El propio paquete `rtweet` viene con la función **ts_plot** que permite  graficar la frecuencia de tweets dado un intervalo temporal. 
+```{r}
+villa_azul_tweets %>% 
+  ts_plot(by = "hours") +
+  theme_minimal() +
+  theme(plot.title = ggplot2::element_text(face = "bold")) +
+  labs(x = NULL, y = NULL,
+       title = "Frecuencia de los tweets",
+       subtitle = "Intervalos de una hora")+
+  scale_x_datetime()
+
+```
+##Lubridate     
+###Extraccion de informacion de la fecha      
+
+El paquete `lubridate` es ideal para trabajar con fechas en R. En primera instancia nos permite extraer muy intuitivamente información cuando contamos con una variable construida como fecha.   
+
+```{r,warning=FALSE}
+villa_azul_fechas <- villa_azul_tweets %>% 
+  mutate(anio      = year(created_at),
+         semestre  = semester(created_at),
+         trimestre = quarter(created_at),
+         mes       = month(created_at),
+         dia.numero= wday(created_at),
+         dia.nombre= wday(created_at, label = TRUE),
+         hora = hour(created_at),
+         minutos = minute(created_at))
+
+```
+
+###Operaciones                 
+
+El paquete tiene una serie de funciones para operar realizando transformaciones sobre las fechas. Tomemos la fecha del primer registro para operar sobre ella: 
+```{r}
+fecha <- villa_azul_fechas$created_at[1]
+fecha
+```
+
+```{r}
+fecha+ days(2) # Le sumo dos días a la fecha
+fecha+ days(2) - hours(3)# Le sumo dos días a la fecha y le resto tres horas
+```
+Importante notar que:         
+
+- Las funciones para **extraer** informacion de las fechas llevan el singular (ej: day,month,hour)
+- Las funciones para **transformar** las fechas llevan el **plural** (ej: days, months,hours)       
+
+###Cambios de formato        
+Suele ocurrir que uno trabaja importando bases de datos donde las variables temporales no traen con el formato necesario para trabjar con fechas en R, o bien el programa no puede codificarlas directametne como fechas. El paquete `lubridate` también tiene una serie de funciones que permiten lidiar con ello.    
+
+Veamos algunos ejemplos    
+```{r}
+ejemplo0 <- "20/05/2020 18:20:40"
+ejemplo1 <- "20/05/2020"
+ejemplo2 <- "20/05/2020 18:20"
+class(ejemplo0)
+
+```
+Hay un set de funciones que siguen la siguiente lógica:          
+Mediante la combinacion de los caracteres **dmy_hms** podemos convertir un string a una fecha, indicando que el formato en que nuestro string tiene la codificada la fecha. En el ejemplo0, es día(d), mes(m), año(y), hora(h), minuto(m) y segundo(s)
+
+ 
+```{r}
+ejemplo0_formateado <- dmy_hms(ejemplo0)
+ejemplo0_formateado
+```
+Que tipo de objeto es ahora *ejemplo0_formateado*?
+```{r}
+class(ejemplo0_formateado)
+```
+Para resolver los otros ejemplos, seguimos la misma lógica. Por ejemplo en el caso 1, solo tenemos day, month, year. Para ello aplicaremos la función **dmy**
+
+```{r}
+ejemplo1_formateado <- dmy(ejemplo1)
+ejemplo1_formateado
+```
+Ejemplo 2:
+```{r}
+ejemplo2_formateado <- dmy_hm(ejemplo2)
+ejemplo2_formateado
+```
+
+Para formatos un poco menos estandarizados, la función parse_date_time nos puede ser útil para transforar una variable.
+```{r}
+dato_importado <- c("Apr-20","May-20","Jun-20") 
+parse_date_time(dato_importado, orders = 'my')
+
+```
+
+## Armado del Bag of Words con `tm`
+
+Para trabajar con grandes volumenes de texto vamos a utilizar el paquete `tm`:        
+
+- En primera instancia creamos un objeto de tipo Corpus. Utilizamos algo distinto a los conocidos vectores o dataframes, porque este es un objeto optimizado para trabajar con texto. Esto nos permite que los procesos sean mucho más eficientes, y por lo tanto trabajar con grandes volumenes de información de manera rápida
+
+```{r}
+myCorpus = VCorpus(VectorSource(villa_azul_tweets$text))
+```
+
+```{r}
+expresion <- rx() %>% 
+  rx_find('http') %>% 
+ # rx_maybe('s') %>% 
+ # rx_maybe('://') %>% 
+  rx_anything_but(value = ' ')
+```
+
+
+Estos objetos internamente guardan una lista por cada registro, como un "documento" separado.          
+
+- Para transformar cada uno de estos documentos almacenados como una lista, vamos a usar la función **tm_map**.
+  - Hay una serie de transofrmaciones típicas que ya tienen funciones diseñadas (eliminacion de numeros, puntos o palabras específicas) Con el comando **getTransformations()** podemos ver las disponibles
+  - Para casos donde la transformacion es más específica debemos utilizar la función **content_transformer** y definir allí mismo una función.
+  
+```{r}
+
+myCorpus = tm_map(myCorpus,content_transformer(function(x) str_replace_all(x, pattern = expresion, replacement = ' ')))
+
+myCorpus = tm_map(myCorpus,content_transformer(function(x) str_remove_all(x, pattern = "[^[:alnum:][:blank:]]")))
+
+myCorpus = tm_map(myCorpus, content_transformer(tolower))
+myCorpus = tm_map(myCorpus, removeNumbers)
+myCorpus = tm_map(myCorpus, removeWords, stopwords(kind = "es"))
+
+```
+
+3- Una vez realizadas todas las transformaciones construimos una "Document Term Matrix". Esto es, para cada documento (en este caso, para cada tweet), un conteo de la repetición de cada una de las palabras contenidas en el total del corpus de texto. La función **inspect** aplicada a un objeto "DocumentTermMatrix" nos permite ver de que se trata la matríz construida
+
+```{r}
+myDTM = DocumentTermMatrix(myCorpus, control = list(
+  minWordLength = 1))
+
+inspect(myDTM)
+```
+
+
+**findMostFreqTerms** sirve para encontrar las palabras más frecuentes por documento o grupo de documentos. Como sólo me interesa el corpus total, tengo que modificar el INDEX para que sea el mismo en todos los documentos.
+
+```{r}
+vector_indices<- rep(1,nDocs(myDTM))
+
+palabras_frecuentes <- findMostFreqTerms(
+  myDTM,
+  n = 25, 
+  INDEX = vector_indices)[[1]]
+
+palabras_frecuentes
+```
+
+
+Armo un dataframe con esta información y eliminos las palabras villa y azul, utilizadas para descargar los datos (logicamente son las que mas aparecen)
+
+```{r}
+palabras_frecuentes_tibble <- tibble(
+  word = names(palabras_frecuentes),
+  freq =palabras_frecuentes)
+
+palabras_frecuentes_tibble <- palabras_frecuentes_tibble %>% 
+  filter(!(word  %in%  c('villa',"azul")))
+```
+
+
+Con el comando `wordcloud2` creo la nube de palabras
+```{r, fig.width=8, fig.height=8}
+wordcloud2(palabras_frecuentes_tibble)
+```
+
