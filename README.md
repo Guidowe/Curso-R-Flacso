@@ -1,3 +1,4 @@
+> Docentes: Pablo Tiscornia y Guido Weksler.
 
 # Materiales de cursada
 Los materiales para la cursada se encuentran estructurados por clases. 
@@ -6,8 +7,11 @@ Para cada clase deberá descargarse la carpeta correspondiente. A ello se le sum
 ### Fuentes comunes
 [![](img/Download.png)](Fuentes.rar)
 
-
-> Docentes: Pablo Tiscornia y Guido Weksler.
+#### Librerias a instalar
+A lo largo del curso se utilizarán librerías complemetarias al lenguaje RBase. Con la siguiente línea de código se pueden instalar las principales:
+```
+install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown','esquisse','eph','treemapify','gapminder','viridis'))
+```
 
 
 ### Presentación
@@ -87,23 +91,7 @@ __Clase 3 – Clase 3 - Tidyverse - Tasas basicas__
   
 <br>
 
-__Clase 4 - Tidyverse - Pobreza__
-
-[![](img/Download.png)](Materiales.zip)
-  
-+ Temas de clase:
-  + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
-  + Metodología del cálculo de pobreza por línea (para personas y hogares)
-  + Ejercicio de estimación de tasas de Pobreza e Indigencia
-  + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
-
-+ [Explicación](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Tidyverse%20y%20Pobreza.nb.html?raw=true)
-+ [Práctica guiada](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Practica%20guiada.nb.html?raw=true)
-+ [Práctica independiente](Clase%204%20-%20Tidyverse%20-%20Pobreza/Clase%204%20-%20Practica%20Independiente.nb.html?raw=true)
-  
-<br>
-
-__Clase 5 - Visualización de la información__  
+__Clase 5 - Visualización de la información 2 __  
 
 [![](img/Download.png)](Clase%205%20-%20Graficos.rar)
 
@@ -121,7 +109,7 @@ __Clase 5 - Visualización de la información__
 
 __Clase 6: Documentación en R. Generación de reportes/informes.__
 
-[![](img/Download.png)](Materiales.zip)
+[![](img/Download.png)](Clase%206%20-%20Markdown.rar)
 
 + Temas de clase:
   + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
@@ -170,28 +158,16 @@ __Clase 8: Programación Funcional:__
 <br>
 
 __Clase 9: Trabajos prácticos, repaso general y consultas__
-  
 
-+ Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. Entre los temas giran aquellos vinculados a la distribución personal del ingreso/Construcción de percentiles de ingreso; el mercado laboral a través de la herramienta Panel de datos; la documentación en R (Estilo de Notas de Clase).
+[![](img/Download.png)](Clase%209%20-%20Repaso%20-%20Pobreza.rar)
+
++ Se presentará a los/as alumnos/as problemas concretos vinculados a la EPH y en relación a las experiencias que se fueron volcando a lo largo de la cursada. Se deberán abordar mediante el uso de R, aplicando lo aprendido en los módulos anteriores. En conjunto se expondrán los desafíos que emergen en el momento y la evaluación de las herramientas adecuadas para su abordaje y resolución. E
 +	Espacio para consultas puntuales sobre los temas vistos durante el curso y presentación del trabajo final a entregar.
-
-__Clase "Yapa" - Regresión Lineal__
-
-[![](img/Download.png)](Clase%20yapa%20-%20Modelo-lineal.rar)
-
-+ Temas de clase:
-  + Covarianza
-  + Correlación
-  + Regresión lineal simple
-  + Regresión lineal múltiple
-  + Ingeniería de variables
-  + Transformaciones log-lineales
-  
++ Repaso general del curso a través de ejercicio de cálculo de los indicadores de pobreza e indigencia por línea de ingresos.
+  + Definición de la Canasta Básica Alimentaria y Canasta Básica Total
+  + Metodología del cálculo de pobreza por línea (para personas y hogares)
+  + Ejercicio de estimación de tasas de Pobreza e Indigencia
+  + Ejercicio de estimación de tasas de Pobreza e Indigencia para subgrupos poblacionales (Género, Edad, Regiones)
   
 <br>
 
-#### Librerias a instalar
-
-```
-install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown','esquisse','eph','treemapify','gapminder','viridis'))
-```
