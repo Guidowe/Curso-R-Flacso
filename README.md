@@ -11,7 +11,8 @@ En caso de modificar durante el transcurso del curso algún módulo en particula
 #### Librerias a instalar
 A lo largo del curso se utilizarán librerías complemetarias al lenguaje RBase. Con la siguiente línea de código se pueden instalar las principales de ellas:
 ```
-install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown','esquisse','eph','treemapify','gapminder','viridis'))
+install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes',ggrepel','ggalt','kableExtra',
+'GGally','ggridges','fs','purrr','rmarkdown','esquisse','eph','treemapify','gapminder','tm','rtweet','wordcloud2','RVerbalExpressions','stringr','lubridate','viridis'))
 ```
 
 
