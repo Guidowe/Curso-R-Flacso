@@ -5,11 +5,15 @@ library(openxlsx, warn = FALSE)
 
 ###Selecciono variables
 var.ind <- c('CODUSU','NRO_HOGAR' ,'COMPONENTE','ANO4','TRIMESTRE','REGION',
-             'AGLOMERADO', 'PONDERA', 'CH04', 'CH06', 'ITF', 'PONDIH','P21')
+             'AGLOMERADO', 'PONDERA', 'CH04', 'CH06', 'ITF',
+             'PONDIH','P21',"P47T","PONDIIO","PONDII")
 
 ###Levanto Bases y otros archivos necesarios
-individual.316 <- read.table("Fuentes/usu_individual_t316.txt", sep=";", dec=",", header = TRUE, fill = TRUE) %>% 
+individual.316 <- read.table("Fuentes/usu_individual_t316.txt",
+                             sep=";", dec=",", 
+                             header = TRUE, fill = TRUE) %>% 
   select(var.ind)
+
 individual.416 <- read.table("Fuentes/usu_individual_t416.txt", sep=";", dec=",", header = TRUE, fill = TRUE) %>% 
   select(var.ind)
 
@@ -29,8 +33,8 @@ CBA <- CBA %>%
 CBT <- CBT %>% 
   mutate(Canasta = 'CBT')
 
-Canastas_Reg <- bind_rows(CBA,CBT)                       %>% 
-  gather(.,Region, Valor, c(3:(ncol(.)-1) ))             %>%
+Canastas_Reg <- bind_rows(CBA,CBT)       %>% 
+  gather(Region, Valor, 3:8)             %>%
   mutate(Trimestre = case_when(Mes %in% c(1:3)   ~1,
                                Mes %in% c(4:6)   ~2,
                                Mes %in% c(7:9)   ~3,
@@ -40,17 +44,15 @@ Canastas_Reg <- bind_rows(CBA,CBT)                       %>%
 Canastas_Reg_2 <- Canastas_Reg %>% 
   group_by(Canasta, Region, Periodo)                     %>% 
   summarise(Valor = mean(Valor))                         %>% 
-  spread(., Canasta,Valor)                               %>% 
-  left_join(., dic.regiones, by = "Region")              %>% 
+  spread(Canasta,Valor)                               %>% 
+  left_join(dic.regiones, by = "Region")              %>% 
   ungroup()                                              
-
 
 ###Aplicamos sucesivos pasos para el calculo de Poberza e Indigencia por Periodo
 Pobreza_Individual <- Bases %>% 
   mutate(Periodo = paste(ANO4, TRIMESTRE, sep='.')) %>% 
-  left_join(., Adequi, by = c("CH04", "CH06")) %>% 
-  left_join(., Canastas_Reg_2, by = c("REGION", "Periodo"))    
-
+  left_join(Adequi, by = c("CH04", "CH06")) %>% 
+  left_join(Canastas_Reg_2, by = c("REGION", "Periodo"))    
 
 Pobreza_Individual_paso2 <- Pobreza_Individual %>%  
   group_by(CODUSU, NRO_HOGAR, Periodo)                          %>% 
@@ -68,11 +70,10 @@ Pobreza_Individual_paso3 <-  Pobreza_Individual_paso2 %>%
 
 Pobreza_resumen <- Pobreza_Individual_paso3 %>% 
   group_by(Periodo) %>% 
-  summarise(Tasa_pobreza    = sum(PONDIH[Situacion %in% c('Pobre', 'Indigente')],na.rm = TRUE)/
-                              sum(PONDIH,na.rm = TRUE),
-            
-            Tasa_indigencia = sum(PONDIH[Situacion == 'Indigente'],na.rm = TRUE)/
-                              sum(PONDIH,na.rm = TRUE)) 
+  summarise(Tasa_pobreza    = sum(PONDIH[Situacion != 'No.Pobre'])/
+                              sum(PONDIH),
+            Tasa_indigencia = sum(PONDIH[Situacion == 'Indigente'])/
+                              sum(PONDIH)) 
 
 ###Abierto por Regiones
 Pobreza_resumen_region <- Pobreza_Individual_paso3 %>% 

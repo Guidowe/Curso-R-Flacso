@@ -18,6 +18,7 @@ Individual_t117 <-
   
 Aglom <- read.xlsx("Fuentes/Aglomerados EPH.xlsx")
 
+names(Individual_t117)
 
 ## -------------------------------------------------------------------------------
 Datos  <- Individual_t117[1:5000,
@@ -32,14 +33,15 @@ pepito <- Datos %>%
 
 
 ## -------------------------------------------------------------------------------
-Datos %>% 
-    filter(CH04==1| CH06>=50)
+base2 <- Datos %>% 
+    filter(CH04==1 | CH06>=50)
 
 
 
 ## -------------------------------------------------------------------------------
 Datos <- Datos %>% 
   rename(EDAD = CH06)
+
 Datos
 
 
@@ -52,45 +54,52 @@ Datos
 
 ## -------------------------------------------------------------------------------
 Datos <- Datos %>% 
-  mutate(Grupos_Etarios = case_when(EDAD  < 18   ~ "Menores",
-                                 EDAD  %in%  18:65   ~ "Adultos",
-                                 EDAD  > 65 ~ "Adultos Mayores"))
+  mutate(Grupos_Etarios = 
+           case_when(
+             EDAD  < 18   ~ "Menores",
+             EDAD  %in%  18:65   ~ "Adultos",
+             EDAD  > 65 ~ "Adultos Mayores"
+             )
+         )
 Datos
 
 
 ## -------------------------------------------------------------------------------
-Datos %>% 
+ver <- Datos %>% 
   select(CH04,PONDERA)
 
 
-Datos %>% 
-  select(3:ncol(.))
+ver <- Datos %>% 
+  select(-PONDERA)
 
 
 
 ## -------------------------------------------------------------------------------
 Datos <- Datos %>% 
-  arrange(CH04,EDAD)
+  arrange(CH04,desc(EDAD))
 Datos
 
 
 ## -------------------------------------------------------------------------------
 valor <- mean(Datos$EDAD)
-weighted.mean(Datos$EDAD,Datos$PONDERA)
+weighted.mean(x = Datos$EDAD,w = Datos$PONDERA)
+
 
 Datos %>% 
   mutate(Edad2=case_when(EDAD <0 ~ 0.5,
                           TRUE ~  as.numeric(EDAD)))
-  #        
-  # summarise(Edad_prom = mean(EDAD),
-  #           Edad_prom_pond = weighted.mean(x = EDAD,w = PONDERA))
+Edad_prom <- Datos %>%       
+   summarise(Edad_prom = mean(EDAD),
+             suma_edad = sum(EDAD),
+             Edad_prom_pond = weighted.mean(x = EDAD,w = PONDERA))
 
 
 
 ## -------------------------------------------------------------------------------
-Datos %>% 
-  group_by(CH04) %>%
-  summarise(Edad_Prom = weighted.mean(EDAD,PONDERA))
+Edad_sexo <- Datos %>% 
+  group_by(AGLOMERADO) %>%
+  summarise(Edad_Prom = weighted.mean(EDAD,PONDERA)) 
+  
 
 
 ## -------------------------------------------------------------------------------
@@ -106,11 +115,13 @@ Encadenado
 ## -------------------------------------------------------------------------------
 Aglom
 
+ 
+Datos_c_nombre <- left_join(Datos,Aglom)
+
 
 ## -------------------------------------------------------------------------------
 Datos_join <- Datos %>% 
   left_join(.,Aglom, by = "AGLOMERADO")
-Datos_join
 
 Poblacion_Aglomerados <- Datos_join %>% 
   filter(AGLOMERADO != 5) %>% 
@@ -124,7 +135,9 @@ Poblacion_Aglomerados
 
 ## -------------------------------------------------------------------------------
 pob.aglo.long <- Poblacion_Aglomerados %>% 
-  pivot_longer(cols = 2:3,names_to = "Sexo",values_to = "Poblacion")
+  pivot_longer(cols = 2:3,
+               names_to = "Sexo",
+               values_to = "Poblacion")
 
 pob.aglo.long
 

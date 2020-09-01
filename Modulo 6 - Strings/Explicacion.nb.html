@@ -303,6 +303,7 @@ div.tocify {
 
 
 <!-- rnb-text-begin -->
+<p>[^1]</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
@@ -336,14 +337,18 @@ library(lubridate) #para trabajar con fechas </code></pre>
 <p>Para poder acceder a la información primero debemos crear un <a href="https://rtweet.info/articles/auth.html">_token__</a> de usuario.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBjaHVzbWVlbiBsYSBjYW50aWRhZCBkZSBlc3BlY2lmaWNhY2lvbmVzIHF1ZSBzZSBsZSBwdWVkZW4gZGFyIGEgbGEgZnVuY2lvbiBzZWFyY2hfdHdlZXRzXG4jP3NlYXJjaF90d2VldHMgXG4gIyB2aWxsYV9henVsX3R3ZWV0cyA8LSBzZWFyY2hfdHdlZXRzKHEgPSAnXCJ2aWxsYSBhenVsXCInLFxuICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuID0gMTgwMDAsIFxuICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbmNsdWRlX3J0cyA9IEZBTFNFLFxuICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYW5nID1cImVzXCIpXG4jIHNhdmVSRFModmlsbGFfYXp1bF90d2VldHMsJ2RhdGEvdmlsbGFfYXp1bF90d2VldHMuUkRTJylcbnZpbGxhX2F6dWxfdHdlZXRzPC0gcmVhZFJEUygnZGF0YS92aWxsYV9henVsX3R3ZWV0cy5SRFMnKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBjaHVzbWVlbiBsYSBjYW50aWRhZCBkZSBlc3BlY2lmaWNhY2lvbmVzIHF1ZSBzZSBsZSBwdWVkZW4gZGFyIGEgbGEgZnVuY2lvbiBzZWFyY2hfdHdlZXRzXG5cbiM/c2VhcmNoX3R3ZWV0cyBcblxuICMgdmlsbGFfYXp1bF90d2VldHMgPC0gc2VhcmNoX3R3ZWV0cyhxID0gJ1widmlsbGEgYXp1bFwiJyxcbiAjICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbiA9IDE4MDAwLCBcbiAjICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW5jbHVkZV9ydHMgPSBGQUxTRSxcbiAjICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGFuZyA9XCJlc1wiKVxuXG4jIHNhdmVSRFModmlsbGFfYXp1bF90d2VldHMsJ2RhdGEvdmlsbGFfYXp1bF90d2VldHMuUkRTJylcblxudmlsbGFfYXp1bF90d2VldHM8LSByZWFkUkRTKCdkYXRhL3ZpbGxhX2F6dWxfdHdlZXRzLlJEUycpXG5gYGAifQ== -->
 <pre class="r"><code># chusmeen la cantidad de especificaciones que se le pueden dar a la funcion search_tweets
+
 #?search_tweets 
+
  # villa_azul_tweets &lt;- search_tweets(q = '&quot;villa azul&quot;',
  #                                    n = 18000, 
  #                                    include_rts = FALSE,
  #                                    lang =&quot;es&quot;)
+
 # saveRDS(villa_azul_tweets,'data/villa_azul_tweets.RDS')
+
 villa_azul_tweets&lt;- readRDS('data/villa_azul_tweets.RDS')</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -351,19 +356,13 @@ villa_azul_tweets&lt;- readRDS('data/villa_azul_tweets.RDS')</code></pre>
 <p>El dataframe tiene 90 variables, veamos que pinta tienen los datos seleccionando algunas de las principales.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlsbGFfYXp1bF90d2VldHNfc2VsZWN0IDwtIHZpbGxhX2F6dWxfdHdlZXRzICU+JSBcbiAgc2VsZWN0KHRleHQsbmFtZSxzY3JlZW5fbmFtZSxjcmVhdGVkX2F0LGxvY2F0aW9uLFxuICAgICAgICAgZmF2b3JpdGVfY291bnQscmV0d2VldF9jb3VudClcbmhlYWQodmlsbGFfYXp1bF90d2VldHNfc2VsZWN0KVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlsbGFfYXp1bF90d2VldHNfc2VsZWN0IDwtIHZpbGxhX2F6dWxfdHdlZXRzICU+JSBcbiAgc2VsZWN0KHRleHQsbmFtZSxzY3JlZW5fbmFtZSxjcmVhdGVkX2F0LGxvY2F0aW9uLFxuICAgICAgICAgZmF2b3JpdGVfY291bnQscmV0d2VldF9jb3VudClcblxuaGVhZCh2aWxsYV9henVsX3R3ZWV0c19zZWxlY3QpXG5gYGAifQ== -->
 <pre class="r"><code>villa_azul_tweets_select &lt;- villa_azul_tweets %&gt;% 
   select(text,name,screen_name,created_at,location,
          favorite_count,retweet_count)
+
 head(villa_azul_tweets_select)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6NywibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJzVlZ6MjhiUlJTZTJIRit1RXBTd1kzVFVDNGdwVTZUa2lycHBVNmFxRXFoRUpxbXlzMTZPL3Rpcjd1ZTJjNFBKODZwUXVMWVM0KzlvSXBUSkxnUThSZVlmd0gxMzBBY09UUzgyZDBKdGtFQ2NXRmw3N3ozNXB2M3Z2ZnQ3T3pqbmFQYjlhTTZZNnpLcWpNVlZxMlJ5V2J1NzYrdXJhOHhObDBoYjRwTnMzay9uaExxZlRKbTZYL2R3eGg3NFNlK2J4bzFTQ0ZUS1FqZ3U1STdDWHg0bmlueVV1RDlKS1g3MXBsTE9Sb0xFWENoZXBuek5vK1J0MUZhNUptS05OMVJLMjQxWWJvUUt3M0xIRG8wY0lpeE4zeGpQQnpUVkJuZWdRRlZvVlZhMEhMb1Vob05rcWJ6WDVwSTRYeGF3d2RjV2NwSllRbGFLTk1vT1gvVE5DQ3RNbDJsMjlqaHpTMXkxTnJxclkzVmpWWCtOR2NNSmVQaEc0N1NOM0ttcUMvanRLL0FRUWcwaWgrNDJHTnk2aFlsQ3VUQXYzSkoya096WEs0bU9QZ2VpUVJsS1pMdldiQkpJUE4xODBrSFd6dTY5ZEFabTFDS1hma25NaGV1QXhRTkVsRGpsSjAvZDhQelhBZ0JSdmxPdmQxem9rTk9nSHF0bmp0ZldxU2dRU3U1N0VYam5qbzFnZDNodVJhSlZZSEpkMFFkTmJVTEdkMWoxTnprRHdaN0dkamhEM0R2SHQ4MWdtcDRTTXI3S0JLWnF6dkNkVUIrbCtZcHF1bEJVdzZhRVE2MGZ5S2s0TWNEQ2hnU0xGVVd6Q2VlajZlWWEwVlpJNmQxRWl2ekllOVltNW03S3l1MklkVEt3YWFFalllSGc5aVdWTS9HU2xJek54VFZJbFg3aWtlMEEyTGFGVGQ0UmwzVGZ2T1ZpWWlubkdobjduSXh2T2dwYnBEOFBwYTdMQ2FDK1Y1SmVRUkVRdFhIR0J4dnEvM1BEeCtjcWp2L0Y0TkhaM3VmUGR2WmYzU29yOTdBNHRXY2U2eDZJQk1MLytnWHpLODlUU0swanYvNjdhdlhKV1JoTzJuemJaQnQvZ1dlbUw4UGpoZGRLcFBlMmx4ZnYzTjdiZk0vaFdjS0pxVTNIeVh0aU1ySms3OEdXSFhSNDdmZVhyUStlc0hZMXRzZmYvNmxHSC83cWVuSGk5WUhyQmpmSzhhbGwwMS9tbzBkWWpWNkQwem9wRklHWi9lL1BOZzdFalp3eWwwN3VkTFMrNC9seWhDc0hqNjVUOE83Q1duWXZ4NUo0K0lrelM5ZnIxYmFVNlUvT2g4d0k5Y1l4M210VGhvUzZIUW9GMVpJSVhaNWVmbDdBYXhjVHZDdngyQ2hjYXhweVdTN0ljMzEvTVF2Z3RNV1Q0TksweDVRMnRlTTBJaXlOUktxVXdRc3hpMElDK1pTK2lEWVJNblNYenlHdnRLSnhaWlFUZ2JVZ2taN2dtakxZSzd0R0xGWmxma2tSSzNpUDBaenZsWXAxOVJFZDFONlpKSk5UQzQ1NmVuR04wWEh5V2MzUDUyQWp0b0xwVDB6WXM4V3RHcEIwYmtnQzlJQkhEWVN5bllpZ3lJMTFGcnA0S1FRWVJwYUlxVU50QU53a1o1aXJuNGowOG1WTUhXS21vYWxNek85a2xpbElWTHN3WGQvQUp2OHZ4SFFCd0FBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["text"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["screen_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["created_at"],"name":[4],"type":["S3: POSIXct"],"align":["right"]},{"label":["location"],"name":[5],"type":["chr"],"align":["left"]},{"label":["favorite_count"],"name":[6],"type":["int"],"align":["right"]},{"label":["retweet_count"],"name":[7],"type":["int"],"align":["right"]}],"data":[{"1":"@soylapolaca En una época la villa Azul estaba compuesta de gente pobre pero trabajadora, ahora además de ellos hay un porcentaje grande de delincuentes y otro de narcos.","2":"Romanita","3":"Romanit09556329","4":"2020-05-26 20:31:10","5":"","6":"0","7":"0"},{"1":"@santosjorgeh @Antoo2108181 Villa azul está en la zona sur del acceso Sud este pertenece a Quilmes, está delante de la Villa Itati.","2":"Romanita","3":"Romanit09556329","4":"2020-05-25 00:37:42","5":"","6":"2","7":"0"},{"1":"@The_Dr_Justice En la Villa Azul hace más de un mes qué hay casos y hay muchos más de los que declararon, por eso el ejército.","2":"Romanita","3":"Romanit09556329","4":"2020-05-25 13:40:37","5":"","6":"5","7":"2"},{"1":"Quieren aprender sobre empatía?? Escuchen al vecino de Villa Azul y dejen de romper la cuarentena (y las pelotas) porque están aburridos! https://t.co/S9na8JUydt","2":"Vibetu <U+0001F49A>","3":"Vibetu","4":"2020-05-26 20:30:32","5":"","6":"0","7":"0"},{"1":"Villa Azul y el \"operativo blindaje\" para contener al virus: cómo se vive ahora dentro del barrio\\nhttps://t.co/fBoPLUGxo6","2":"Big Bang News","3":"bigbangnw","4":"2020-05-26 20:30:00","5":"","6":"1","7":"0"},{"1":"Villa Azul y el \"operativo blindaje\" para contener al virus: cómo se vive ahora dentro del barrio\\nhttps://t.co/MzIKkDPMUr","2":"Big Bang News","3":"bigbangnw","4":"2020-05-25 21:52:53","5":"","6":"2","7":"0"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Aparecen muchas cosas que vamos a querer descartar para armar nuestra bolsa de palabras:</p>
@@ -392,9 +391,6 @@ head(villa_azul_tweets_select)</code></pre>
 <pre class="r"><code>string1 &lt;- &quot;cuarenteNA&quot;
 str_length(string1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEwXG4ifQ== -->
-<pre><code>[1] 10</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Ojo que cuenta los espacios en blanco como un caracter.</p>
@@ -404,9 +400,6 @@ str_length(string1)</code></pre>
 <pre class="r"><code>string2 &lt;- &quot;cuarentena 2020&quot;
 str_length(string2)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE1XG4ifQ== -->
-<pre><code>[1] 15</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -419,9 +412,6 @@ str_length(string2)</code></pre>
 <pre class="r"><code>#quiero el tercer caracter
 str_sub(string1,3,3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYVwiXG4ifQ== -->
-<pre><code>[1] &quot;a&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -430,9 +420,6 @@ str_sub(string1,3,3)</code></pre>
 <pre class="r"><code>#quiero del cuarto al sexto
 str_sub(string1,4,6)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwicmVuXCJcbiJ9 -->
-<pre><code>[1] &quot;ren&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Puedo pasarle la posición de los caracteres con un menos para indicar que quiero que cuente de atrás para adelante. Por ejemplo, si quiero que traiga el anteúltimo caracter llamo a la posición como <code>-2</code>.</p>
@@ -442,9 +429,6 @@ str_sub(string1,4,6)</code></pre>
 <pre class="r"><code>#quiero la última y anteúltima posición
 str_sub(string1,-2,-1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiTkFcIlxuIn0= -->
-<pre><code>[1] &quot;NA&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Otro uso que le podemos dar a este comando es el de reemplazar elementos. Supongamos que quiero reemplazar la última letra por una z.</p>
@@ -454,9 +438,6 @@ str_sub(string1,-2,-1)</code></pre>
 <pre class="r"><code>str_sub(string2,-1,-1) &lt;- &quot;1?&quot;
 string2</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY3VhcmVudGVuYSAyMDIxP1wiXG4ifQ== -->
-<pre><code>[1] &quot;cuarentena 2021?&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -471,9 +452,6 @@ string2</code></pre>
 #Veamos el string
 string3</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiIGN1YXJlbnRlbmEgICBcIiBcImVuICAgXCIgICAgICAgICAgXCIgICBhcmdlbnRpbmFcIiAgXG4ifQ== -->
-<pre><code>[1] &quot; cuarentena   &quot; &quot;en   &quot;          &quot;   argentina&quot;  </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Quitamos los espacios en blanco a ambos lados con el argumento side=‘both’</p>
@@ -482,9 +460,6 @@ string3</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3RyaW0oc3RyaW5nMywgc2lkZSA9ICdib3RoJylcbmBgYCJ9 -->
 <pre class="r"><code>str_trim(string3, side = 'both')</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY3VhcmVudGVuYVwiIFwiZW5cIiAgICAgICAgIFwiYXJnZW50aW5hXCIgXG4ifQ== -->
-<pre><code>[1] &quot;cuarentena&quot; &quot;en&quot;         &quot;argentina&quot; </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Quitamos los espacios en blanco del lado izquierdo con el argumento side=‘left’</p>
@@ -493,9 +468,6 @@ string3</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3RyaW0oc3RyaW5nMywgXCJsZWZ0XCIpXG5gYGAifQ== -->
 <pre class="r"><code>str_trim(string3, &quot;left&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY3VhcmVudGVuYSAgIFwiIFwiZW4gICBcIiAgICAgICAgIFwiYXJnZW50aW5hXCIgICAgXG4ifQ== -->
-<pre><code>[1] &quot;cuarentena   &quot; &quot;en   &quot;         &quot;argentina&quot;    </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -507,36 +479,24 @@ string3</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyaW5nMVxuYGBgIn0= -->
 <pre class="r"><code>string1</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY3VhcmVudGVOQVwiXG4ifQ== -->
-<pre><code>[1] &quot;cuarenteNA&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xsZXZvIHRvZG8gYSBtaW7DunNjdWxhc1xuc3RyX3RvX2xvd2VyKHN0cmluZzEpXG5gYGAifQ== -->
 <pre class="r"><code>#llevo todo a minúsculas
 str_to_lower(string1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY3VhcmVudGVuYVwiXG4ifQ== -->
-<pre><code>[1] &quot;cuarentena&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xsZXZvIHRvZG8gYSBtYXnDunNjdWxhc1xuc3RyX3RvX3VwcGVyKHN0cmluZzEpXG5gYGAifQ== -->
 <pre class="r"><code>#llevo todo a mayúsculas
 str_to_upper(string1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ1VBUkVOVEVOQVwiXG4ifQ== -->
-<pre><code>[1] &quot;CUARENTENA&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xsZXZvIGEgbWF5w7pzY3VsYSBsYSBwcmltZXIgbGV0cmEgZGUgY2FkYSBwYWxhYnJhXG5zdHJfdG9fdGl0bGUoXCJjdWFyZW50ZW5hIGVuIGFyZ2VudGluYVwiKVxuYGBgIn0= -->
 <pre class="r"><code>#llevo a mayúscula la primer letra de cada palabra
 str_to_title(&quot;cuarentena en argentina&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ3VhcmVudGVuYSBFbiBBcmdlbnRpbmFcIlxuIn0= -->
-<pre><code>[1] &quot;Cuarentena En Argentina&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -550,28 +510,16 @@ str_to_title(&quot;cuarentena en argentina&quot;)</code></pre>
 string1_separado &lt;- str_split(string1,pattern = &quot;&quot;)
 string1_separado</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cbiBbMV0gXCJjXCIgXCJ1XCIgXCJhXCIgXCJyXCIgXCJlXCIgXCJuXCIgXCJ0XCIgXCJlXCIgXCJOXCIgXCJBXCJcbiJ9 -->
-<pre><code>[[1]]
- [1] &quot;c&quot; &quot;u&quot; &quot;a&quot; &quot;r&quot; &quot;e&quot; &quot;n&quot; &quot;t&quot; &quot;e&quot; &quot;N&quot; &quot;A&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Notemos que esta funcion nos devuelve una lista</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3Moc3RyaW5nMV9zZXBhcmFkbylcbmBgYCJ9 -->
-<pre class="r"><code>class(string1_separado)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibGlzdFwiXG4ifQ== -->
-<pre><code>[1] &quot;list&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTaSBxdWVyZW1vcyBhY2NlZGVyIGFsIHByaW1lciBlbGVtZW50byBkZSBsYSBsaXN0YVxuc3RyaW5nMV9zZXBhcmFkb1tbMV1dWzFdXG5gYGAifQ== -->
-<pre class="r"><code># Si queremos acceder al primer elemento de la lista
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3Moc3RyaW5nMV9zZXBhcmFkbylcbiMgU2kgcXVlcmVtb3MgYWNjZWRlciBhbCBwcmltZXIgZWxlbWVudG8gZGUgbGEgbGlzdGFcbnN0cmluZzFfc2VwYXJhZG9bWzFdXVsxXVxuYGBgIn0= -->
+<pre class="r"><code>class(string1_separado)
+# Si queremos acceder al primer elemento de la lista
 string1_separado[[1]][1]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY1wiXG4ifQ== -->
-<pre><code>[1] &quot;c&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Definimos un nuevo string</p>
@@ -581,9 +529,6 @@ string1_separado[[1]][1]</code></pre>
 <pre class="r"><code>string5 &lt;- &quot;cuarentena-argentina-2020&quot;
 string5</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY3VhcmVudGVuYS1hcmdlbnRpbmEtMjAyMFwiXG4ifQ== -->
-<pre><code>[1] &quot;cuarentena-argentina-2020&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Lo separamos por el guion</p>
@@ -592,10 +537,6 @@ string5</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3NwbGl0KHN0cmluZzUscGF0dGVybj1cIi1cIilcbmBgYCJ9 -->
 <pre class="r"><code>str_split(string5,pattern=&quot;-&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cblsxXSBcImN1YXJlbnRlbmFcIiBcImFyZ2VudGluYVwiICBcIjIwMjBcIiAgICAgIFxuIn0= -->
-<pre><code>[[1]]
-[1] &quot;cuarentena&quot; &quot;argentina&quot;  &quot;2020&quot;      </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -609,28 +550,17 @@ string5</code></pre>
 <pre class="r"><code>string6 &lt;- &quot;Casi 10 millones de personas recibieron el #IFE durante la #Cuarentena en Argentina&quot;
 string6</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ2FzaSAxMCBtaWxsb25lcyBkZSBwZXJzb25hcyByZWNpYmllcm9uIGVsICNJRkUgZHVyYW50ZSBsYSAjQ3VhcmVudGVuYSBlbiBBcmdlbnRpbmFcIlxuIn0= -->
-<pre><code>[1] &quot;Casi 10 millones de personas recibieron el #IFE durante la #Cuarentena en Argentina&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Veamos la diferencia de ambas funciones</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWVtcGxhemFtb3MgbGEgcHJpbWVyYSBvY3VycmVuY2lhXG5zdHJfcmVwbGFjZShzdHJpbmcgPSBzdHJpbmc2LCBwYXR0ZXJuID0gXCIjXCIsIHJlcGxhY2VtZW50ID0gXCJcIilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWVtcGxhemFtb3MgbGEgcHJpbWVyYSBvY3VycmVuY2lhXG5zdHJfcmVwbGFjZShzdHJpbmcgPSBzdHJpbmc2LCBwYXR0ZXJuID0gXCIjXCIsIHJlcGxhY2VtZW50ID0gXCJcIilcbiMgUmVlbXBsYXphbW9zIHRvZGFzIGxhcyBvY3VycmVuY2lhc1xuc3RyX3JlcGxhY2VfYWxsKHN0cmluZyA9IHN0cmluZzYsIHBhdHRlcm4gPSBcIiNcIiwgcmVwbGFjZW1lbnQgPSBcIlwiKVxuYGBgIn0= -->
 <pre class="r"><code># Reemplazamos la primera ocurrencia
-str_replace(string = string6, pattern = &quot;#&quot;, replacement = &quot;&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ2FzaSAxMCBtaWxsb25lcyBkZSBwZXJzb25hcyByZWNpYmllcm9uIGVsIElGRSBkdXJhbnRlIGxhICNDdWFyZW50ZW5hIGVuIEFyZ2VudGluYVwiXG4ifQ== -->
-<pre><code>[1] &quot;Casi 10 millones de personas recibieron el IFE durante la #Cuarentena en Argentina&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWVtcGxhemFtb3MgdG9kYXMgbGFzIG9jdXJyZW5jaWFzXG5zdHJfcmVwbGFjZV9hbGwoc3RyaW5nID0gc3RyaW5nNiwgcGF0dGVybiA9IFwiI1wiLCByZXBsYWNlbWVudCA9IFwiXCIpXG5gYGAifQ== -->
-<pre class="r"><code># Reemplazamos todas las ocurrencias
+str_replace(string = string6, pattern = &quot;#&quot;, replacement = &quot;&quot;)
+# Reemplazamos todas las ocurrencias
 str_replace_all(string = string6, pattern = &quot;#&quot;, replacement = &quot;&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ2FzaSAxMCBtaWxsb25lcyBkZSBwZXJzb25hcyByZWNpYmllcm9uIGVsIElGRSBkdXJhbnRlIGxhIEN1YXJlbnRlbmEgZW4gQXJnZW50aW5hXCJcbiJ9 -->
-<pre><code>[1] &quot;Casi 10 millones de personas recibieron el IFE durante la Cuarentena en Argentina&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -639,20 +569,13 @@ str_replace_all(string = string6, pattern = &quot;#&quot;, replacement = &quot;&
 <p>La función <code>str_detect()</code> nos permite encontrar expresiones dentro de nuestros strings. Nos reporta <code>VERDADERO</code> o <code>FALSO</code> de acuerdo a si encuentra la expresión que estamos buscando.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyaW5nNDwtIGMoXCJhw7FvXCIsXCIyMDIwXCIsXCJleHRyYcOxb1wiKVxudW5fdGV4dG8gPC0gJ3F1ZSBhw7FvIGV4dHJhw7FvIGVsIDIwMjAuIGNvbW8gcXVpc2llcmEgc2FsaXIgYSB0b21hciB1bmEgY2VydmV6YS4gcGFjaWVuY2lhJ1xuc3RyX2RldGVjdChzdHJpbmc0LCBcIjIwMjBcIilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyaW5nNDwtIGMoXCJhw7FvXCIsXCIyMDIwXCIsXCJleHRyYcOxb1wiKVxudW5fdGV4dG8gPC0gJ3F1ZSBhw7FvIGV4dHJhw7FvIGVsIDIwMjAuIGNvbW8gcXVpc2llcmEgc2FsaXIgYSB0b21hciB1bmEgY2VydmV6YS4gcGFjaWVuY2lhJ1xuXG5zdHJfZGV0ZWN0KHN0cmluZzQsIFwiMjAyMFwiKVxuc3RyX2RldGVjdCh1bl90ZXh0bywnMjAyMCcpXG5gYGAifQ== -->
 <pre class="r"><code>string4&lt;- c(&quot;año&quot;,&quot;2020&quot;,&quot;extraño&quot;)
 un_texto &lt;- 'que año extraño el 2020. como quisiera salir a tomar una cerveza. paciencia'
-str_detect(string4, &quot;2020&quot;)</code></pre>
+
+str_detect(string4, &quot;2020&quot;)
+str_detect(un_texto,'2020')</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFICBUUlVFIEZBTFNFXG4ifQ== -->
-<pre><code>[1] FALSE  TRUE FALSE</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2RldGVjdCh1bl90ZXh0bywnMjAyMCcpXG5gYGAifQ== -->
-<pre class="r"><code>str_detect(un_texto,'2020')</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
-<pre><code>[1] TRUE</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>¿Qué pasa cuando queremos identificar patrones un poco más complejos a la hora de limpiar nuestros datos?</p>
@@ -672,31 +595,15 @@ str_detect(string4, &quot;2020&quot;)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5fdGV4dG9cbmBgYCJ9 -->
 <pre class="r"><code>un_texto</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwicXVlIGHDsW8gZXh0cmHDsW8gZWwgMjAyMC4gY29tbyBxdWlzaWVyYSBzYWxpciBhIHRvbWFyIHVuYSBjZXJ2ZXphLiBwYWNpZW5jaWFcIlxuIn0= -->
-<pre><code>[1] &quot;que año extraño el 2020. como quisiera salir a tomar una cerveza. paciencia&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2RldGVjdCh1bl90ZXh0bywgJ1tbOnB1bmN0Ol1dJykjSGF5IHB1bnR1YWNpw7NuIGVuIG1pIHN0cmluZz9cbmBgYCJ9 -->
-<pre class="r"><code>str_detect(un_texto, '[[:punct:]]')#Hay puntuación en mi string?</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2RldGVjdCh1bl90ZXh0bywgJ1tbOnB1bmN0Ol1dJykjSGF5IHB1bnR1YWNpw7NuIGVuIG1pIHN0cmluZz9cbnN0cl9kZXRlY3QodW5fdGV4dG8sICdbWzphbG51bTpdXScpI0hheSBudW1lcm9zIGVuIG1pIHN0cmluZz9cbnN0cl9kZXRlY3QodW5fdGV4dG8sICdbWzp1cHBlcjpdXScpI0hheSBtYXl1c2MgZW4gbWkgc3RyaW5nP1xuYGBgIn0= -->
+<pre class="r"><code>str_detect(un_texto, '[[:punct:]]')#Hay puntuación en mi string?
+str_detect(un_texto, '[[:alnum:]]')#Hay numeros en mi string?
+str_detect(un_texto, '[[:upper:]]')#Hay mayusc en mi string?</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
-<pre><code>[1] TRUE</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2RldGVjdCh1bl90ZXh0bywgJ1tbOmFsbnVtOl1dJykjSGF5IG51bWVyb3MgZW4gbWkgc3RyaW5nP1xuYGBgIn0= -->
-<pre class="r"><code>str_detect(un_texto, '[[:alnum:]]')#Hay numeros en mi string?</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
-<pre><code>[1] TRUE</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2RldGVjdCh1bl90ZXh0bywgJ1tbOnVwcGVyOl1dJykjSGF5IG1heXVzYyBlbiBtaSBzdHJpbmc/XG5gYGAifQ== -->
-<pre class="r"><code>str_detect(un_texto, '[[:upper:]]')#Hay mayusc en mi string?</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
-<pre><code>[1] FALSE</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><strong>Importante</strong>: Hay muchas pero muchas formas más de identificar expresiones regulares y trabajaro con los strings. Nos acotamos acá a las más frecuentes.</p>
@@ -724,23 +631,18 @@ str_detect(string4, &quot;2020&quot;)</code></pre>
 <pre class="r"><code>primer.caso &lt;- villa_azul_tweets_select$text[1]
 primer.caso</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQHNveWxhcG9sYWNhIEVuIHVuYSDDqXBvY2EgbGEgdmlsbGEgQXp1bCBlc3RhYmEgY29tcHVlc3RhIGRlIGdlbnRlIHBvYnJlIHBlcm8gdHJhYmFqYWRvcmEsIGFob3JhIGFkZW3DoXMgZGUgZWxsb3MgaGF5IHVuIHBvcmNlbnRhamUgZ3JhbmRlIGRlIGRlbGluY3VlbnRlcyB5IG90cm8gZGUgbmFyY29zLlwiXG4ifQ== -->
-<pre><code>[1] &quot;@soylapolaca En una época la villa Azul estaba compuesta de gente pobre pero trabajadora, ahora además de ellos hay un porcentaje grande de delincuentes y otro de narcos.&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>La librería de <strong>RVerbalExpressions</strong> nos permite crear secuencialmente con formato tidy una expresión regular para buscar en nuestros strings. Si queremos borrar las menciones, en este caso necesitamos construir una expresion que encuentre un texto iniciado en “@” e identifique todos los caracteres que le sigan hasta que aparezca un espacio.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVuY2lvbmVzIDwtIHJ4KCkgJT4lIFxuICByeF9maW5kKCdAJyklPiUgXG4gIHJ4X2FueXRoaW5nX2J1dCh2YWx1ZSA9ICcgJylcbm1lbmNpb25lc1xuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVuY2lvbmVzIDwtIHJ4KCkgJT4lIFxuICByeF9maW5kKCdAJyklPiUgXG4gIHJ4X2FueXRoaW5nX2J1dCh2YWx1ZSA9ICcgJylcblxubWVuY2lvbmVzXG5gYGAifQ== -->
 <pre class="r"><code>menciones &lt;- rx() %&gt;% 
   rx_find('@')%&gt;% 
   rx_anything_but(value = ' ')
+
 menciones</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiKEApKFteIF0qKVwiXG4ifQ== -->
-<pre><code>[1] &quot;(@)([^ ]*)&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -749,9 +651,6 @@ menciones</code></pre>
 <pre class="r"><code>primer.caso&lt;- str_remove_all(primer.caso, pattern = menciones)
 primer.caso</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiIEVuIHVuYSDDqXBvY2EgbGEgdmlsbGEgQXp1bCBlc3RhYmEgY29tcHVlc3RhIGRlIGdlbnRlIHBvYnJlIHBlcm8gdHJhYmFqYWRvcmEsIGFob3JhIGFkZW3DoXMgZGUgZWxsb3MgaGF5IHVuIHBvcmNlbnRhamUgZ3JhbmRlIGRlIGRlbGluY3VlbnRlcyB5IG90cm8gZGUgbmFyY29zLlwiXG4ifQ== -->
-<pre><code>[1] &quot; En una época la villa Azul estaba compuesta de gente pobre pero trabajadora, ahora además de ellos hay un porcentaje grande de delincuentes y otro de narcos.&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Saquemos todo lo que no sea un caracter alfa-numérico o un espacio en blanco</p>
@@ -760,9 +659,6 @@ primer.caso</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3JlbW92ZV9hbGwocHJpbWVyLmNhc28sIHBhdHRlcm4gPSBcIlteWzphbG51bTpdWzpibGFuazpdXVwiKVxuYGBgIn0= -->
 <pre class="r"><code>str_remove_all(primer.caso, pattern = &quot;[^[:alnum:][:blank:]]&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiIEVuIHVuYSDDqXBvY2EgbGEgdmlsbGEgQXp1bCBlc3RhYmEgY29tcHVlc3RhIGRlIGdlbnRlIHBvYnJlIHBlcm8gdHJhYmFqYWRvcmEgYWhvcmEgYWRlbcOhcyBkZSBlbGxvcyBoYXkgdW4gcG9yY2VudGFqZSBncmFuZGUgZGUgZGVsaW5jdWVudGVzIHkgb3RybyBkZSBuYXJjb3NcIlxuIn0= -->
-<pre><code>[1] &quot; En una época la villa Azul estaba compuesta de gente pobre pero trabajadora ahora además de ellos hay un porcentaje grande de delincuentes y otro de narcos&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><strong>Pregunta</strong>: ¿No podría haber directo eliminado todo lo que sea alfanumérico para sacar las menciones, hashtags, etc?</p>
@@ -774,25 +670,21 @@ primer.caso</code></pre>
 <pre class="r"><code>caso.28 &lt;- villa_azul_tweets_select$text[28]
 caso.28</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiI1NlY3JldG9EZVN1bWFyaW8gfCBTZXJnaW8gQmVybmksIE1pbmlzdHJvIGRlIFNlZ3VyaWRhZCBkZSBsYSBQcm92aW5jaWEuIFZpY3RvcmlhIERhIENvc3RhLCBtw7N2aWwgZGVzZGUgVmlsbGEgQXp1bC4gaHR0cHM6Ly90LmNvL3ZaQmljZTc4djZcIlxuIn0= -->
-<pre><code>[1] &quot;#SecretoDeSumario | Sergio Berni, Ministro de Seguridad de la Provincia. Victoria Da Costa, móvil desde Villa Azul. https://t.co/vZBice78v6&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>También tenemos entre los tweets links a paginas web. En este caso necesitamos borrar todos los caracteres que sigan a un “http”, hasta que aparezca un espacio.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwcmVzaW9uIDwtIHJ4KCkgJT4lIFxuICByeF9maW5kKCdodHRwJykgJT4lIFxuICMgcnhfbWF5YmUoJ3MnKSAlPiUgXG4gIyByeF9tYXliZSgnOi8vJykgJT4lIFxuICByeF9hbnl0aGluZ19idXQodmFsdWUgPSAnICcpXG5leHByZXNpb25cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwcmVzaW9uIDwtIHJ4KCkgJT4lIFxuICByeF9maW5kKCdodHRwJykgJT4lIFxuICMgcnhfbWF5YmUoJ3MnKSAlPiUgXG4gIyByeF9tYXliZSgnOi8vJykgJT4lIFxuICByeF9hbnl0aGluZ19idXQodmFsdWUgPSAnICcpXG5cbmV4cHJlc2lvblxuXG5gYGAifQ== -->
 <pre class="r"><code>expresion &lt;- rx() %&gt;% 
   rx_find('http') %&gt;% 
  # rx_maybe('s') %&gt;% 
  # rx_maybe('://') %&gt;% 
   rx_anything_but(value = ' ')
-expresion</code></pre>
+
+expresion
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiKGh0dHApKFteIF0qKVwiXG4ifQ== -->
-<pre><code>[1] &quot;(http)([^ ]*)&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -801,30 +693,25 @@ expresion</code></pre>
 <pre class="r"><code>caso.28&lt;- str_remove_all(caso.28, pattern = expresion)
 caso.28</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiI1NlY3JldG9EZVN1bWFyaW8gfCBTZXJnaW8gQmVybmksIE1pbmlzdHJvIGRlIFNlZ3VyaWRhZCBkZSBsYSBQcm92aW5jaWEuIFZpY3RvcmlhIERhIENvc3RhLCBtw7N2aWwgZGVzZGUgVmlsbGEgQXp1bC4gXCJcbiJ9 -->
-<pre><code>[1] &quot;#SecretoDeSumario | Sergio Berni, Ministro de Seguridad de la Provincia. Victoria Da Costa, móvil desde Villa Azul. &quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Armo una expresión para eliminar hashtags</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGFzdGhhZ3MgPC0gcngoKSAlPiUgXG4gIHJ4X2ZpbmQoJyMnKSU+JSBcbiAgcnhfYW55dGhpbmdfYnV0KHZhbHVlID0gJyAnKVxuY2Fzby4yODwtIHN0cl9yZW1vdmVfYWxsKGNhc28uMjgsIHBhdHRlcm4gPSBoYXN0aGFncylcbmNhc28uMjg8LSBzdHJfcmVtb3ZlX2FsbChjYXNvLjI4LCBwYXR0ZXJuID0gXCJbXls6YWxudW06XVs6Ymxhbms6XV1cIilcbmNhc28uMjhcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGFzdGhhZ3MgPC0gcngoKSAlPiUgXG4gIHJ4X2ZpbmQoJyMnKSU+JSBcbiAgcnhfYW55dGhpbmdfYnV0KHZhbHVlID0gJyAnKVxuXG5jYXNvLjI4PC0gc3RyX3JlbW92ZV9hbGwoY2Fzby4yOCwgcGF0dGVybiA9IGhhc3RoYWdzKVxuY2Fzby4yODwtIHN0cl9yZW1vdmVfYWxsKGNhc28uMjgsIHBhdHRlcm4gPSBcIlteWzphbG51bTpdWzpibGFuazpdXVwiKVxuY2Fzby4yOFxuYGBgIn0= -->
 <pre class="r"><code>hasthags &lt;- rx() %&gt;% 
   rx_find('#')%&gt;% 
   rx_anything_but(value = ' ')
+
 caso.28&lt;- str_remove_all(caso.28, pattern = hasthags)
 caso.28&lt;- str_remove_all(caso.28, pattern = &quot;[^[:alnum:][:blank:]]&quot;)
 caso.28</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiICBTZXJnaW8gQmVybmkgTWluaXN0cm8gZGUgU2VndXJpZGFkIGRlIGxhIFByb3ZpbmNpYSBWaWN0b3JpYSBEYSBDb3N0YSBtw7N2aWwgZGVzZGUgVmlsbGEgQXp1bCBcIlxuIn0= -->
-<pre><code>[1] &quot;  Sergio Berni Ministro de Seguridad de la Provincia Victoria Da Costa móvil desde Villa Azul &quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogTWFuZWpvIGRlIFN0cmluZ3MNCnN1YnRpdGxlOiBFeHBsaWNhY2nDs24NCmRhdGU6ICIiDQpvdXRwdXQ6DQogIGh0bWxfbm90ZWJvb2s6IA0KICAgIHRvYzogdHJ1ZQ0KICAgIHRvY19mbG9hdDogdHJ1ZSANCi0tLQ0KYGBge3Igc2V0dXAsIG1lc3NhZ2UgPSBGQUxTRSxlY2hvPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFLG1lc3NhZ2UgPSBGQUxTRSkNCg0KYGBgDQoNCmBgYHtyLG1lc3NhZ2U9RkFMU0V9DQogI2luc3RhbGwucGFja2FnZXMoInJ0d2VldCIpDQpsaWJyYXJ5KHJ0d2VldCkgIyBkZXNjYXJnYXIgaW5mbyBkZSB0d2l0dGVyDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkod29yZGNsb3VkMikNCmxpYnJhcnkodG0pICMgcGFyYSB0cmFiYWphciBjb24gY29ycHVzIGRlIHRleHRvcw0KbGlicmFyeShzdHJpbmdyKSAjcGFyYSB0cmFiYWphciBjb24gc3RyaW5ncw0KbGlicmFyeShSVmVyYmFsRXhwcmVzc2lvbnMpICNwYXJhIHRyYWJhamFyIGV4cHJlc2lvbmVzIHJlZ3VsYXJlcyANCmxpYnJhcnkobHVicmlkYXRlKSAjcGFyYSB0cmFiYWphciBjb24gZmVjaGFzIA0KYGBgDQoNCiMgSW50cm9kdWNjacOzbg0KDQotIEp1bnRvIGNvbiBsYXMgaW3DoWdlbmVzIHkgbG9zIGF1ZGlvcywgbG9zIHRleHRvcyBzb24gdW5hIGZ1ZW50ZSBkZSBkYXRvcyBubyBlc3RydWN0dXJhZG9zIHF1ZSBzZSBtdWx0aXBsaWPDsyBlbiBsb3Mgw7psdGltb3MgYcOxb3MuDQoNCi0gUGFyYSBwb2RlciBoYWNlciB1c28gZGUgbGEgaW5mb3JtYWNpw7NuIHF1ZSBjb250aWVuZW4gZXMgbmVjZXNhcmlvIHByb2Nlc2FyIGxhcyBmdWVudGVzIG9yaWdpbmFsZXMgcGFyYSBhbGNhbnphciB1biBmb3JtYXRvIGVzdGFuZGFyaXphZG8gcXVlIG5vcyBwZXJtaXRhIHRvbWFyIG3DqXRyaWNhcyBvIGRpc2XDsWFyIG1vZGVsb3MgcGFyYSBhbmFsaXphciBkaWNoYSBpbmZvcm1hY2nDs24uDQoNCi0gRW4gZXN0YSBjbGFzZSB2ZXJlbW9zIHVuYSBpbnRyb2R1Y2Npw7NuIGEgbG9zIGNvbWFuZG9zIG5lY2VzYXJpb3MgcGFyYSB0b21hciB1biBjb3JwdXMgZGUgdGV4dG8sICJsaW1waWFybG8iIHkgZ2VuZXJhciB1biBCYWcgb2YgV29yZHMgKEJvbHNhIGRlIHBhbGFicmFzKS4gTHVlZ28gdmlzdWFsaXphcmVtb3MgZGUgZm9ybWEgc2VuY2lsbGEgbGEgaW5mb3JtYWNpw7NuDQoNCg0KI3J0d2VldA0KRWwgcGFxdWV0ZSBbX19ydHdlZXRfX10oaHR0cHM6Ly9ydHdlZXQuaW5mby8pIHRpZW5lIHVuIG1vbnTDs24gZGUgZnVuY2lvbmFsaWRhZGVzIHBhcmEgYWNjZWRlciBhIGluZm9ybWFjacOzbiBkZSB0d2l0dGVyIChhdW5xdWUgZGUgZm9ybWEgbGltaXRhZGEgc2luIHBvbmVyIGVsIGJpbGxldGUpLiANCg0KQ29uY2VudHLDqW1vc25vcyBlbiBsYSBmdW5jacOzbiAqKnNlYXJjaF90d2VldHMqKi4gRXN0YSBub3MgcGVybWl0ZSBkZXNjYXJnYXIgZGF0YSBkZSBsb3Mgw7psdGltb3MgNiBhIDkgZMOtYXMgZXNwZWPDrWZpY2FuZG8gdW4gdGV4dG8gY2xhdmUgZGUgYnVzcXVlZGEuIEVsIGzDrW1pdGUgcGVybWl0aWRvIHBvciB0d2VldGVyIGVzIGRlIDE4IG1pbCByZWdpc3Ryb3MsIHBlcm8gbGEgZnVuY2nDs24gdGllbmUgdW4gcGFyYW1ldHJvIHBhcmEgcmVhbGl6YXIgdW5hIGl0ZXJhcmFjacOzbiB5IGFjY2VkZXIgYSBtYXlvciBjYW50aWRhZCBkZSBjYXNvcy4gDQoNClBhcmEgIHBvZGVyIGFjY2VkZXIgYSBsYSBpbmZvcm1hY2nDs24gcHJpbWVybyBkZWJlbW9zIGNyZWFyIHVuIFtfdG9rZW5fX10oaHR0cHM6Ly9ydHdlZXQuaW5mby9hcnRpY2xlcy9hdXRoLmh0bWwpIGRlIHVzdWFyaW8uDQpgYGB7cn0NCiMgY2h1c21lZW4gbGEgY2FudGlkYWQgZGUgZXNwZWNpZmljYWNpb25lcyBxdWUgc2UgbGUgcHVlZGVuIGRhciBhIGxhIGZ1bmNpb24gc2VhcmNoX3R3ZWV0cw0KDQojP3NlYXJjaF90d2VldHMgDQoNCiAjIHZpbGxhX2F6dWxfdHdlZXRzIDwtIHNlYXJjaF90d2VldHMocSA9ICcidmlsbGEgYXp1bCInLA0KICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuID0gMTgwMDAsIA0KICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbmNsdWRlX3J0cyA9IEZBTFNFLA0KICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYW5nID0iZXMiKQ0KDQojIHNhdmVSRFModmlsbGFfYXp1bF90d2VldHMsJ2RhdGEvdmlsbGFfYXp1bF90d2VldHMuUkRTJykNCg0KdmlsbGFfYXp1bF90d2VldHM8LSByZWFkUkRTKCdkYXRhL3ZpbGxhX2F6dWxfdHdlZXRzLlJEUycpDQpgYGANCg0KRWwgZGF0YWZyYW1lIHRpZW5lIDkwIHZhcmlhYmxlcywgdmVhbW9zIHF1ZSBwaW50YSB0aWVuZW4gbG9zIGRhdG9zIHNlbGVjY2lvbmFuZG8gYWxndW5hcyBkZSBsYXMgcHJpbmNpcGFsZXMuDQpgYGB7cn0NCnZpbGxhX2F6dWxfdHdlZXRzX3NlbGVjdCA8LSB2aWxsYV9henVsX3R3ZWV0cyAlPiUgDQogIHNlbGVjdCh0ZXh0LG5hbWUsc2NyZWVuX25hbWUsY3JlYXRlZF9hdCxsb2NhdGlvbiwNCiAgICAgICAgIGZhdm9yaXRlX2NvdW50LHJldHdlZXRfY291bnQpDQoNCmhlYWQodmlsbGFfYXp1bF90d2VldHNfc2VsZWN0KQ0KYGBgDQpBcGFyZWNlbiBtdWNoYXMgY29zYXMgcXVlIHZhbW9zIGEgcXVlcmVyIGRlc2NhcnRhciBwYXJhIGFybWFyIG51ZXN0cmEgYm9sc2EgZGUgcGFsYWJyYXM6ICANCg0KLSBMaW5rcyBhIHBhZ2luYXMgd2ViDQotIENhcmFjdGVyZXMgZXNwZWNpYWxlcyAoIiIsPywjKQ0KLSBJbWFnZW5lcyAoMmRvIHR3ZWV0IGRlIGFycmliYSkNCg0KDQpBbnRlcyBkZSBwYXNhciBhIG9wZXJhcmFyICJsaW1waWFuZG8iICBlbCBjb25qdW50byBkZSB0d2VldHMgcXVlIGRlc2NhcmdhbW9zLCB2ZWFtb3MgZWplbXBsaXRvcyBzZW5jaWxsb3Mgc29icmUgY29tbyBkZXRlY3RhciBjaWVydG9zIHBhdHJvbmVzIGVuIHRleHRvIGNvbiBlbCBwYXF1ZXRlICoqc3RyaW5ncioqDQoNCiNFeHByZXNpb25lcyByZWd1bGFyZXMNCg0KVW4gZWxlbWVudG8gZnVuZGFtZW50YWwgcGFyYSBsYSBtYW5pcHVsYWNpw7NuIGRlbCB0ZXh0byBzb24gbGFzIFtleHByZXNpb25lcyByZWd1bGFyZXNdKGh0dHBzOi8vc3RyaW5nci50aWR5dmVyc2Uub3JnL2FydGljbGVzL3JlZ3VsYXItZXhwcmVzc2lvbnMuaHRtbCkuIMOJc3RhcyBzaXJ2ZW4gcGFyYSBjYXB0YXIgX3BhdHJvbmVzXyBxdWUgYXBhcmVjZW4gZW4gZWwgdGV4dG8geSBsdWVnbyBvcGVyYXIgc29icmUgZWxsb3MgKGV4dHJhZXJsb3MsIHJlZW1wbGF6YXJsb3MsIGRldGVjdGFybG9zLCBldGMuKQ0KDQohW10oaW1nL3JlZ2V4LnBuZyl7d2lkdGg9MTAwMH0NCg0KDQojIyBQcmluY2lwYWxlcyBmdW5jaW9uZXMNCg0KIyMjIHN0cl9sZW5ndGgNCg0KQ29uIGxhIGZ1bmNpw7NuIGBzdHJfbGVuZ3RoKClgIHBvZGVtb3MgdmVyIGVsIGxhcmdvIGRlIHVuIHN0cmluZy4NCmBgYHtyfQ0Kc3RyaW5nMSA8LSAiY3VhcmVudGVOQSINCnN0cl9sZW5ndGgoc3RyaW5nMSkNCmBgYA0KDQpPam8gcXVlIGN1ZW50YSBsb3MgZXNwYWNpb3MgZW4gYmxhbmNvIGNvbW8gdW4gY2FyYWN0ZXIuDQpgYGB7cn0NCnN0cmluZzIgPC0gImN1YXJlbnRlbmEgMjAyMCINCnN0cl9sZW5ndGgoc3RyaW5nMikNCmBgYA0KDQojIyMgc3RyX3N1Yg0KDQpMYSBmdW5jacOzbiBgc3RyX3N1YigpYCBub3MgcGVybWl0ZSBleHRyYWVyIGxvcyBjYXJhY3RlcmVzIHF1ZSBzZSBlbmN1ZW50cmFuIGVudHJlIGRldGVybWluYWRhcyBwb3NpY2lvbmVzLiBUaWVuZSB0cmVzIGFyZ3VtZW50b3M6IGVsIHN0cmluZywgZWwgb3JkZW4gZGVsIGNhcmFjdGVyIGEgcGFydGlyIGRlbCBjdWFsIHRpZW5lIHF1ZSBlbXBlemFyIGEgZXh0cmFlciB5IGVsIG9yZGVuIGRlbCBjYXJhY3RlciBoYXN0YSBlbCBjdWFsIHRpZW5lIHF1ZSBleHRyYWVyLg0KDQpgYGB7cn0NCiNxdWllcm8gZWwgdGVyY2VyIGNhcmFjdGVyDQpzdHJfc3ViKHN0cmluZzEsMywzKQ0KYGBgDQoNCmBgYHtyfQ0KI3F1aWVybyBkZWwgY3VhcnRvIGFsIHNleHRvDQpzdHJfc3ViKHN0cmluZzEsNCw2KQ0KYGBgDQoNClB1ZWRvIHBhc2FybGUgbGEgcG9zaWNpw7NuIGRlIGxvcyBjYXJhY3RlcmVzIGNvbiB1biBtZW5vcyBwYXJhIGluZGljYXIgcXVlIHF1aWVybyBxdWUgY3VlbnRlIGRlIGF0csOhcyBwYXJhIGFkZWxhbnRlLiBQb3IgZWplbXBsbywgc2kgcXVpZXJvIHF1ZSB0cmFpZ2EgZWwgYW50ZcO6bHRpbW8gY2FyYWN0ZXIgbGxhbW8gYSBsYSBwb3NpY2nDs24gY29tbyBgLTJgLg0KDQpgYGB7cn0NCiNxdWllcm8gbGEgw7psdGltYSB5IGFudGXDumx0aW1hIHBvc2ljacOzbg0Kc3RyX3N1YihzdHJpbmcxLC0yLC0xKQ0KYGBgDQoNCk90cm8gdXNvIHF1ZSBsZSBwb2RlbW9zIGRhciBhIGVzdGUgY29tYW5kbyBlcyBlbCBkZSByZWVtcGxhemFyIGVsZW1lbnRvcy4gU3Vwb25nYW1vcyBxdWUgcXVpZXJvIHJlZW1wbGF6YXIgbGEgw7psdGltYSBsZXRyYSBwb3IgdW5hIHouDQpgYGB7cn0NCnN0cl9zdWIoc3RyaW5nMiwtMSwtMSkgPC0gIjE/Ig0Kc3RyaW5nMg0KYGBgDQoNCiMjIyBzdHJfdHJpbQ0KRnVuY2nDs24gcGFyYSBlbCBtYW5lam8gZGUgZXNwYWNpb3MgZW4gYmxhbmNvLg0KDQpFcyBmcmVjdWVudGUgcXVlIGFwYXJlemNhbiBkYXRvcyBtYWwgY2FyZ2Fkb3MgbyBjb24gZXJyb3JlcyBkZSB0aXBlbyBxdWUgdGllbmVuIGVzcGFjaW9zIGRvbmRlIG5vIGRlYmVyw61hIGhhYmVybG9zLiBMYSBmdW5jacOzbiBgc3RyX3RyaW0oKWAgcGVybWl0ZSBxdWUgbm9zIGRlc2hhZ2Ftb3MgZGUgbG9zIGVzcGFjaW9zIGVuIGJsYW5jbyBhIGl6cXVpZXJkYSwgZGVyZWNoYSBvIGFtYm9zIGxhZG9zIGRlIG51ZXN0cm8gc3RyaW5nLg0KDQpgYGB7cn0NCnN0cmluZzMgPC0gYygiIGN1YXJlbnRlbmEgICAiLCAiZW4gICAiLCAgIiAgIGFyZ2VudGluYSIpDQojVmVhbW9zIGVsIHN0cmluZw0Kc3RyaW5nMw0KYGBgDQpRdWl0YW1vcyBsb3MgZXNwYWNpb3MgZW4gYmxhbmNvIGEgYW1ib3MgbGFkb3MgY29uIGVsIGFyZ3VtZW50byBzaWRlPSdib3RoJw0KDQpgYGB7cn0NCnN0cl90cmltKHN0cmluZzMsIHNpZGUgPSAnYm90aCcpDQpgYGANCg0KUXVpdGFtb3MgbG9zIGVzcGFjaW9zIGVuIGJsYW5jbyBkZWwgbGFkbyBpenF1aWVyZG8gY29uIGVsIGFyZ3VtZW50byBzaWRlPSdsZWZ0Jw0KYGBge3J9DQpzdHJfdHJpbShzdHJpbmczLCAibGVmdCIpDQpgYGANCg0KIyMjIE1hecO6c2N1bGFzIHkgbWluw7pzY3VsYXMNCg0KRXhpc3RlbiB2YXJpYXMgZnVuY2lvbmVzIHBhcmEgbWFuaXB1bGFyIGxhcyBtYXl1c2N1bGFzL21pbsO6c2N1bGFzIGRlIG51ZXN0cm9zIHN0cmluZ3MuIEEgbW9kbyBkZSBzdWdlcmVuY2lhLCBzaWVtcHJlIGVzIGNvbnZpZW50aWVudGUgbWFuZWphcnNlIGNvbiB0b2RvcyBsb3MgY2FyYWN0ZXJlcyBlbiBtaW7DunNjdWxhIG8gZW4gbWF5w7pzY3VsYS4gRXN0byBheXVkYSBhIG5vcm1hbGl6YXIgbGEgaW5mb3JtYWNpw7NuIHBhcmEgYXJtYXIgbWVqb3IgZ3J1cG9zLCBqb2luZWFyIHRhYmxhcywgZXRjLg0KDQpgYGB7cn0NCnN0cmluZzENCmBgYA0KYGBge3J9DQojbGxldm8gdG9kbyBhIG1pbsO6c2N1bGFzDQpzdHJfdG9fbG93ZXIoc3RyaW5nMSkNCmBgYA0KYGBge3J9DQojbGxldm8gdG9kbyBhIG1hecO6c2N1bGFzDQpzdHJfdG9fdXBwZXIoc3RyaW5nMSkNCmBgYA0KYGBge3J9DQojbGxldm8gYSBtYXnDunNjdWxhIGxhIHByaW1lciBsZXRyYSBkZSBjYWRhIHBhbGFicmENCnN0cl90b190aXRsZSgiY3VhcmVudGVuYSBlbiBhcmdlbnRpbmEiKQ0KYGBgDQoNCiMjIyBzdHJfc3BsaXQNCg0KTGEgZnVuY2nDs24gYHN0cl9zcGxpdCgpYCBub3MgcGVybWl0ZSBwYXJ0aXIgdW4gc3RyaW5nIGRlIGFjdWVyZG8gYSBhbGfDum4gc2VwYXJhZG9yL3BhdHJvbiAocGF0dGVybikgcXVlIGRlZmluYW1vcy4NCg0KYGBge3J9DQojcXVpZXJvIHNlcGFyYXIgdG9kYXMgbGFzIGxldHJhcyBkZSBtaSBzdHJpbmcNCnN0cmluZzFfc2VwYXJhZG8gPC0gc3RyX3NwbGl0KHN0cmluZzEscGF0dGVybiA9ICIiKQ0Kc3RyaW5nMV9zZXBhcmFkbw0KYGBgDQoNCk5vdGVtb3MgcXVlIGVzdGEgZnVuY2lvbiBub3MgZGV2dWVsdmUgdW5hIGxpc3RhDQoNCmBgYHtyfQ0KY2xhc3Moc3RyaW5nMV9zZXBhcmFkbykNCiMgU2kgcXVlcmVtb3MgYWNjZWRlciBhbCBwcmltZXIgZWxlbWVudG8gZGUgbGEgbGlzdGENCnN0cmluZzFfc2VwYXJhZG9bWzFdXVsxXQ0KYGBgDQoNCkRlZmluaW1vcyB1biBudWV2byBzdHJpbmcNCg0KYGBge3J9DQpzdHJpbmc1IDwtICJjdWFyZW50ZW5hLWFyZ2VudGluYS0yMDIwIg0Kc3RyaW5nNQ0KYGBgDQoNCkxvIHNlcGFyYW1vcyBwb3IgZWwgZ3Vpb24NCg0KYGBge3J9DQpzdHJfc3BsaXQoc3RyaW5nNSxwYXR0ZXJuPSItIikNCmBgYA0KDQojIyMgc3RyX3JlcGxhY2UNCkxhcyBmdW5jaW9uZXMgYHN0cl9yZXBsYWNlKClgIHkgYHN0cl9yZXBsYWNlX2FsbCgpYCBkZSBgc3RyaW5ncmAgbm9zIHBlcm1pdGVuIGVuY29udHJhciB1biBwYXRyw7NuIGRlbnRybyBkZSBudWVzdHJvIHN0cmluZyB5IHJlZW1wbGF6YXJsbyBwb3Igb3Ryby4gDQoNCmBzdHJfcmVwbGFjZWAgc29sbyByZWVtcGxhemEgbGEgcHJpbWVyYSBvY3VycmVuY2lhIGRlbCBwYXRyb24gbWllbnRyYXMgcXVlIGBzdHJfcmVwbGFjZV9hbGwoKWAgcmVlbXBsYXphIHRvZGFzIGxhcyBvY3VycmVuY2lhcw0KDQpgYGB7cn0NCnN0cmluZzYgPC0gIkNhc2kgMTAgbWlsbG9uZXMgZGUgcGVyc29uYXMgcmVjaWJpZXJvbiBlbCAjSUZFIGR1cmFudGUgbGEgI0N1YXJlbnRlbmEgZW4gQXJnZW50aW5hIg0Kc3RyaW5nNg0KYGBgDQpWZWFtb3MgbGEgZGlmZXJlbmNpYSBkZSBhbWJhcyBmdW5jaW9uZXMNCg0KYGBge3J9DQojIFJlZW1wbGF6YW1vcyBsYSBwcmltZXJhIG9jdXJyZW5jaWENCnN0cl9yZXBsYWNlKHN0cmluZyA9IHN0cmluZzYsIHBhdHRlcm4gPSAiIyIsIHJlcGxhY2VtZW50ID0gIiIpDQojIFJlZW1wbGF6YW1vcyB0b2RhcyBsYXMgb2N1cnJlbmNpYXMNCnN0cl9yZXBsYWNlX2FsbChzdHJpbmcgPSBzdHJpbmc2LCBwYXR0ZXJuID0gIiMiLCByZXBsYWNlbWVudCA9ICIiKQ0KYGBgDQoNCiMjIyBzdHJfZGV0ZWN0DQoNCkxhIGZ1bmNpw7NuIGBzdHJfZGV0ZWN0KClgIG5vcyBwZXJtaXRlIGVuY29udHJhciBleHByZXNpb25lcyBkZW50cm8gZGUgbnVlc3Ryb3Mgc3RyaW5ncy4gTm9zIHJlcG9ydGEgYFZFUkRBREVST2AgbyBgRkFMU09gIGRlIGFjdWVyZG8gYSBzaSBlbmN1ZW50cmEgbGEgZXhwcmVzacOzbiBxdWUgZXN0YW1vcyBidXNjYW5kby4NCg0KYGBge3J9DQpzdHJpbmc0PC0gYygiYcOxbyIsIjIwMjAiLCJleHRyYcOxbyIpDQp1bl90ZXh0byA8LSAncXVlIGHDsW8gZXh0cmHDsW8gZWwgMjAyMC4gY29tbyBxdWlzaWVyYSBzYWxpciBhIHRvbWFyIHVuYSBjZXJ2ZXphLiBwYWNpZW5jaWEnDQoNCnN0cl9kZXRlY3Qoc3RyaW5nNCwgIjIwMjAiKQ0Kc3RyX2RldGVjdCh1bl90ZXh0bywnMjAyMCcpDQpgYGANCg0Kwr9RdcOpIHBhc2EgY3VhbmRvIHF1ZXJlbW9zIGlkZW50aWZpY2FyIHBhdHJvbmVzIHVuIHBvY28gbcOhcyBjb21wbGVqb3MgYSBsYSBob3JhIGRlIGxpbXBpYXIgbnVlc3Ryb3MgZGF0b3M/DQoNClBhcmEgZWxsbyBwb2RlbW9zIGdlbmVyYXIgdW5hIGV4cHJlc2nDs24gcmVndWxhciBhIHRyYXbDqXMgZGUgZGlzdGludG9zIGVsZW1lbnRvczoNCg0KIyMgQ2FyYWN0ZXJlcyBlc3BlY2lhbGVzLg0KDQpTb24gZm9ybWFzIGRlIHJlZmVyaXJub3MgZGUgZm9ybWEgZ2VuZXJhbCBhIGNpZXJ0b3MgdGlwb3MgZGUgY2FyYWN0ZXJlcw0KDQohW10oaW1nL2NoYXJhY3RlcnMucG5nKXt3aWR0aD0zMDB9DQoNCnBvciBlamVtcGxvDQpgYGB7cn0NCnVuX3RleHRvDQpgYGANCg0KDQpgYGB7cn0NCnN0cl9kZXRlY3QodW5fdGV4dG8sICdbWzpwdW5jdDpdXScpI0hheSBwdW50dWFjacOzbiBlbiBtaSBzdHJpbmc/DQpzdHJfZGV0ZWN0KHVuX3RleHRvLCAnW1s6YWxudW06XV0nKSNIYXkgbnVtZXJvcyBlbiBtaSBzdHJpbmc/DQpzdHJfZGV0ZWN0KHVuX3RleHRvLCAnW1s6dXBwZXI6XV0nKSNIYXkgbWF5dXNjIGVuIG1pIHN0cmluZz8NCmBgYA0KDQoqKkltcG9ydGFudGUqKjogSGF5IG11Y2hhcyBwZXJvIG11Y2hhcyBmb3JtYXMgbcOhcyBkZSBpZGVudGlmaWNhciBleHByZXNpb25lcyByZWd1bGFyZXMgeSB0cmFiYWphcm8gY29uIGxvcyBzdHJpbmdzLiBOb3MgYWNvdGFtb3MgYWPDoSBhIGxhcyBtw6FzIGZyZWN1ZW50ZXMuDQoNCg0KVmFtb3MgYSByZXRvbWFyIG51ZXN0cm8gZWplbXBsbyBpbmljaWFsIGRlIGxvcyB0d2VldHMuICAgICANCg0KIyMgTm9ybWFsaXphY2nDs24NCg0KUGFyYSBjb25zdHJ1aXIgZWwgQmFnIG9mIFdvcmRzIHNlIGRlYmUgY29uc2lkZXJhciBsb3Mgc2lndWllbnRlcyBwcm9jZXNvczoNCg0KLSBfX1Rva2VuaXphdGlvbl9fOiBFcyBlbCBwcm9jZXNvIGRlIHBhcnRpciB1biBzdHJpbmcgZGUgdGV4dG8gZW4gcGFsYWJyYXMgeSBzaWdub3MgZGUgcHVudHVhY2nDs24uDQogDQotIF9fRWxpbWluYXIgcHVudHVhY2nDs25fXy4gTm9zIHJlZmVyaW1vcyBhY8OhIGEgdG9kbyB0aXBvIGRlIGNhcmFjdGVyZXMgZXNwZWNpYWxlcyBpbmRlc2VhZG9zICAgICAgIA0KDQotIF9fU3RvcCBXb3Jkc19fOiByZW1vdmVyIGxhcyBwYWxhYnJhcyBtw6FzIGNvbXVuZXMgZGVsIGlkaW9tYSAo4oCcZWzigJ0sIOKAnGxh4oCdLCDigJxsb3PigJ0sIOKAnGRl4oCdKSB5YSBxdWUgYXBhcmVjZW4gZW4gdG9kb3MgbG9zIHRleHRvcyB5IG5vIGFwb3J0YW4gaW5mb3JtYWNpw7NuIHZhbGlvc2EgcGFyYSBkaXN0aW5ndWlybG9zLg0KDQotIF9fTGVtbWF0aXphdGlvbl9fOiBFcyBsYSByZXByZXNlbnRhY2nDs24gZGUgdG9kYXMgbGFzIGZvcm1hcyBmbGV4aW9uYWRhcyAocGx1cmFsLCBmZW1lbmlubywgY29uanVnYWRvLCBldGMuKS4gUGFyYSBlc3RvLCBlcyBuZWNlc2FyaW8gY29udGFyIGNvbiB1bmEgYmFzZSBkZSBkYXRvcyBsw6l4aWNhLiBQYXJhIGVzdG8gcG9kZW1vcyB1c2FyIFtrb1JwdXNdKGh0dHBzOi8vZ2l0aHViLmNvbS91bkRvY1VNZWFudEl0L2tvUnB1cykgcXVlIGluY2x1eWUgZWwgbGV4aWPDs24gVHJlZVRhZ2dlci4NCg0KLSBfX1N0ZW1taW5nX186IEVzIHNpbWlsYXIgYSBsYSBsZW1hdGl6YWNpw7NuLCBwZXJvIG5vIHNlIGJhc2EgZW4gbGFzIGVzdHJ1Y3R1cmFzIGxleGljYWxlcywgc2lubyBxdWUgcmVhbGl6YSB1bmEgYXByb3hpbWFjacOzbiwgcXVlZMOhbmRvc2UgY29uIGxhcyBwcmltZXJhcyBsZXRyYXMgZGUgbGEgcGFsYWJyYS4gDQoNCi0gX19OLWdyYW1hc19fOiBBIHZlY2VzIGxvcyBjb25jZXB0b3MgcXVlIHBlcm1pdGVuIGRpc3Rpbmd1aXIgZW50cmUgZG9jdW1lbnRvcyBzZSBjb21wb25lbiBkZSBtw6FzIGRlIHVuYSBwYWxhYnJhLCBwb3IgZWplbXBsbzoNCiAgLSDigJxhIGR1cmFzIHBlbmFz4oCdICh0cmlncmFtYSksDQogIC0g4oCcQnVlbm9zIEFpcmVz4oCdIChiaWdyYW1hKSANCiAgLSBMYXMgZXhwcmVzaW9uZXMgaWRpb23DoXRpY2FzIG8gbG9zIG5vbWJyZXMgcHJvcGlvcyBjYW1iaWFuIHJhZGljYWxtZW50ZSBkZSBzZW50aWRvIHNpIHNlIHNlcGFyYW4gc3VzIGNvbXBvbmVudGVzLiANCiAgLSBJbWFnaW5lbnNlIHNpIHF1aXNpw6lyYW1vcyBjbGFzaWZpY2FyIGxhIHBvc2ljacOzbiBwb2zDrXRpY2EgZGUgaXpxdWllcmRhIGEgZGVyZWNoYSBkZSBsb3Mg4oCcTmFjaW9uYWwgU29jaWFsaXN0YXPigJ0hDQoNCl9fRWplbXBsb19fOiBMaW1waWVtb3MgZWwgdGV4dG8gZGUgYWxndW5vcyBjYXNvcyBjb21wbGljYWRvcy4gQXF1w60gbm9zIHZhbW9zIGEgY29uY2VudHJhciBzaW1wbGVtZW50ZSBlbiBsb3MgcHJpbWVyb3MgdHJlcyBwdW50b3MgbWVuY2lvbmFkb3MgZGUgbGEgbm9ybWFsaXphY2nDs24uDQoNCmBgYHtyfQ0KcHJpbWVyLmNhc28gPC0gdmlsbGFfYXp1bF90d2VldHNfc2VsZWN0JHRleHRbMV0NCnByaW1lci5jYXNvDQpgYGANCg0KTGEgbGlicmVyw61hIGRlICoqUlZlcmJhbEV4cHJlc3Npb25zKiogbm9zIHBlcm1pdGUgY3JlYXIgc2VjdWVuY2lhbG1lbnRlIGNvbiBmb3JtYXRvIHRpZHkgdW5hIGV4cHJlc2nDs24gcmVndWxhciBwYXJhIGJ1c2NhciBlbiBudWVzdHJvcyBzdHJpbmdzLiBTaSBxdWVyZW1vcyBib3JyYXIgbGFzIG1lbmNpb25lcywgZW4gZXN0ZSBjYXNvIG5lY2VzaXRhbW9zIGNvbnN0cnVpciB1bmEgZXhwcmVzaW9uIHF1ZSBlbmN1ZW50cmUgdW4gdGV4dG8gaW5pY2lhZG8gZW4gIkAiIGUgaWRlbnRpZmlxdWUgdG9kb3MgbG9zIGNhcmFjdGVyZXMgcXVlIGxlIHNpZ2FuIGhhc3RhIHF1ZSBhcGFyZXpjYSB1biBlc3BhY2lvLg0KYGBge3J9DQptZW5jaW9uZXMgPC0gcngoKSAlPiUgDQogIHJ4X2ZpbmQoJ0AnKSU+JSANCiAgcnhfYW55dGhpbmdfYnV0KHZhbHVlID0gJyAnKQ0KDQptZW5jaW9uZXMNCmBgYA0KDQoNCmBgYHtyfQ0KcHJpbWVyLmNhc288LSBzdHJfcmVtb3ZlX2FsbChwcmltZXIuY2FzbywgcGF0dGVybiA9IG1lbmNpb25lcykNCnByaW1lci5jYXNvDQpgYGANCg0KU2FxdWVtb3MgdG9kbyBsbyBxdWUgbm8gc2VhIHVuIGNhcmFjdGVyIGFsZmEtbnVtw6lyaWNvIG8gdW4gZXNwYWNpbyBlbiBibGFuY28NCmBgYHtyfQ0Kc3RyX3JlbW92ZV9hbGwocHJpbWVyLmNhc28sIHBhdHRlcm4gPSAiW15bOmFsbnVtOl1bOmJsYW5rOl1dIikNCmBgYA0KKipQcmVndW50YSoqOiDCv05vIHBvZHLDrWEgaGFiZXIgZGlyZWN0byBlbGltaW5hZG8gdG9kbyBsbyBxdWUgc2VhIGFsZmFudW3DqXJpY28gcGFyYSBzYWNhciBsYXMgbWVuY2lvbmVzLCBoYXNodGFncywgZXRjPyANCg0KVGVuZW1vcyBhbGdvIG3DoXMgYWNvcmRlIGEgbG8gcXVlIG5lY2VzaXRhbW9zLg0KDQpWYW1vcyBjb24gb3RybyBlamVtcGxvIGTDrWZpY2wNCmBgYHtyfQ0KY2Fzby4yOCA8LSB2aWxsYV9henVsX3R3ZWV0c19zZWxlY3QkdGV4dFsyOF0NCmNhc28uMjgNCmBgYA0KDQpUYW1iacOpbiB0ZW5lbW9zIGVudHJlIGxvcyB0d2VldHMgbGlua3MgYSBwYWdpbmFzIHdlYi4gRW4gZXN0ZSBjYXNvIG5lY2VzaXRhbW9zIGJvcnJhciB0b2RvcyBsb3MgY2FyYWN0ZXJlcyBxdWUgc2lnYW4gYSB1biAiaHR0cCIsIGhhc3RhIHF1ZSBhcGFyZXpjYSB1biBlc3BhY2lvLg0KYGBge3J9DQpleHByZXNpb24gPC0gcngoKSAlPiUgDQogIHJ4X2ZpbmQoJ2h0dHAnKSAlPiUgDQogIyByeF9tYXliZSgncycpICU+JSANCiAjIHJ4X21heWJlKCc6Ly8nKSAlPiUgDQogIHJ4X2FueXRoaW5nX2J1dCh2YWx1ZSA9ICcgJykNCg0KZXhwcmVzaW9uDQoNCmBgYA0KDQpgYGB7cn0NCmNhc28uMjg8LSBzdHJfcmVtb3ZlX2FsbChjYXNvLjI4LCBwYXR0ZXJuID0gZXhwcmVzaW9uKQ0KY2Fzby4yOA0KYGBgDQpBcm1vIHVuYSBleHByZXNpw7NuIHBhcmEgZWxpbWluYXIgaGFzaHRhZ3MNCmBgYHtyIGVjaG89VFJVRX0NCmhhc3RoYWdzIDwtIHJ4KCkgJT4lIA0KICByeF9maW5kKCcjJyklPiUgDQogIHJ4X2FueXRoaW5nX2J1dCh2YWx1ZSA9ICcgJykNCg0KY2Fzby4yODwtIHN0cl9yZW1vdmVfYWxsKGNhc28uMjgsIHBhdHRlcm4gPSBoYXN0aGFncykNCmNhc28uMjg8LSBzdHJfcmVtb3ZlX2FsbChjYXNvLjI4LCBwYXR0ZXJuID0gIlteWzphbG51bTpdWzpibGFuazpdXSIpDQpjYXNvLjI4DQpgYGA=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogTWFuZWpvIGRlIFN0cmluZ3MNCnN1YnRpdGxlOiBFeHBsaWNhY2nDs24NCmRhdGU6ICIiDQpvdXRwdXQ6DQogIGh0bWxfbm90ZWJvb2s6IA0KICAgIHRvYzogdHJ1ZQ0KICAgIHRvY19mbG9hdDogdHJ1ZSANCi0tLQ0KW14xXQ0KYGBge3Igc2V0dXAsIG1lc3NhZ2UgPSBGQUxTRSxlY2hvPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFLG1lc3NhZ2UgPSBGQUxTRSkNCg0KYGBgDQoNCmBgYHtyLG1lc3NhZ2U9RkFMU0V9DQogI2luc3RhbGwucGFja2FnZXMoInJ0d2VldCIpDQpsaWJyYXJ5KHJ0d2VldCkgIyBkZXNjYXJnYXIgaW5mbyBkZSB0d2l0dGVyDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkod29yZGNsb3VkMikNCmxpYnJhcnkodG0pICMgcGFyYSB0cmFiYWphciBjb24gY29ycHVzIGRlIHRleHRvcw0KbGlicmFyeShzdHJpbmdyKSAjcGFyYSB0cmFiYWphciBjb24gc3RyaW5ncw0KbGlicmFyeShSVmVyYmFsRXhwcmVzc2lvbnMpICNwYXJhIHRyYWJhamFyIGV4cHJlc2lvbmVzIHJlZ3VsYXJlcyANCmxpYnJhcnkobHVicmlkYXRlKSAjcGFyYSB0cmFiYWphciBjb24gZmVjaGFzIA0KYGBgDQoNCiMgSW50cm9kdWNjacOzbg0KDQotIEp1bnRvIGNvbiBsYXMgaW3DoWdlbmVzIHkgbG9zIGF1ZGlvcywgbG9zIHRleHRvcyBzb24gdW5hIGZ1ZW50ZSBkZSBkYXRvcyBubyBlc3RydWN0dXJhZG9zIHF1ZSBzZSBtdWx0aXBsaWPDsyBlbiBsb3Mgw7psdGltb3MgYcOxb3MuDQoNCi0gUGFyYSBwb2RlciBoYWNlciB1c28gZGUgbGEgaW5mb3JtYWNpw7NuIHF1ZSBjb250aWVuZW4gZXMgbmVjZXNhcmlvIHByb2Nlc2FyIGxhcyBmdWVudGVzIG9yaWdpbmFsZXMgcGFyYSBhbGNhbnphciB1biBmb3JtYXRvIGVzdGFuZGFyaXphZG8gcXVlIG5vcyBwZXJtaXRhIHRvbWFyIG3DqXRyaWNhcyBvIGRpc2XDsWFyIG1vZGVsb3MgcGFyYSBhbmFsaXphciBkaWNoYSBpbmZvcm1hY2nDs24uDQoNCi0gRW4gZXN0YSBjbGFzZSB2ZXJlbW9zIHVuYSBpbnRyb2R1Y2Npw7NuIGEgbG9zIGNvbWFuZG9zIG5lY2VzYXJpb3MgcGFyYSB0b21hciB1biBjb3JwdXMgZGUgdGV4dG8sICJsaW1waWFybG8iIHkgZ2VuZXJhciB1biBCYWcgb2YgV29yZHMgKEJvbHNhIGRlIHBhbGFicmFzKS4gTHVlZ28gdmlzdWFsaXphcmVtb3MgZGUgZm9ybWEgc2VuY2lsbGEgbGEgaW5mb3JtYWNpw7NuDQoNCg0KI3J0d2VldA0KRWwgcGFxdWV0ZSBbX19ydHdlZXRfX10oaHR0cHM6Ly9ydHdlZXQuaW5mby8pIHRpZW5lIHVuIG1vbnTDs24gZGUgZnVuY2lvbmFsaWRhZGVzIHBhcmEgYWNjZWRlciBhIGluZm9ybWFjacOzbiBkZSB0d2l0dGVyIChhdW5xdWUgZGUgZm9ybWEgbGltaXRhZGEgc2luIHBvbmVyIGVsIGJpbGxldGUpLiANCg0KQ29uY2VudHLDqW1vc25vcyBlbiBsYSBmdW5jacOzbiAqKnNlYXJjaF90d2VldHMqKi4gRXN0YSBub3MgcGVybWl0ZSBkZXNjYXJnYXIgZGF0YSBkZSBsb3Mgw7psdGltb3MgNiBhIDkgZMOtYXMgZXNwZWPDrWZpY2FuZG8gdW4gdGV4dG8gY2xhdmUgZGUgYnVzcXVlZGEuIEVsIGzDrW1pdGUgcGVybWl0aWRvIHBvciB0d2VldGVyIGVzIGRlIDE4IG1pbCByZWdpc3Ryb3MsIHBlcm8gbGEgZnVuY2nDs24gdGllbmUgdW4gcGFyYW1ldHJvIHBhcmEgcmVhbGl6YXIgdW5hIGl0ZXJhcmFjacOzbiB5IGFjY2VkZXIgYSBtYXlvciBjYW50aWRhZCBkZSBjYXNvcy4gDQoNClBhcmEgIHBvZGVyIGFjY2VkZXIgYSBsYSBpbmZvcm1hY2nDs24gcHJpbWVybyBkZWJlbW9zIGNyZWFyIHVuIFtfdG9rZW5fX10oaHR0cHM6Ly9ydHdlZXQuaW5mby9hcnRpY2xlcy9hdXRoLmh0bWwpIGRlIHVzdWFyaW8uDQpgYGB7cn0NCiMgY2h1c21lZW4gbGEgY2FudGlkYWQgZGUgZXNwZWNpZmljYWNpb25lcyBxdWUgc2UgbGUgcHVlZGVuIGRhciBhIGxhIGZ1bmNpb24gc2VhcmNoX3R3ZWV0cw0KDQojP3NlYXJjaF90d2VldHMgDQoNCiAjIHZpbGxhX2F6dWxfdHdlZXRzIDwtIHNlYXJjaF90d2VldHMocSA9ICcidmlsbGEgYXp1bCInLA0KICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuID0gMTgwMDAsIA0KICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbmNsdWRlX3J0cyA9IEZBTFNFLA0KICMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYW5nID0iZXMiKQ0KDQojIHNhdmVSRFModmlsbGFfYXp1bF90d2VldHMsJ2RhdGEvdmlsbGFfYXp1bF90d2VldHMuUkRTJykNCg0KdmlsbGFfYXp1bF90d2VldHM8LSByZWFkUkRTKCdkYXRhL3ZpbGxhX2F6dWxfdHdlZXRzLlJEUycpDQpgYGANCg0KRWwgZGF0YWZyYW1lIHRpZW5lIDkwIHZhcmlhYmxlcywgdmVhbW9zIHF1ZSBwaW50YSB0aWVuZW4gbG9zIGRhdG9zIHNlbGVjY2lvbmFuZG8gYWxndW5hcyBkZSBsYXMgcHJpbmNpcGFsZXMuDQpgYGB7cn0NCnZpbGxhX2F6dWxfdHdlZXRzX3NlbGVjdCA8LSB2aWxsYV9henVsX3R3ZWV0cyAlPiUgDQogIHNlbGVjdCh0ZXh0LG5hbWUsc2NyZWVuX25hbWUsY3JlYXRlZF9hdCxsb2NhdGlvbiwNCiAgICAgICAgIGZhdm9yaXRlX2NvdW50LHJldHdlZXRfY291bnQpDQoNCmhlYWQodmlsbGFfYXp1bF90d2VldHNfc2VsZWN0KQ0KYGBgDQpBcGFyZWNlbiBtdWNoYXMgY29zYXMgcXVlIHZhbW9zIGEgcXVlcmVyIGRlc2NhcnRhciBwYXJhIGFybWFyIG51ZXN0cmEgYm9sc2EgZGUgcGFsYWJyYXM6ICANCg0KLSBMaW5rcyBhIHBhZ2luYXMgd2ViDQotIENhcmFjdGVyZXMgZXNwZWNpYWxlcyAoIiIsPywjKQ0KLSBJbWFnZW5lcyAoMmRvIHR3ZWV0IGRlIGFycmliYSkNCg0KDQpBbnRlcyBkZSBwYXNhciBhIG9wZXJhcmFyICJsaW1waWFuZG8iICBlbCBjb25qdW50byBkZSB0d2VldHMgcXVlIGRlc2NhcmdhbW9zLCB2ZWFtb3MgZWplbXBsaXRvcyBzZW5jaWxsb3Mgc29icmUgY29tbyBkZXRlY3RhciBjaWVydG9zIHBhdHJvbmVzIGVuIHRleHRvIGNvbiBlbCBwYXF1ZXRlICoqc3RyaW5ncioqDQoNCiNFeHByZXNpb25lcyByZWd1bGFyZXMNCg0KVW4gZWxlbWVudG8gZnVuZGFtZW50YWwgcGFyYSBsYSBtYW5pcHVsYWNpw7NuIGRlbCB0ZXh0byBzb24gbGFzIFtleHByZXNpb25lcyByZWd1bGFyZXNdKGh0dHBzOi8vc3RyaW5nci50aWR5dmVyc2Uub3JnL2FydGljbGVzL3JlZ3VsYXItZXhwcmVzc2lvbnMuaHRtbCkuIMOJc3RhcyBzaXJ2ZW4gcGFyYSBjYXB0YXIgX3BhdHJvbmVzXyBxdWUgYXBhcmVjZW4gZW4gZWwgdGV4dG8geSBsdWVnbyBvcGVyYXIgc29icmUgZWxsb3MgKGV4dHJhZXJsb3MsIHJlZW1wbGF6YXJsb3MsIGRldGVjdGFybG9zLCBldGMuKQ0KDQohW10oaW1nL3JlZ2V4LnBuZyl7d2lkdGg9MTAwMH0NCg0KDQojIyBQcmluY2lwYWxlcyBmdW5jaW9uZXMNCg0KIyMjIHN0cl9sZW5ndGgNCg0KQ29uIGxhIGZ1bmNpw7NuIGBzdHJfbGVuZ3RoKClgIHBvZGVtb3MgdmVyIGVsIGxhcmdvIGRlIHVuIHN0cmluZy4NCmBgYHtyfQ0Kc3RyaW5nMSA8LSAiY3VhcmVudGVOQSINCnN0cl9sZW5ndGgoc3RyaW5nMSkNCmBgYA0KDQpPam8gcXVlIGN1ZW50YSBsb3MgZXNwYWNpb3MgZW4gYmxhbmNvIGNvbW8gdW4gY2FyYWN0ZXIuDQpgYGB7cn0NCnN0cmluZzIgPC0gImN1YXJlbnRlbmEgMjAyMCINCnN0cl9sZW5ndGgoc3RyaW5nMikNCmBgYA0KDQojIyMgc3RyX3N1Yg0KDQpMYSBmdW5jacOzbiBgc3RyX3N1YigpYCBub3MgcGVybWl0ZSBleHRyYWVyIGxvcyBjYXJhY3RlcmVzIHF1ZSBzZSBlbmN1ZW50cmFuIGVudHJlIGRldGVybWluYWRhcyBwb3NpY2lvbmVzLiBUaWVuZSB0cmVzIGFyZ3VtZW50b3M6IGVsIHN0cmluZywgZWwgb3JkZW4gZGVsIGNhcmFjdGVyIGEgcGFydGlyIGRlbCBjdWFsIHRpZW5lIHF1ZSBlbXBlemFyIGEgZXh0cmFlciB5IGVsIG9yZGVuIGRlbCBjYXJhY3RlciBoYXN0YSBlbCBjdWFsIHRpZW5lIHF1ZSBleHRyYWVyLg0KDQpgYGB7cn0NCiNxdWllcm8gZWwgdGVyY2VyIGNhcmFjdGVyDQpzdHJfc3ViKHN0cmluZzEsMywzKQ0KYGBgDQoNCmBgYHtyfQ0KI3F1aWVybyBkZWwgY3VhcnRvIGFsIHNleHRvDQpzdHJfc3ViKHN0cmluZzEsNCw2KQ0KYGBgDQoNClB1ZWRvIHBhc2FybGUgbGEgcG9zaWNpw7NuIGRlIGxvcyBjYXJhY3RlcmVzIGNvbiB1biBtZW5vcyBwYXJhIGluZGljYXIgcXVlIHF1aWVybyBxdWUgY3VlbnRlIGRlIGF0csOhcyBwYXJhIGFkZWxhbnRlLiBQb3IgZWplbXBsbywgc2kgcXVpZXJvIHF1ZSB0cmFpZ2EgZWwgYW50ZcO6bHRpbW8gY2FyYWN0ZXIgbGxhbW8gYSBsYSBwb3NpY2nDs24gY29tbyBgLTJgLg0KDQpgYGB7cn0NCiNxdWllcm8gbGEgw7psdGltYSB5IGFudGXDumx0aW1hIHBvc2ljacOzbg0Kc3RyX3N1YihzdHJpbmcxLC0yLC0xKQ0KYGBgDQoNCk90cm8gdXNvIHF1ZSBsZSBwb2RlbW9zIGRhciBhIGVzdGUgY29tYW5kbyBlcyBlbCBkZSByZWVtcGxhemFyIGVsZW1lbnRvcy4gU3Vwb25nYW1vcyBxdWUgcXVpZXJvIHJlZW1wbGF6YXIgbGEgw7psdGltYSBsZXRyYSBwb3IgdW5hIHouDQpgYGB7cn0NCnN0cl9zdWIoc3RyaW5nMiwtMSwtMSkgPC0gIjE/Ig0Kc3RyaW5nMg0KYGBgDQoNCiMjIyBzdHJfdHJpbQ0KRnVuY2nDs24gcGFyYSBlbCBtYW5lam8gZGUgZXNwYWNpb3MgZW4gYmxhbmNvLg0KDQpFcyBmcmVjdWVudGUgcXVlIGFwYXJlemNhbiBkYXRvcyBtYWwgY2FyZ2Fkb3MgbyBjb24gZXJyb3JlcyBkZSB0aXBlbyBxdWUgdGllbmVuIGVzcGFjaW9zIGRvbmRlIG5vIGRlYmVyw61hIGhhYmVybG9zLiBMYSBmdW5jacOzbiBgc3RyX3RyaW0oKWAgcGVybWl0ZSBxdWUgbm9zIGRlc2hhZ2Ftb3MgZGUgbG9zIGVzcGFjaW9zIGVuIGJsYW5jbyBhIGl6cXVpZXJkYSwgZGVyZWNoYSBvIGFtYm9zIGxhZG9zIGRlIG51ZXN0cm8gc3RyaW5nLg0KDQpgYGB7cn0NCnN0cmluZzMgPC0gYygiIGN1YXJlbnRlbmEgICAiLCAiZW4gICAiLCAgIiAgIGFyZ2VudGluYSIpDQojVmVhbW9zIGVsIHN0cmluZw0Kc3RyaW5nMw0KYGBgDQpRdWl0YW1vcyBsb3MgZXNwYWNpb3MgZW4gYmxhbmNvIGEgYW1ib3MgbGFkb3MgY29uIGVsIGFyZ3VtZW50byBzaWRlPSdib3RoJw0KDQpgYGB7cn0NCnN0cl90cmltKHN0cmluZzMsIHNpZGUgPSAnYm90aCcpDQpgYGANCg0KUXVpdGFtb3MgbG9zIGVzcGFjaW9zIGVuIGJsYW5jbyBkZWwgbGFkbyBpenF1aWVyZG8gY29uIGVsIGFyZ3VtZW50byBzaWRlPSdsZWZ0Jw0KYGBge3J9DQpzdHJfdHJpbShzdHJpbmczLCAibGVmdCIpDQpgYGANCg0KIyMjIE1hecO6c2N1bGFzIHkgbWluw7pzY3VsYXMNCg0KRXhpc3RlbiB2YXJpYXMgZnVuY2lvbmVzIHBhcmEgbWFuaXB1bGFyIGxhcyBtYXl1c2N1bGFzL21pbsO6c2N1bGFzIGRlIG51ZXN0cm9zIHN0cmluZ3MuIEEgbW9kbyBkZSBzdWdlcmVuY2lhLCBzaWVtcHJlIGVzIGNvbnZpZW50aWVudGUgbWFuZWphcnNlIGNvbiB0b2RvcyBsb3MgY2FyYWN0ZXJlcyBlbiBtaW7DunNjdWxhIG8gZW4gbWF5w7pzY3VsYS4gRXN0byBheXVkYSBhIG5vcm1hbGl6YXIgbGEgaW5mb3JtYWNpw7NuIHBhcmEgYXJtYXIgbWVqb3IgZ3J1cG9zLCBqb2luZWFyIHRhYmxhcywgZXRjLg0KDQpgYGB7cn0NCnN0cmluZzENCmBgYA0KYGBge3J9DQojbGxldm8gdG9kbyBhIG1pbsO6c2N1bGFzDQpzdHJfdG9fbG93ZXIoc3RyaW5nMSkNCmBgYA0KYGBge3J9DQojbGxldm8gdG9kbyBhIG1hecO6c2N1bGFzDQpzdHJfdG9fdXBwZXIoc3RyaW5nMSkNCmBgYA0KYGBge3J9DQojbGxldm8gYSBtYXnDunNjdWxhIGxhIHByaW1lciBsZXRyYSBkZSBjYWRhIHBhbGFicmENCnN0cl90b190aXRsZSgiY3VhcmVudGVuYSBlbiBhcmdlbnRpbmEiKQ0KYGBgDQoNCiMjIyBzdHJfc3BsaXQNCg0KTGEgZnVuY2nDs24gYHN0cl9zcGxpdCgpYCBub3MgcGVybWl0ZSBwYXJ0aXIgdW4gc3RyaW5nIGRlIGFjdWVyZG8gYSBhbGfDum4gc2VwYXJhZG9yL3BhdHJvbiAocGF0dGVybikgcXVlIGRlZmluYW1vcy4NCg0KYGBge3J9DQojcXVpZXJvIHNlcGFyYXIgdG9kYXMgbGFzIGxldHJhcyBkZSBtaSBzdHJpbmcNCnN0cmluZzFfc2VwYXJhZG8gPC0gc3RyX3NwbGl0KHN0cmluZzEscGF0dGVybiA9ICIiKQ0Kc3RyaW5nMV9zZXBhcmFkbw0KYGBgDQoNCk5vdGVtb3MgcXVlIGVzdGEgZnVuY2lvbiBub3MgZGV2dWVsdmUgdW5hIGxpc3RhDQoNCmBgYHtyfQ0KY2xhc3Moc3RyaW5nMV9zZXBhcmFkbykNCiMgU2kgcXVlcmVtb3MgYWNjZWRlciBhbCBwcmltZXIgZWxlbWVudG8gZGUgbGEgbGlzdGENCnN0cmluZzFfc2VwYXJhZG9bWzFdXVsxXQ0KYGBgDQoNCkRlZmluaW1vcyB1biBudWV2byBzdHJpbmcNCg0KYGBge3J9DQpzdHJpbmc1IDwtICJjdWFyZW50ZW5hLWFyZ2VudGluYS0yMDIwIg0Kc3RyaW5nNQ0KYGBgDQoNCkxvIHNlcGFyYW1vcyBwb3IgZWwgZ3Vpb24NCg0KYGBge3J9DQpzdHJfc3BsaXQoc3RyaW5nNSxwYXR0ZXJuPSItIikNCmBgYA0KDQojIyMgc3RyX3JlcGxhY2UNCkxhcyBmdW5jaW9uZXMgYHN0cl9yZXBsYWNlKClgIHkgYHN0cl9yZXBsYWNlX2FsbCgpYCBkZSBgc3RyaW5ncmAgbm9zIHBlcm1pdGVuIGVuY29udHJhciB1biBwYXRyw7NuIGRlbnRybyBkZSBudWVzdHJvIHN0cmluZyB5IHJlZW1wbGF6YXJsbyBwb3Igb3Ryby4gDQoNCmBzdHJfcmVwbGFjZWAgc29sbyByZWVtcGxhemEgbGEgcHJpbWVyYSBvY3VycmVuY2lhIGRlbCBwYXRyb24gbWllbnRyYXMgcXVlIGBzdHJfcmVwbGFjZV9hbGwoKWAgcmVlbXBsYXphIHRvZGFzIGxhcyBvY3VycmVuY2lhcw0KDQpgYGB7cn0NCnN0cmluZzYgPC0gIkNhc2kgMTAgbWlsbG9uZXMgZGUgcGVyc29uYXMgcmVjaWJpZXJvbiBlbCAjSUZFIGR1cmFudGUgbGEgI0N1YXJlbnRlbmEgZW4gQXJnZW50aW5hIg0Kc3RyaW5nNg0KYGBgDQpWZWFtb3MgbGEgZGlmZXJlbmNpYSBkZSBhbWJhcyBmdW5jaW9uZXMNCg0KYGBge3J9DQojIFJlZW1wbGF6YW1vcyBsYSBwcmltZXJhIG9jdXJyZW5jaWENCnN0cl9yZXBsYWNlKHN0cmluZyA9IHN0cmluZzYsIHBhdHRlcm4gPSAiIyIsIHJlcGxhY2VtZW50ID0gIiIpDQojIFJlZW1wbGF6YW1vcyB0b2RhcyBsYXMgb2N1cnJlbmNpYXMNCnN0cl9yZXBsYWNlX2FsbChzdHJpbmcgPSBzdHJpbmc2LCBwYXR0ZXJuID0gIiMiLCByZXBsYWNlbWVudCA9ICIiKQ0KYGBgDQoNCiMjIyBzdHJfZGV0ZWN0DQoNCkxhIGZ1bmNpw7NuIGBzdHJfZGV0ZWN0KClgIG5vcyBwZXJtaXRlIGVuY29udHJhciBleHByZXNpb25lcyBkZW50cm8gZGUgbnVlc3Ryb3Mgc3RyaW5ncy4gTm9zIHJlcG9ydGEgYFZFUkRBREVST2AgbyBgRkFMU09gIGRlIGFjdWVyZG8gYSBzaSBlbmN1ZW50cmEgbGEgZXhwcmVzacOzbiBxdWUgZXN0YW1vcyBidXNjYW5kby4NCg0KYGBge3J9DQpzdHJpbmc0PC0gYygiYcOxbyIsIjIwMjAiLCJleHRyYcOxbyIpDQp1bl90ZXh0byA8LSAncXVlIGHDsW8gZXh0cmHDsW8gZWwgMjAyMC4gY29tbyBxdWlzaWVyYSBzYWxpciBhIHRvbWFyIHVuYSBjZXJ2ZXphLiBwYWNpZW5jaWEnDQoNCnN0cl9kZXRlY3Qoc3RyaW5nNCwgIjIwMjAiKQ0Kc3RyX2RldGVjdCh1bl90ZXh0bywnMjAyMCcpDQpgYGANCg0Kwr9RdcOpIHBhc2EgY3VhbmRvIHF1ZXJlbW9zIGlkZW50aWZpY2FyIHBhdHJvbmVzIHVuIHBvY28gbcOhcyBjb21wbGVqb3MgYSBsYSBob3JhIGRlIGxpbXBpYXIgbnVlc3Ryb3MgZGF0b3M/DQoNClBhcmEgZWxsbyBwb2RlbW9zIGdlbmVyYXIgdW5hIGV4cHJlc2nDs24gcmVndWxhciBhIHRyYXbDqXMgZGUgZGlzdGludG9zIGVsZW1lbnRvczoNCg0KIyMgQ2FyYWN0ZXJlcyBlc3BlY2lhbGVzLg0KDQpTb24gZm9ybWFzIGRlIHJlZmVyaXJub3MgZGUgZm9ybWEgZ2VuZXJhbCBhIGNpZXJ0b3MgdGlwb3MgZGUgY2FyYWN0ZXJlcw0KDQohW10oaW1nL2NoYXJhY3RlcnMucG5nKXt3aWR0aD0zMDB9DQoNCnBvciBlamVtcGxvDQpgYGB7cn0NCnVuX3RleHRvDQpgYGANCg0KDQpgYGB7cn0NCnN0cl9kZXRlY3QodW5fdGV4dG8sICdbWzpwdW5jdDpdXScpI0hheSBwdW50dWFjacOzbiBlbiBtaSBzdHJpbmc/DQpzdHJfZGV0ZWN0KHVuX3RleHRvLCAnW1s6YWxudW06XV0nKSNIYXkgbnVtZXJvcyBlbiBtaSBzdHJpbmc/DQpzdHJfZGV0ZWN0KHVuX3RleHRvLCAnW1s6dXBwZXI6XV0nKSNIYXkgbWF5dXNjIGVuIG1pIHN0cmluZz8NCmBgYA0KDQoqKkltcG9ydGFudGUqKjogSGF5IG11Y2hhcyBwZXJvIG11Y2hhcyBmb3JtYXMgbcOhcyBkZSBpZGVudGlmaWNhciBleHByZXNpb25lcyByZWd1bGFyZXMgeSB0cmFiYWphcm8gY29uIGxvcyBzdHJpbmdzLiBOb3MgYWNvdGFtb3MgYWPDoSBhIGxhcyBtw6FzIGZyZWN1ZW50ZXMuDQoNCg0KVmFtb3MgYSByZXRvbWFyIG51ZXN0cm8gZWplbXBsbyBpbmljaWFsIGRlIGxvcyB0d2VldHMuICAgICANCg0KIyMgTm9ybWFsaXphY2nDs24NCg0KUGFyYSBjb25zdHJ1aXIgZWwgQmFnIG9mIFdvcmRzIHNlIGRlYmUgY29uc2lkZXJhciBsb3Mgc2lndWllbnRlcyBwcm9jZXNvczoNCg0KLSBfX1Rva2VuaXphdGlvbl9fOiBFcyBlbCBwcm9jZXNvIGRlIHBhcnRpciB1biBzdHJpbmcgZGUgdGV4dG8gZW4gcGFsYWJyYXMgeSBzaWdub3MgZGUgcHVudHVhY2nDs24uDQogDQotIF9fRWxpbWluYXIgcHVudHVhY2nDs25fXy4gTm9zIHJlZmVyaW1vcyBhY8OhIGEgdG9kbyB0aXBvIGRlIGNhcmFjdGVyZXMgZXNwZWNpYWxlcyBpbmRlc2VhZG9zICAgICAgIA0KDQotIF9fU3RvcCBXb3Jkc19fOiByZW1vdmVyIGxhcyBwYWxhYnJhcyBtw6FzIGNvbXVuZXMgZGVsIGlkaW9tYSAo4oCcZWzigJ0sIOKAnGxh4oCdLCDigJxsb3PigJ0sIOKAnGRl4oCdKSB5YSBxdWUgYXBhcmVjZW4gZW4gdG9kb3MgbG9zIHRleHRvcyB5IG5vIGFwb3J0YW4gaW5mb3JtYWNpw7NuIHZhbGlvc2EgcGFyYSBkaXN0aW5ndWlybG9zLg0KDQotIF9fTGVtbWF0aXphdGlvbl9fOiBFcyBsYSByZXByZXNlbnRhY2nDs24gZGUgdG9kYXMgbGFzIGZvcm1hcyBmbGV4aW9uYWRhcyAocGx1cmFsLCBmZW1lbmlubywgY29uanVnYWRvLCBldGMuKS4gUGFyYSBlc3RvLCBlcyBuZWNlc2FyaW8gY29udGFyIGNvbiB1bmEgYmFzZSBkZSBkYXRvcyBsw6l4aWNhLiBQYXJhIGVzdG8gcG9kZW1vcyB1c2FyIFtrb1JwdXNdKGh0dHBzOi8vZ2l0aHViLmNvbS91bkRvY1VNZWFudEl0L2tvUnB1cykgcXVlIGluY2x1eWUgZWwgbGV4aWPDs24gVHJlZVRhZ2dlci4NCg0KLSBfX1N0ZW1taW5nX186IEVzIHNpbWlsYXIgYSBsYSBsZW1hdGl6YWNpw7NuLCBwZXJvIG5vIHNlIGJhc2EgZW4gbGFzIGVzdHJ1Y3R1cmFzIGxleGljYWxlcywgc2lubyBxdWUgcmVhbGl6YSB1bmEgYXByb3hpbWFjacOzbiwgcXVlZMOhbmRvc2UgY29uIGxhcyBwcmltZXJhcyBsZXRyYXMgZGUgbGEgcGFsYWJyYS4gDQoNCi0gX19OLWdyYW1hc19fOiBBIHZlY2VzIGxvcyBjb25jZXB0b3MgcXVlIHBlcm1pdGVuIGRpc3Rpbmd1aXIgZW50cmUgZG9jdW1lbnRvcyBzZSBjb21wb25lbiBkZSBtw6FzIGRlIHVuYSBwYWxhYnJhLCBwb3IgZWplbXBsbzoNCiAgLSDigJxhIGR1cmFzIHBlbmFz4oCdICh0cmlncmFtYSksDQogIC0g4oCcQnVlbm9zIEFpcmVz4oCdIChiaWdyYW1hKSANCiAgLSBMYXMgZXhwcmVzaW9uZXMgaWRpb23DoXRpY2FzIG8gbG9zIG5vbWJyZXMgcHJvcGlvcyBjYW1iaWFuIHJhZGljYWxtZW50ZSBkZSBzZW50aWRvIHNpIHNlIHNlcGFyYW4gc3VzIGNvbXBvbmVudGVzLiANCiAgLSBJbWFnaW5lbnNlIHNpIHF1aXNpw6lyYW1vcyBjbGFzaWZpY2FyIGxhIHBvc2ljacOzbiBwb2zDrXRpY2EgZGUgaXpxdWllcmRhIGEgZGVyZWNoYSBkZSBsb3Mg4oCcTmFjaW9uYWwgU29jaWFsaXN0YXPigJ0hDQoNCl9fRWplbXBsb19fOiBMaW1waWVtb3MgZWwgdGV4dG8gZGUgYWxndW5vcyBjYXNvcyBjb21wbGljYWRvcy4gQXF1w60gbm9zIHZhbW9zIGEgY29uY2VudHJhciBzaW1wbGVtZW50ZSBlbiBsb3MgcHJpbWVyb3MgdHJlcyBwdW50b3MgbWVuY2lvbmFkb3MgZGUgbGEgbm9ybWFsaXphY2nDs24uDQoNCmBgYHtyfQ0KcHJpbWVyLmNhc28gPC0gdmlsbGFfYXp1bF90d2VldHNfc2VsZWN0JHRleHRbMV0NCnByaW1lci5jYXNvDQpgYGANCg0KTGEgbGlicmVyw61hIGRlICoqUlZlcmJhbEV4cHJlc3Npb25zKiogbm9zIHBlcm1pdGUgY3JlYXIgc2VjdWVuY2lhbG1lbnRlIGNvbiBmb3JtYXRvIHRpZHkgdW5hIGV4cHJlc2nDs24gcmVndWxhciBwYXJhIGJ1c2NhciBlbiBudWVzdHJvcyBzdHJpbmdzLiBTaSBxdWVyZW1vcyBib3JyYXIgbGFzIG1lbmNpb25lcywgZW4gZXN0ZSBjYXNvIG5lY2VzaXRhbW9zIGNvbnN0cnVpciB1bmEgZXhwcmVzaW9uIHF1ZSBlbmN1ZW50cmUgdW4gdGV4dG8gaW5pY2lhZG8gZW4gIkAiIGUgaWRlbnRpZmlxdWUgdG9kb3MgbG9zIGNhcmFjdGVyZXMgcXVlIGxlIHNpZ2FuIGhhc3RhIHF1ZSBhcGFyZXpjYSB1biBlc3BhY2lvLg0KYGBge3J9DQptZW5jaW9uZXMgPC0gcngoKSAlPiUgDQogIHJ4X2ZpbmQoJ0AnKSU+JSANCiAgcnhfYW55dGhpbmdfYnV0KHZhbHVlID0gJyAnKQ0KDQptZW5jaW9uZXMNCmBgYA0KDQoNCmBgYHtyfQ0KcHJpbWVyLmNhc288LSBzdHJfcmVtb3ZlX2FsbChwcmltZXIuY2FzbywgcGF0dGVybiA9IG1lbmNpb25lcykNCnByaW1lci5jYXNvDQpgYGANCg0KU2FxdWVtb3MgdG9kbyBsbyBxdWUgbm8gc2VhIHVuIGNhcmFjdGVyIGFsZmEtbnVtw6lyaWNvIG8gdW4gZXNwYWNpbyBlbiBibGFuY28NCmBgYHtyfQ0Kc3RyX3JlbW92ZV9hbGwocHJpbWVyLmNhc28sIHBhdHRlcm4gPSAiW15bOmFsbnVtOl1bOmJsYW5rOl1dIikNCmBgYA0KKipQcmVndW50YSoqOiDCv05vIHBvZHLDrWEgaGFiZXIgZGlyZWN0byBlbGltaW5hZG8gdG9kbyBsbyBxdWUgc2VhIGFsZmFudW3DqXJpY28gcGFyYSBzYWNhciBsYXMgbWVuY2lvbmVzLCBoYXNodGFncywgZXRjPyANCg0KVGVuZW1vcyBhbGdvIG3DoXMgYWNvcmRlIGEgbG8gcXVlIG5lY2VzaXRhbW9zLg0KDQpWYW1vcyBjb24gb3RybyBlamVtcGxvIGTDrWZpY2wNCmBgYHtyfQ0KY2Fzby4yOCA8LSB2aWxsYV9henVsX3R3ZWV0c19zZWxlY3QkdGV4dFsyOF0NCmNhc28uMjgNCmBgYA0KDQpUYW1iacOpbiB0ZW5lbW9zIGVudHJlIGxvcyB0d2VldHMgbGlua3MgYSBwYWdpbmFzIHdlYi4gRW4gZXN0ZSBjYXNvIG5lY2VzaXRhbW9zIGJvcnJhciB0b2RvcyBsb3MgY2FyYWN0ZXJlcyBxdWUgc2lnYW4gYSB1biAiaHR0cCIsIGhhc3RhIHF1ZSBhcGFyZXpjYSB1biBlc3BhY2lvLg0KYGBge3J9DQpleHByZXNpb24gPC0gcngoKSAlPiUgDQogIHJ4X2ZpbmQoJ2h0dHAnKSAlPiUgDQogIyByeF9tYXliZSgncycpICU+JSANCiAjIHJ4X21heWJlKCc6Ly8nKSAlPiUgDQogIHJ4X2FueXRoaW5nX2J1dCh2YWx1ZSA9ICcgJykNCg0KZXhwcmVzaW9uDQoNCmBgYA0KDQpgYGB7cn0NCmNhc28uMjg8LSBzdHJfcmVtb3ZlX2FsbChjYXNvLjI4LCBwYXR0ZXJuID0gZXhwcmVzaW9uKQ0KY2Fzby4yOA0KYGBgDQpBcm1vIHVuYSBleHByZXNpw7NuIHBhcmEgZWxpbWluYXIgaGFzaHRhZ3MNCmBgYHtyIGVjaG89VFJVRX0NCmhhc3RoYWdzIDwtIHJ4KCkgJT4lIA0KICByeF9maW5kKCcjJyklPiUgDQogIHJ4X2FueXRoaW5nX2J1dCh2YWx1ZSA9ICcgJykNCg0KY2Fzby4yODwtIHN0cl9yZW1vdmVfYWxsKGNhc28uMjgsIHBhdHRlcm4gPSBoYXN0aGFncykNCmNhc28uMjg8LSBzdHJfcmVtb3ZlX2FsbChjYXNvLjI4LCBwYXR0ZXJuID0gIlteWzphbG51bTpdWzpibGFuazpdXSIpDQpjYXNvLjI4DQpgYGA=</div>
 
 
 </div>

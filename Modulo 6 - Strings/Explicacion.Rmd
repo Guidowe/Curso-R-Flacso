@@ -7,6 +7,7 @@ output:
     toc: true
     toc_float: true 
 ---
+[^1]
 ```{r setup, message = FALSE,echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE,message = FALSE)
 
