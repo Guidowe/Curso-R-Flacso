@@ -1,27 +1,26 @@
 ---
 title: Manejo de Strings
 subtitle: Explicación
-date: ""
 output:
   html_notebook: 
     toc: true
     toc_float: true 
 ---
-[^1]
 ```{r setup, message = FALSE,echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE,message = FALSE)
+knitr::opts_chunk$set(echo = TRUE,include = TRUE,message = FALSE)
 
 ```
+La presente clase está destinada a explorar las principales funciones del paquete `stringr`, herramienta para el procesamiento de variables de texto. Se abordarán también algunos procedimientos típicos para la limpieza de textos a partir de expresiones regulares ^[Esta clase está inspirada tanto en el capítulo 14 del libro [R for Data Science](https://r4ds.had.co.nz/introduction.html) como en el capítulo 10 del [Curso de introducción a Data Science](https://diegokoz.github.io/intro_ds_bookdown/). Allí pueden profundizar algunos aspectos que exceden los alcances de la clase].
 
-```{r,message=FALSE}
+```{r,message=FALSE,warning=FALSE}
  #install.packages("rtweet")
 library(rtweet) # descargar info de twitter
-library(tidyverse)
-library(wordcloud2)
-library(tm) # para trabajar con corpus de textos
 library(stringr) #para trabajar con strings
 library(RVerbalExpressions) #para trabajar expresiones regulares 
 library(lubridate) #para trabajar con fechas 
+library(tm) # para trabajar con corpus de textos
+library(wordcloud2)
+library(tidyverse)
 ```
 
 # Introducción
@@ -66,25 +65,25 @@ Aparecen muchas cosas que vamos a querer descartar para armar nuestra bolsa de p
 
 - Links a paginas web
 - Caracteres especiales ("",?,#)
-- Imagenes (2do tweet de arriba)
+- Códigos correspondientes a imágenes 
 
 
-Antes de pasar a operarar "limpiando"  el conjunto de tweets que descargamos, veamos ejemplitos sencillos sobre como detectar ciertos patrones en texto con el paquete **stringr**
 
 #Expresiones regulares
 
-Un elemento fundamental para la manipulación del texto son las [expresiones regulares](https://stringr.tidyverse.org/articles/regular-expressions.html). Éstas sirven para captar _patrones_ que aparecen en el texto y luego operar sobre ellos (extraerlos, reemplazarlos, detectarlos, etc.)
+Un elemento fundamental para la manipulación del texto son las [expresiones regulares](https://stringr.tidyverse.org/articles/regular-expressions.html). Éstas sirven para captar _patrones_ que aparecen en el texto y luego operar sobre ellos (extraerlos, reemplazarlos, realizar filtros en base a ellos, etc.)
 
 ![](img/regex.png){width=1000}
 
-
-## Principales funciones
+# stringr
+## Funciones básicas de operación con strings
+Veremos en primer instancia un conjunto de funciones sencillas del paquete `stringr`, que nos permiten  contar el largo de un string, extraer una determinada cantidad de catacteres, remover espacios en blanco y operar con mayúsuclas y minúsculas. Nos olvideremos un momento de nuestra base de datos de twitter, para abordar estas funciones con ejemplitos sencillos.          
 
 ### str_length
 
 Con la función `str_length()` podemos ver el largo de un string.
 ```{r}
-string1 <- "cuarenteNA"
+string1 <- c("cuarenteNA")
 str_length(string1)
 ```
 
@@ -93,6 +92,30 @@ Ojo que cuenta los espacios en blanco como un caracter.
 string2 <- "cuarentena 2020"
 str_length(string2)
 ```
+### str_c
+Esta función tiene una operatoria similar a la función `paste`, pero aglutina todas sus variantes. 
+```{r}
+texto1 <- "qué"
+texto2 <- "variantes?"
+
+str_c(texto1,texto2)
+str_c(texto1,texto2,sep = " ")
+```
+En caso de querer unir dos vectores de texto con distinta cantidad de elementos, lo que hace la función es repetir el contenido del vector de menor dimensión las veces que sea necesario. A esto se lo denomina *reciclado* de vectores
+```{r}
+
+texto3 <- c("hace","loco","bien") 
+
+str_c(texto1,texto3,sep = " ") # Vector de dimensión 3
+
+str_c(texto1,texto3,sep = " ",collapse = " - ") # Vector de dimensión 1
+
+```
+¿Para qué me puede servir lo anterior? Va un ejemplito
+```{r}
+telefonos <- c("4544-5645","4523-8972","4568-8945")
+str_c("011-",telefonos)
+```
 
 ### str_sub
 
@@ -100,6 +123,7 @@ La función `str_sub()` nos permite extraer los caracteres que se encuentran ent
 
 ```{r}
 #quiero el tercer caracter
+string1
 str_sub(string1,3,3)
 ```
 
@@ -117,6 +141,7 @@ str_sub(string1,-2,-1)
 
 Otro uso que le podemos dar a este comando es el de reemplazar elementos. Supongamos que quiero reemplazar la última letra por una z.
 ```{r}
+string2
 str_sub(string2,-1,-1) <- "1?"
 string2
 ```
@@ -161,123 +186,170 @@ str_to_upper(string1)
 #llevo a mayúscula la primer letra de cada palabra
 str_to_title("cuarentena en argentina")
 ```
-
+## Funciones de detección de patrones 
+En esta instancia comlejizaremos un poco la operatoria con strings, ya que comenzaremos a ver funciones que operan *identificando un patrón* específico dentro del texto, para luego  realizar diversas operaciones (separación del texto, reemplazo de caracteres, extracción de caracteres, filtrado de casos dento de una base, etc).                
+Volveremos aquí a nuestra base de datos de twitter. Para facilitar su lectura inicialmente tomaremos sólo dos casos 
+```{r}
+primeros.casos <- villa_azul_tweets_select$text[1:2]
+primeros.casos
+```
 ### str_split
 
-La función `str_split()` nos permite partir un string de acuerdo a algún separador/patron (pattern) que definamos.
+La función `str_split()` nos permite partir un string de acuerdo a algún separador/patron (pattern) que definamos.      
+Por ejemplo, separemos las palabras de estos casos indicando como patrón a detectar la presencia de un caracter en blanco `" "`
 
 ```{r}
-#quiero separar todas las letras de mi string
-string1_separado <- str_split(string1,pattern = "")
-string1_separado
+primeros.casos.palabras <- str_split(primeros.casos,
+                                     pattern = " ")
+primeros.casos.palabras
 ```
 
-Notemos que esta funcion nos devuelve una lista
+Notemos que esta funcion nos devuelve una lista, si les quedan dudas recuerden que pueden chequearlo así `class(string1_separado)`. ¿Qué nos dice esta salida respecto a cómo está compuesta esta lista? La lista tiene dos elementos numerados con `[[]]`. Cada uno de los elementos es un vector. En el primer caso podemos ver que el vector tiene 28 palabras, y el segundo 22 palabras.
 
 ```{r}
-class(string1_separado)
 # Si queremos acceder al primer elemento de la lista
-string1_separado[[1]][1]
+primeros.casos.palabras[[1]]
+# Si queremos acceder al primer elemento del primer elemento (vector) de la lista 
+primeros.casos.palabras[[1]][1]
+
 ```
-
-Definimos un nuevo string
-
+El parámetro `simplify` me permite obtener como salida una matriz en vez de una lista. Puede resultar más fácil de manjear para seguir operando, y al mismo tiempo es muy sencillo transformarlo en dataframe.
 ```{r}
-string5 <- "cuarentena-argentina-2020"
-string5
+primeros.casos.matriz <- str_split(primeros.casos,pattern = " ",
+                                   simplify = TRUE)
+class(primeros.casos.matriz)
 ```
-
-Lo separamos por el guion
-
+Lo transformo en dataframe para visualizar más facil
 ```{r}
-str_split(string5,pattern="-")
+data.frame(primeros.casos.matriz) 
 ```
+¿Cómo operan estas funciones de detección de patrones? Empiezan a "recorrer" un string de texto de izquierda a derecha hasta encontrar el patrón especificado.          
+
+Muchas de las funciones del paquete *stringr* que operan detectando patrones, tienen una versión con el agregado del sufijo **_all**. Las que no presentan el sufijo identificarán sólo el primer caso de aparición, mientras que las que lo presentan identificarán todos los casos. Veamos un ejemplo.
 
 ### str_replace
 Las funciones `str_replace()` y `str_replace_all()` de `stringr` nos permiten encontrar un patrón dentro de nuestro string y reemplazarlo por otro. 
 
-`str_replace` solo reemplaza la primera ocurrencia del patron mientras que `str_replace_all()` reemplaza todas las ocurrencias
+`str_replace` sólo reemplaza la primera ocurrencia del patron mientras que `str_replace_all()` reemplaza todas las ocurrencias.
 
+Volviendo a nuestros primeros casos, supongan que queremos remplazar el caracter **@** por un espacio en blanco, o directamente eliminarlo
 ```{r}
-string6 <- "Casi 10 millones de personas recibieron el #IFE durante la #Cuarentena en Argentina"
-string6
+primeros.casos
 ```
 Veamos la diferencia de ambas funciones
 
 ```{r}
 # Reemplazamos la primera ocurrencia
-str_replace(string = string6, pattern = "#", replacement = "")
+str_replace(string = primeros.casos, pattern = "@", replacement = "")
+```
+
+```{r}
 # Reemplazamos todas las ocurrencias
-str_replace_all(string = string6, pattern = "#", replacement = "")
+str_replace_all(string = primeros.casos, pattern = "@", replacement = "")
+
+```
+###str_extract 
+La funciones `str_extract` y `str_extract_all` nos permiten extraer de nuestros strings, uno o todos los casos que cumplan un cierto patrón.  
+
+```{r}
+str_extract(primeros.casos, "@")
+str_extract_all(primeros.casos, "@")
 ```
 
 ### str_detect
 
-La función `str_detect()` nos permite encontrar expresiones dentro de nuestros strings. Nos reporta `VERDADERO` o `FALSO` de acuerdo a si encuentra la expresión que estamos buscando.
+La función `str_detect()` realiza una comprobación lógica respecto a la existencia de una cierta expresión dentro de nuestros strings. Nos reporta `VERDADERO` o `FALSO` de acuerdo encuentre o no la expresión que estamos buscando.
 
 ```{r}
-string4<- c("año","2020","extraño")
-un_texto <- 'que año extraño el 2020. como quisiera salir a tomar una cerveza. paciencia'
+str_detect(primeros.casos, "Quilmes")
+```
+Recuerden que el segundo tweet hacia mención al partido de Quilmes, mientras el prmero no. ¿Para qué nos sirve una comprobación lógica de este estilo? Principalmente nos servirá para filtrar casos dentro de un listado más grande.             
+Trabajemos con nuestro dataframe de twitter completo. Por ejemplo, quedemosnos con los tweets que mencionan la palabra "Mayra" (Por Mayra Mendoza, intendenta del partido de Quilmes)
 
-str_detect(string4, "2020")
-str_detect(un_texto,'2020')
+```{r}
+mencion_mayra <- villa_azul_tweets_select %>% 
+  filter(str_detect(string = text,pattern =  "Mayra"))
+
+nrow(mencion_mayra)
+```
+¿Qué pasa si la expresión que estaba buscando está escrita de distintas maneras?                   
+
+Al igual que en los filtros, en el texto que utilizamos como expresión regular podemos usar el caracter `|` como la expresión lógica **O**. Los `()` también tienen aquí un uso similar al lenguaje lógico de R, al permitir segmentar una expresión regular en distintas partes
+
+```{r}
+mencion_mayra <- villa_azul_tweets_select %>% 
+  filter(str_detect(string = text, pattern = "Mayra|mayra"))
+
+nrow(mencion_mayra)
+
+####De forma mas prolija##
+mencion_mayra <- villa_azul_tweets_select %>% 
+  filter(str_detect(string = text, pattern = "(M|m)ayra"))
+
+nrow(mencion_mayra)
+
 ```
 
-¿Qué pasa cuando queremos identificar patrones un poco más complejos a la hora de limpiar nuestros datos?
+¿Qué pasa cuando queremos identificar patrones un poco más complejos en nuestros datos? Para ello podemos generar una expresión regular a través de distintos caracteres especiales. Nos acotamos acá a los más frecuentes, y aplicamos algunos casos sencillos. Pueden ver todas las variantes en este [Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/regex.pdf)
 
-Para ello podemos generar una expresión regular a través de distintos elementos:
 
-## Caracteres especiales.
+# Anchors (Anclas)
+Por default, una expresión regular lo que hace es "matchear" el patrón específicado, sin importar en qué lugar del string se encuentre. Las denominada "anclas", nos permiten indicar en qué lugar del texto queremos buscar el patrón en cuestión
 
-Son formas de referirnos de forma general a ciertos tipos de caracteres
+- El caracter `^` permite indicar el principio de un string.
+- El caracter `$` permite indicar el final de un string.
+
+
+Veamos algunos ejemplos sencillos. Mediante `str_detect`, y utilizando el caracter `^` podemos realizar un filtro que se sólo con aquellos tweets que *comienzan en* con una mención (@)
+```{r}
+comienzan_c_mencion <- villa_azul_tweets_select %>% 
+  filter(str_detect(string = text, pattern = "^@"))
+
+head(comienzan_c_mencion)
+```
+<br>
+**Pregunta** ¿Cómo podríamos hacer para ubicar todos los tweets que comienzan con una mención (@) o un hashtag (#) ?
+```{r}
+set.seed(1232)
+villa_azul_tweets_select %>% 
+  filter(str_detect(string = text, pattern = "^(@|#)"))%>%
+  sample_n(6)
+
+```
+<br>
+Podriamos filrar aquellos tweets que comienzan con una mención a la intendenta...
+```{r}
+villa_azul_tweets_select %>% 
+  filter(str_detect(string = text, pattern = "^@mayra")) %>% 
+  sample_n(5)
+```
+<br>
+Los que terminan con una mención a la intendenta...
+```{r}
+villa_azul_tweets_select %>% 
+  filter(str_detect(string = text, pattern = "mendoza$"))
+
+```
+
+# Caracteres especiales
+
+Son formas de referirnos de forma general a ciertos tipos de caracteres. 
 
 ![](img/characters.png){width=300}
-
-por ejemplo
+    
+Por ejemplo, podría identificar los tweets que contengan algún digito 
 ```{r}
-un_texto
+villa_azul_tweets_select %>% 
+  filter(str_detect(string = text,
+                    pattern = "[[:digit:]]")) %>%
+  sample_n(5)
 ```
+<br>
 
+#RVerbalExpressions
+¿Qué hacemos cuando se torna muy díficil el armado de expresiones regulares?
 
-```{r}
-str_detect(un_texto, '[[:punct:]]')#Hay puntuación en mi string?
-str_detect(un_texto, '[[:alnum:]]')#Hay numeros en mi string?
-str_detect(un_texto, '[[:upper:]]')#Hay mayusc en mi string?
-```
-
-**Importante**: Hay muchas pero muchas formas más de identificar expresiones regulares y trabajaro con los strings. Nos acotamos acá a las más frecuentes.
-
-
-Vamos a retomar nuestro ejemplo inicial de los tweets.     
-
-## Normalización
-
-Para construir el Bag of Words se debe considerar los siguientes procesos:
-
-- __Tokenization__: Es el proceso de partir un string de texto en palabras y signos de puntuación.
- 
-- __Eliminar puntuación__. Nos referimos acá a todo tipo de caracteres especiales indeseados       
-
-- __Stop Words__: remover las palabras más comunes del idioma (“el”, “la”, “los”, “de”) ya que aparecen en todos los textos y no aportan información valiosa para distinguirlos.
-
-- __Lemmatization__: Es la representación de todas las formas flexionadas (plural, femenino, conjugado, etc.). Para esto, es necesario contar con una base de datos léxica. Para esto podemos usar [koRpus](https://github.com/unDocUMeantIt/koRpus) que incluye el lexicón TreeTagger.
-
-- __Stemming__: Es similar a la lematización, pero no se basa en las estructuras lexicales, sino que realiza una aproximación, quedándose con las primeras letras de la palabra. 
-
-- __N-gramas__: A veces los conceptos que permiten distinguir entre documentos se componen de más de una palabra, por ejemplo:
-  - “a duras penas” (trigrama),
-  - “Buenos Aires” (bigrama) 
-  - Las expresiones idiomáticas o los nombres propios cambian radicalmente de sentido si se separan sus componentes. 
-  - Imaginense si quisiéramos clasificar la posición política de izquierda a derecha de los “Nacional Socialistas”!
-
-__Ejemplo__: Limpiemos el texto de algunos casos complicados. Aquí nos vamos a concentrar simplemente en los primeros tres puntos mencionados de la normalización.
-
-```{r}
-primer.caso <- villa_azul_tweets_select$text[1]
-primer.caso
-```
-
-La librería de **RVerbalExpressions** nos permite crear secuencialmente con formato tidy una expresión regular para buscar en nuestros strings. Si queremos borrar las menciones, en este caso necesitamos construir una expresion que encuentre un texto iniciado en "@" e identifique todos los caracteres que le sigan hasta que aparezca un espacio.
+La librería de **RVerbalExpressions** provee una serie de funciones con nombres intuitivos, para diseñar expresiones regulares en formato tidy, mediante la aplicación secuencial de ellas. Si queremos borrar las menciones, en este caso necesitamos construir una expresion que encuentre un texto iniciado en "@" e identifique todos los caracteres que le sigan hasta que aparezca un espacio.
 ```{r}
 menciones <- rx() %>% 
   rx_find('@')%>% 
@@ -288,19 +360,20 @@ menciones
 
 
 ```{r}
-primer.caso<- str_remove_all(primer.caso, pattern = menciones)
-primer.caso
+primeros.casos
+primeros.casos.limpio<- str_remove_all(primeros.casos, pattern = menciones)
+primeros.casos.limpio
 ```
 
-Saquemos todo lo que no sea un caracter alfa-numérico o un espacio en blanco
+Saquemos toda lo puntuación
 ```{r}
-str_remove_all(primer.caso, pattern = "[^[:alnum:][:blank:]]")
+str_remove_all(primeros.casos.limpio, pattern = "[[:punct:]]")
 ```
-**Pregunta**: ¿No podría haber directo eliminado todo lo que sea alfanumérico para sacar las menciones, hashtags, etc? 
+**Pregunta**: ¿No podría haber directo eliminado toda la puntuación en un principio para sacar las menciones, hashtags, etc? 
 
 Tenemos algo más acorde a lo que necesitamos.
 
-Vamos con otro ejemplo díficl
+Vamos con un ejemplo un poco más díficl.
 ```{r}
 caso.28 <- villa_azul_tweets_select$text[28]
 caso.28
@@ -310,8 +383,6 @@ También tenemos entre los tweets links a paginas web. En este caso necesitamos 
 ```{r}
 expresion <- rx() %>% 
   rx_find('http') %>% 
- # rx_maybe('s') %>% 
- # rx_maybe('://') %>% 
   rx_anything_but(value = ' ')
 
 expresion
@@ -329,6 +400,12 @@ hasthags <- rx() %>%
   rx_anything_but(value = ' ')
 
 caso.28<- str_remove_all(caso.28, pattern = hasthags)
-caso.28<- str_remove_all(caso.28, pattern = "[^[:alnum:][:blank:]]")
+caso.28<- str_remove_all(caso.28, pattern = "[[:punct:]]")
 caso.28
 ```
+# Scape characters
+¿Cómo puedo diseñar una expresión regular que me permita borrar un caractér como el `|` anterior que tiene un significado dentro de las expresiones regulares? Aplicando `\\` antes del caracter especial `|`, puedo indicar que quiero "escapar" de su uso cotidiando y referirlo como un simple caracter a identificar. 
+```{r}
+str_remove_all(caso.28, pattern = "\\|")
+```
+

@@ -8,8 +8,6 @@ date: ""
 subtitle: Práctica Guiada
 ---
 
-
-
 ```{r message=FALSE, warning=FALSE}
 # install.packages("rtweet")
 library(rtweet)
@@ -33,7 +31,7 @@ Qué tipo de variable es **created_at**??
 ```{r}
 class(villa_azul_tweets$created_at)
 ```
-Es un tipo de variable de tiempo expresada en  zona horaria [UTC](https://time.is/UTC)). 
+Es un tipo de variable de tiempo expresada en zona horaria [UTC](https://time.is/UTC)). 
 
 El propio paquete `rtweet` viene con la función **ts_plot** que permite  graficar la frecuencia de tweets dado un intervalo temporal. 
 ```{r}
@@ -83,7 +81,7 @@ Importante notar que:
 - Las funciones para **transformar** las fechas llevan el **plural** (ej: days, months,hours)       
 
 ###Cambios de formato        
-Suele ocurrir que uno trabaja importando bases de datos donde las variables temporales no traen con el formato necesario para trabjar con fechas en R, o bien el programa no puede codificarlas directametne como fechas. El paquete `lubridate` también tiene una serie de funciones que permiten lidiar con ello.    
+Suele ocurrir que uno trabaja importando bases de datos donde las variables temporales no traen con el formato necesario para trabajar con fechas en R, o bien el programa no puede codificarlas directametne como fechas. El paquete `lubridate` también tiene una serie de funciones que permiten lidiar con ello.    
 
 Veamos algunos ejemplos    
 ```{r}
@@ -124,7 +122,30 @@ parse_date_time(dato_importado, orders = 'my')
 
 ```
 
-## Armado del Bag of Words con `tm`
+## Armado del Bag of Words 
+### Normalización
+
+Para construir el Bag of Words se debe considerar los siguientes procesos:
+
+- __Tokenization__: Es el proceso de partir un string de texto en palabras y signos de puntuación.
+ 
+- __Eliminar puntuación__. Nos referimos acá a todo tipo de caracteres especiales indeseados       
+
+- __Stop Words__: remover las palabras más comunes del idioma (“el”, “la”, “los”, “de”) ya que aparecen en todos los textos y no aportan información valiosa para distinguirlos.
+
+- __Lemmatization__: Es la representación de todas las formas flexionadas (plural, femenino, conjugado, etc.). Para esto, es necesario contar con una base de datos léxica. Para esto podemos usar [koRpus](https://github.com/unDocUMeantIt/koRpus) que incluye el lexicón TreeTagger.
+
+- __Stemming__: Es similar a la lematización, pero no se basa en las estructuras lexicales, sino que realiza una aproximación, quedándose con las primeras letras de la palabra. 
+
+- __N-gramas__: A veces los conceptos que permiten distinguir entre documentos se componen de más de una palabra, por ejemplo:
+  - “a duras penas” (trigrama),
+  - “Buenos Aires” (bigrama) 
+  - Las expresiones idiomáticas o los nombres propios cambian radicalmente de sentido si se separan sus componentes. 
+
+
+__Ejemplo__: Aquí nos vamos a concentrar simplemente en los primeros tres puntos mencionados de la normalización para armar la bolsa de palabras.
+
+###paquete tm
 
 Para trabajar con grandes volumenes de texto vamos a utilizar el paquete `tm`:        
 
@@ -135,11 +156,14 @@ myCorpus = VCorpus(VectorSource(villa_azul_tweets$text))
 ```
 
 ```{r}
-expresion <- rx() %>% 
+webs <- rx() %>% 
   rx_find('http') %>% 
- # rx_maybe('s') %>% 
- # rx_maybe('://') %>% 
   rx_anything_but(value = ' ')
+
+hasthag_mencion <- rx() %>% 
+  rx_either_of('@','#') %>% 
+  rx_anything_but(value = ' ')
+
 ```
 
 
@@ -151,7 +175,9 @@ Estos objetos internamente guardan una lista por cada registro, como un "documen
   
 ```{r}
 
-myCorpus = tm_map(myCorpus,content_transformer(function(x) str_replace_all(x, pattern = expresion, replacement = ' ')))
+myCorpus = tm_map(myCorpus,content_transformer(function(x) str_replace_all(x, pattern = webs, replacement = ' ')))
+
+myCorpus = tm_map(myCorpus,content_transformer(function(x) str_replace_all(x, pattern = hasthag_mencion, replacement = ' ')))
 
 myCorpus = tm_map(myCorpus,content_transformer(function(x) str_remove_all(x, pattern = "[^[:alnum:][:blank:]]")))
 
@@ -177,7 +203,7 @@ inspect(myDTM)
 vector_indices<- rep(1,nDocs(myDTM))
 
 palabras_frecuentes <- findMostFreqTerms(
-  myDTM,
+  x =  myDTM,
   n = 25, 
   INDEX = vector_indices)[[1]]
 
