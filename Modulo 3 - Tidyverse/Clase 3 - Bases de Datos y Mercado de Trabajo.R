@@ -21,8 +21,7 @@ Aglom <- read.xlsx("Fuentes/Aglomerados EPH.xlsx")
 names(Individual_t117)
 
 ## -------------------------------------------------------------------------------
-Datos  <- Individual_t117[1:5000,
-c("AGLOMERADO","CH04","CH06","PONDERA")]
+Datos  <- Individual_t117[1:5000,c("AGLOMERADO","CH04","CH06","PONDERA")]
 Datos
 
 
@@ -82,23 +81,27 @@ Datos
 
 ## -------------------------------------------------------------------------------
 valor <- mean(Datos$EDAD)
+valor
 weighted.mean(x = Datos$EDAD,w = Datos$PONDERA)
 
 
-Datos %>% 
-  mutate(Edad2=case_when(EDAD <0 ~ 0.5,
-                          TRUE ~  as.numeric(EDAD)))
+Datos <- Datos %>% 
+  mutate(Edad2 = case_when(EDAD <0 ~ 0.5,
+                           TRUE ~  as.numeric(EDAD)))
 Edad_prom <- Datos %>%       
-   summarise(Edad_prom = mean(EDAD),
+   summarise(Edad_prom = mean(Edad2),
              suma_edad = sum(EDAD),
-             Edad_prom_pond = weighted.mean(x = EDAD,w = PONDERA))
-
+             Edad_prom_pond = weighted.mean(x = Edad2,w = PONDERA))
 
 
 ## -------------------------------------------------------------------------------
-Edad_sexo <- Datos %>% 
-  group_by(AGLOMERADO) %>%
-  summarise(Edad_Prom = weighted.mean(EDAD,PONDERA)) 
+Edad_aglo <- Datos %>% 
+  group_by(AGLOMERADO,CH04) %>%
+  summarise(Edad_Prom = weighted.mean(EDAD,PONDERA),
+            suma_edad = sum(EDAD),
+            casos = n(),
+            casos_ponderads = sum(PONDERA)) %>% 
+  ungroup()
   
 
 
@@ -115,21 +118,20 @@ Encadenado
 ## -------------------------------------------------------------------------------
 Aglom
 
- 
-Datos_c_nombre <- left_join(Datos,Aglom)
+Datos_c_nombre <- left_join(x = Datos,
+                            y = Aglom,
+                            by = c("AGLOMERADO"))
 
 
 ## -------------------------------------------------------------------------------
 Datos_join <- Datos %>% 
-  left_join(.,Aglom, by = "AGLOMERADO")
+  left_join(Aglom, by = "AGLOMERADO")
 
 Poblacion_Aglomerados <- Datos_join %>% 
   filter(AGLOMERADO != 5) %>% 
   group_by(Nom_Aglo) %>% 
   summarise(Varones = sum(PONDERA[CH04==1]),
             Mujeres = sum(PONDERA[CH04==2]))
-
-Poblacion_Aglomerados
 
 
 
@@ -144,24 +146,24 @@ pob.aglo.long
 
 ## -------------------------------------------------------------------------------
 pob.aglo.long %>% 
-  pivot_wider(names_from = "Sexo",values_from = "Poblacion")
+  pivot_wider(names_from = "Sexo",
+              values_from = "Poblacion")
   
 
 
 ## -------------------------------------------------------------------------------
 
 Datos_gather <- Poblacion_Aglomerados %>%  
-  gather(.,
-   key   = Grupo,
-   value = Total, 
-   2:3)  
+  gather(key   = Grupo,
+         value = Total,
+         2:3)  
 
 Datos_gather
 
 
 ## -------------------------------------------------------------------------------
 Datos_Spread <- Datos_gather %>% 
-  spread(.,       # el . llama a lo que esta atras del %>% 
+  spread(     # el . llama a lo que esta atras del %>% 
   key = Grupo,    #la llave es la variable cuyos valores van a dar los nombres de columnas
   value = Total) #los valores con que se llenan las celdas
 
@@ -187,7 +189,7 @@ Empleo
 
 ## -------------------------------------------------------------------------------
 Empleo %>% 
-  mutate(Tasa_Empleo_Porc = sprintf("%1.1f%%",100*Tasa_Empleo))
+  mutate(Tasa_Empleo_Porc = scales::percent(Tasa_Empleo))
 
 
 ## ----eval=FALSE, warining = FALSE-----------------------------------------------

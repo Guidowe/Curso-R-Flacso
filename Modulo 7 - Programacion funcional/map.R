@@ -4,10 +4,15 @@ letras.minusc <- letters[1:20]
 numeros <- 1:20
 
 
-map(letras.mayusc,tolower)
+map(.x = letras.mayusc,
+    .f = tolower)
 
-map2(letras,numeros,paste)
+map2(.x = letras.mayusc,.y = numeros,.f = paste)
 
-map(letras,paste,numeros)
+pmap(.l = list(letras.mayusc,
+            letras.minusc,
+            numeros),
+     .f = paste)
 
-OK<- data.frame(letras.mayusc,letras.minusc,numeros)
+map(.x = letras.mayusc,.f = paste,numeros)
+

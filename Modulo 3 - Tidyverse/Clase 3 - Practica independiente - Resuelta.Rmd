@@ -1,6 +1,6 @@
 ---
 title: "Introducción a R para Ciencias Sociales. Aplicación práctica en la EPH"
-subtitle: "Clase 3 - Practica Guiada"
+subtitle: "Clase 3 - Practica Independiente"
 date: "20/08/2019"
 output:
   html_notebook:
