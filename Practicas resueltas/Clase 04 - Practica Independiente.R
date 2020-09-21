@@ -1,61 +1,34 @@
----
-title: "Clase 4. Práctica Independiente"
-subtitle: "Clase 4. Tidyverse - Pobreza"
-date: "27/8/2019"
-output:
-  html_notebook: 
-    toc: true
-    toc_float: true 
----
-
-
-# Ejercicios vinculados a la estimacion de pobreza
-Levantar la base del 1t de 2017 
-
-```{r setup}
-knitr::opts_chunk$set(eval = FALSE, include = FALSE)
-```
-
-```{r echo=TRUE}
+## ----echo=TRUE------------------------------------------------------------------------
 library(readxl)
 library(tidyverse)
 ADEQUI <- read_excel("../Fuentes/ADEQUI.xlsx")
 Regiones <- read_excel("../Fuentes/Regiones.xlsx")
 base <- read.table("../Fuentes/usu_individual_t117.txt",header = T,sep = ";",dec = ",")
-```
 
-Estimar cuantas personas habitan en hogares con ingresos totales menores a $15.000
 
-```{r echo=TRUE}
+## ----echo=TRUE------------------------------------------------------------------------
 base %>% 
   summarise(Casos_Ponderados =sum(PONDIH[ITF<15000]))
-```
-# Adultos equivalentes 
-Construir en la base una variable que identifique el total de personas y de adultos equivalentes presentes en cada hogar (Usar el excel de la carpeta _Fuentes_ que contiene la definición de los adultos eq.)
-```{r echo=TRUE}
+
+
+## ----echo=TRUE------------------------------------------------------------------------
 base_con_identificador <- base %>% 
   left_join(ADEQUI,by = c("CH04", "CH06")) %>% 
   group_by(CODUSU,NRO_HOGAR) %>% 
   mutate(Personas_en_hogar = n(),
          adequi_en_hogar = sum(adequi))
-```
-A partir del punto anterior:
- - ¿Cuantas personas habitan en hogares de 7 o más integrantes?
-```{r echo=TRUE}
+
+
+## ----echo=TRUE------------------------------------------------------------------------
 base_con_identificador %>% 
   ungroup() %>% 
   filter(Personas_en_hogar>=7) %>% 
   summarise(PERSONAS = sum(PONDERA))
 
 
-```
- - ¿Cuantos hogares tienen más de 7 o más integrantes?
- - Construir una variable que exprese el Ingreso Total Familiar (ITF) per capita de cada hogar
- - Construir una variable que exprese el Ingreso Total Familiar (ITF) por adulto equivalente 
- - Calcular el ITF per capita promedio por Región 
- - Calcular el ITF por adulto equivalente promedio por Region
 
-```{r}
+
+## -------------------------------------------------------------------------------------
 base_a_nivel_hogar <- base_con_identificador %>% 
   group_by(CODUSU,NRO_HOGAR) %>% 
   summarise(PONDIH = unique(PONDIH),
@@ -69,9 +42,8 @@ base_a_nivel_hogar %>%
   filter(Personas>=7) %>% 
   ungroup() %>% 
   summarise(HOGARES = sum(PONDIH))
-```
 
-```{r}
+## -------------------------------------------------------------------------------------
 base_a_nivel_hogar %>% 
   mutate(ITF.pc = ITF/Personas,
          ITF.ae = ITF/adequi_en_hogar) %>% 
@@ -79,5 +51,4 @@ base_a_nivel_hogar %>%
   summarise(ITF.pc.promedio = weighted.mean(ITF.pc,PONDIH),
             ITF.ae.promedio = weighted.mean(ITF.ae,PONDIH)) %>% 
   left_join(Regiones)
-```
 
