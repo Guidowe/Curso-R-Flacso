@@ -126,7 +126,7 @@ g
 ```
 
 
-#### Extensiones de [GGplot](http://www.ggplot2-exts.org/gallery/).
+#### Extensiones de [GGplot](https://exts.ggplot2.tidyverse.org/gallery/).
 
 La librería GGplot tiene a su vez muchas otras librerías que extienden sus potencialidades. Entre nuestras favoritas están:
 

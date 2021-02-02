@@ -80,4 +80,3 @@ base_a_nivel_hogar %>%
             ITF.ae.promedio = weighted.mean(ITF.ae,PONDIH)) %>% 
   left_join(Regiones)
 ```
-
